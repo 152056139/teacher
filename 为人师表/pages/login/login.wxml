@@ -1,0 +1,17 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+    <image class='background' src='/image/background.jpg' mode='widthFix'></image>
+    <view class='icon'>
+        <image src='/image/user-icon.png' mode='aspectFit'></image>
+    </view>
+    <view class='form'>
+        <form>
+            <input placeholder-class="phcolor" type='text' placeholder='请输入用户名'></input>
+            <input placeholder-class="phcolor" type='password' placeholder='请输入密码'></input>
+            <button type='submit' >登陆</button>
+        </form>
+    </view>
+    <view class='register'>
+        <text>新用户注册</text>
+    </view>
+</view>
