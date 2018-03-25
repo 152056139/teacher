@@ -1,0 +1,23 @@
+/* pages/course/course.wxss */
+.toolbar {
+    position: fixed;
+    bottom: 0px;
+    background: #ffffff;
+    height: 10%;
+    width: 100%;
+    padding-top: 5px;
+}
+.toolbar image{
+    width: 25px;
+    height: 25px;
+}
+
+.toolbar text {
+    display: block;
+    font-size: 12px;
+}
+.toolbar .icon-block {
+    text-align: center;
+    width: 33%;
+    float: left;
+}

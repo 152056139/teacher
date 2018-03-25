@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="course">
+        <view class="img">
+            <image src='/image/english1.png'></image>
+        </view>
+        <view class="info">
+            <text class="course_name">大学英语1</text>
+            <text class="teacher_name">教师：张三</text>
+            <text class="classroom">教室：Z5012</text>
+        </view>
+    </view>
+    <view class="course course-last">
+        <view class="img">
+            <image src='/image/english2.png'></image>
+        </view>
+        <view class="info">
+            <text class="course_name">大学英语2</text>
+            <text class="teacher_name">教师：李四</text>
+            <text class="classroom">教室：Z5013</text>
+        </view>
+    </view>
+</view>

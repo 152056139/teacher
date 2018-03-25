@@ -1,0 +1,77 @@
+<!--pages/course/course.wxml-->
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<text>pages/course/course.wxml</text>
+<view class='toolbar'>
+    <view class='icon-block'>
+        <view class='icon'>
+            <image src='/image/作业1.png'></image>
+        </view>
+        <view class='text'>
+            <text>作业</text>
+        </view>
+    </view>
+    <view class='icon-block'>
+        <view class='icon'>
+            <image src='/image/课堂2.png'></image>
+        </view>
+        <view class='text'>
+            <text style='color:#3f99f8'>课堂</text>
+        </view>
+    </view>
+    <view class='icon-block'>
+        <view class='icon'>
+            <image src='/image/课下聊1.png'></image>
+        </view>
+        <view class='text'>
+            <text>课下聊</text>
+        </view>
+    </view>
+</view>
