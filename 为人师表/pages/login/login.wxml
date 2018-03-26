@@ -6,9 +6,9 @@
     </view>
     <view class='form'>
         <form>
-            <input placeholder-class="phcolor" type='text' placeholder='请输入用户名'></input>
-            <input placeholder-class="phcolor" type='password' placeholder='请输入密码'></input>
-            <button type='submit' >登陆</button>
+            <input placeholder-class="phcolor" type='text' placeholder='请输入用户名' name="username"></input>
+            <input placeholder-class="phcolor" type='password' placeholder='请输入密码' name="password"></input>
+            <button bindtap='lo'>登陆</button>
         </form>
     </view>
     <view class='register'>
