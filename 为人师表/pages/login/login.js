@@ -11,10 +11,17 @@ Page({
 	/**
 	 * 点击按钮登陆
 	 */
-	lo: function(e) {
+	login: function(e) {
+		console.log('form发生了submit事件，携带数据为：', e.detail.value)
+
+		var username = e.detail.value.username
+		var password = e.detail.value.password
+
 		wx.request({
-			url: 'http://192.168.1.193:8080/teacher/Test/', //仅为示例，并非真实的接口地址
+			url: 'http://192.168.1.193:8080/teacher/Test',
 			data: {
+				username: username,
+				password: password
 			},
 			header: {
 				'content-type': 'application/json' // 默认值
@@ -25,6 +32,11 @@ Page({
 			fail: function (err) {
 				console.log('请求失败' + err)
 			}
+		})
+	},
+	redirectToRegister: function () {
+		wx.navigateTo({
+			url: '/pages/register/register'
 		})
 	},
 	/**

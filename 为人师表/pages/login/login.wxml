@@ -5,13 +5,13 @@
         <image src='/image/user-icon.png' mode='aspectFit'></image>
     </view>
     <view class='form'>
-        <form>
+        <form bindsubmit="login">
             <input placeholder-class="phcolor" type='text' placeholder='请输入用户名' name="username"></input>
             <input placeholder-class="phcolor" type='password' placeholder='请输入密码' name="password"></input>
-            <button bindtap='lo'>登陆</button>
+            <button type='default' formType="submit">登陆</button>
         </form>
     </view>
     <view class='register'>
-        <text>新用户注册</text>
+        <text bindtap='redirectToRegister'>新用户注册</text>
     </view>
 </view>
