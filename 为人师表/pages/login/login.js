@@ -18,7 +18,7 @@ Page({
 		var password = e.detail.value.password
 
 		wx.request({
-			url: 'http://192.168.1.193:8080/teacher/Test',
+			url: 'http://192.168.1.193:8080/teacher/Login',
 			data: {
 				username: username,
 				password: password
@@ -28,6 +28,7 @@ Page({
 			},
 			success: function (res) {
 				console.log(res.data)
+				
 			},
 			fail: function (err) {
 				console.log('请求失败' + err)
