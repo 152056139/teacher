@@ -9,7 +9,7 @@ public class MysqlBase {
 
 	// 数据库的用户名与密码，需要根据自己的设置
 	private static final String USER = "root";
-	private static final String PASS = "root";
+	private static final String PASS = "969110gghhzz";
 
 	/**
 	 * 创建连接
