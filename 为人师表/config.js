@@ -3,7 +3,7 @@
  */
 
 
-var host = "localhost"
+var host = "192.168.1.192"
 
 var config = {
 
@@ -14,7 +14,7 @@ var config = {
 	loginUrl: `https://${host}/login`,
 
 	// 测试的请求地址，用于测试会话
-	requestUrl: `https://${host}/testRequest`,
+	requestUrl: `http://${host}:8080`,
 
 	// 用code换取openId
 	openIdUrl: `https://${host}/openid`,

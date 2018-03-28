@@ -43,7 +43,6 @@ public class Users {
 			while (resultset.next()) {
 				// 通过字段检索
 				password = resultset.getString("user_password");
-				System.out.println("数据库中获取的密码：" + password);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

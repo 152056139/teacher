@@ -2,9 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import database.MysqlBase;
+
+import database.*;
+import net.sf.json.JSONObject;
 
 /**
  * Servlet implementation class Login
@@ -37,40 +36,41 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 
 		String username_form = request.getParameter("username");
 		String password_form = request.getParameter("password");
-		System.out.println(username_form + " " + password_form);
+		System.out.println("username:" + username_form + " password:" + password_form);
 
-		MysqlBase mysqlBase = new MysqlBase();
-		Connection connection = mysqlBase.createConnect();
-		ResultSet resultset = mysqlBase
-				.search("select user_password from user where user_name = '" + username_form + "';", connection);
+		// create user object
+		Users user = new Users();
+		String password = user.getPasswordFormMysql(username_form);
+		System.out.println("从数据库中搜到的密码:" + password);
 
-		String password = "";
-		try {
-			while (resultset.next()) {
-				// 通过字段检索
-				password = resultset.getString("user_password");
-				System.out.println("数据库中获取的密码：" + password);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		System.out.println("表单传过来的密码：" + password_form);
 		if (password_form.equals(password)) {
+			// console log
 			System.out.println("登陆成功 ");
-			// 设置响应内容类型
-			response.setContentType("text/html");
 
-			// 实际的逻辑是在这里
-			PrintWriter out = response.getWriter();
-			out.println("{\"sites\":\"登陆吃吃吃吃吃吃吃\"}");
+			// response wx,return login success
+			JSONObject success = new JSONObject();
+			success.put("status", "success");
+			out.println(success.toString());
+		} else if (password.isEmpty()) {
+			// console log
+			System.out.println("用户不存在");
+			// response wx,return login fail
+			JSONObject fail = new JSONObject();
+			fail.put("status", "not found user");
+			out.println(fail.toString());
 		} else {
-			System.out.println("登陆失败");
+			// console log
+			System.out.println("密码错误");
+			// response wx,return login fail
+			JSONObject fail = new JSONObject();
+			fail.put("status", "wrong password");
+			out.println(fail.toString());
 		}
-		mysqlBase.close(connection);
 	}
 
 	/**
