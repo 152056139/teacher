@@ -1,5 +1,6 @@
 package database;
 
+import java.lang.reflect.Executable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -50,5 +51,34 @@ public class Users {
 		}
 		mysqlBase.close(connection);
 		return password;
+	}
+	public boolean inSert(String username,String password)
+	{
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		mysqlBase.execute("insert into user (user_name,user_password) values ('"+username+"','"+password+"')",connection);
+		mysqlBase.close(connection);
+		return true;
+	}
+	public int countUserName (String username) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		ResultSet resultSet=mysqlBase.search("select count(user_name) count from user where user_name='"+username+"'",connection);
+		int count = 5;
+		
+		try {
+			while (resultSet.next()) {
+				// 通过字段检索
+				count = resultSet.getInt("count");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return count;
+		
 	}
 }
