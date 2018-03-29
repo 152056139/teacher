@@ -1,14 +1,14 @@
 {
     "pages": [
+		"pages/join_course/join_course",
+		"pages/create_course/create_course",
         "pages/course/course",
         "pages/index/index",
         "pages/register/register",
         "pages/login/login",
         "pages/work/work",
         "pages/chat/chat",
-        "pages/logs/logs",
-        "pages/create_course/create_course",
-        "pages/add_course/add_course"
+        "pages/logs/logs"
     ],
     "window": {
         "backgroundTextStyle": "light",

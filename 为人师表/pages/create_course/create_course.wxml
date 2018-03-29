@@ -1,2 +1,13 @@
 <!--pages/create_course/create_course.wxml-->
-<text>pages/create_course/create_course.wxml</text>
+<view class="container">
+    <view class='suface'>
+        <image src="/image/user-icon.png" mode='aspectFit'></image>
+    </view>
+    <form class='form'>
+        <view class='courseName'>
+            <label>课程名：</label>
+            <input auto-focus/>
+        </view>
+		<button formType="submit" >创建</button>
+    </form>
+</view>
