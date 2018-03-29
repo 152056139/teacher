@@ -1,43 +1,64 @@
 /**index.wxss**/
 .container {
-    width:100%;
-    height: 100%;
     padding: 0;
     align-items: initial;
+	font-size: 11px;
 }
-.course {
-    height: 100px;
-    padding: 10px 10px 0 10px;
-    border-bottom: #eeeeee 1px solid;
+.choose-time {
+	padding: 10px 0;
 }
-.course-last {
-    height: 100px;
-    padding: 10px 10px 0 10px;
-    border-bottom: #ffffff 1px solid;
+.choose-time picker {
+	color: #3f99f8;
+	text-align: center;
+	font-size: 15px;
 }
-.course .img {
-    float: left;
-    margin-right: 10px;
+.choose-time image {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }
-.course .img image {
-    height: 90px;
-    width: 65px;
+.choose-course{
+	width: 100%;
+	height: 100%;
 }
-
-.course .info {
-    float: left;
+.choose-course .title-color{
+	background: #e5f7fe;
 }
-.course .info text {
-    display: block;
+.choose-course .display-inline-block {
+	display: inline-block;
 }
-.course .info .course_name{
-    margin: 10px 0;
+.choose-course .width-middle {
+	width: 13%;
+	text-align: center;
 }
-.course .info .teacher_name {
-    color: #666666;
-    font-size: 13px;
+.choose-course .width-little {
+	width: 9%;
+	text-align: center;
 }
-.course .info .classroom {
-    color: #666666;
-    font-size: 13px;
+.choose-course .height-big{
+	height: 140px;
+	border-radius: 5px;
+}
+.choose-course .height-middle{
+	height: 70px;
+}
+.choose-course .height-little {
+	height: 40px;
+}
+.choose-course .weaks {
+	width: 100%;
+}
+.left {
+	display: inline-table;
+}
+.right {
+	display: inline-table;
+}
+.background-green {
+	background: #b0e36e;
+}
+.background-white {
+	background: #ffffff;
 }

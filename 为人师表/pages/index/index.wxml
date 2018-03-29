@@ -1,23 +1,57 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="course">
-        <view class="img">
-            <image src='/image/english1.png'></image>
-        </view>
-        <view class="info">
-            <text class="course_name">大学英语1</text>
-            <text class="teacher_name">教师：张三</text>
-            <text class="classroom">教室：Z5012</text>
-        </view>
+    <view class="choose-time">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+                {{array[index]}}
+            </view>
+        </picker>
+        <image src="/image/add_icon.png" mode='scaleToFill' bindtap="menu"></image>
     </view>
-    <view class="course course-last">
-        <view class="img">
-            <image src='/image/english2.png'></image>
+	<view style="padding: 5px;width: 100px; height:50px; background:#eeeeee; position:fixed; right: 0px; top: 40px; display:{{display}};">
+		<text style="font-size:15px;display:block">加入班科</text>
+		<text style="font-size:15px;">创建班科</text>
+	</view>
+    <view class="choose-course">
+        <view class='weaks title-color height-little'>
+            <view class='width-little display-inline-block'>3月</view>
+            <view class='width-middle display-inline-block'>周日</view>
+            <view class='width-middle display-inline-block'>周一</view>
+            <view class='width-middle display-inline-block'>周二</view>
+            <view class='width-middle display-inline-block'>周三</view>
+            <view class='width-middle display-inline-block'>周四</view>
+            <view class='width-middle display-inline-block'>周五</view>
+            <view class='width-middle display-inline-block'>周六</view>
         </view>
-        <view class="info">
-            <text class="course_name">大学英语2</text>
-            <text class="teacher_name">教师：李四</text>
-            <text class="classroom">教室：Z5013</text>
+        <view class='count-course'>
+            <view class='left  title-color width-little'>
+                <view class='height-middle'>1</view>
+                <view class='height-middle'>2</view>
+                <view class='height-middle'>3</view>
+                <view class='height-middle'>4</view>
+                <view class='height-middle'>5</view>
+                <view class='height-middle'>6</view>
+                <view class='height-middle'>7</view>
+                <view class='height-middle'>8</view>
+            </view>
+			<view class="right width-middle">
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-white"></view>
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-white"></view>
+			</view>
+			<view class="right width-middle">
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-white"></view>
+				<view class="height-big background-white"></view>
+				<view class="height-big background-green">大学英语1王老师</view>
+			</view>
+			<view class="right width-middle">
+				<view class="height-big background-white">a</view>
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-white"></view>
+			</view>
         </view>
     </view>
 </view>
