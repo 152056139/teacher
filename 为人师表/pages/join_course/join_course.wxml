@@ -11,17 +11,20 @@
         <form class='form'>
             <view class='form-control'>
                 <label>课程名：</label>
-                <input auto-focus disabled='true'/>
+                <input auto-focus disabled='true' />
             </view>
-			<view class='form-control'>
+            <view class='form-control'>
                 <label>课程号：</label>
-                <input auto-focus disabled='true'/>
+                <input auto-focus disabled='true' />
             </view>
-			<view class='form-control'>
+            <view class='form-control'>
                 <label>授课老师：</label>
-                <input auto-focus disabled='true'/>
+                <input auto-focus disabled='true' />
             </view>
             <button formType="submit">加入</button>
         </form>
+    </view>
+    <view wx:for="{{array}}">
+        {{index}}: {{item.message}}
     </view>
 </view>
