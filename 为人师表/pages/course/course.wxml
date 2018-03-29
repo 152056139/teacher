@@ -1,2 +1,81 @@
 <!--pages/course/course.wxml-->
-<text>pages/course/course.wxml</text>
+<view class="contailer">
+    <!-- 顶部的黑板 -->
+    <view class="blackboard">
+        <view class="content">
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+            <text>Teacher Say:</text>
+            <textarea disabled='true' value='asdfasdfasdfasdfasdfasdfasdfassadfsasfsafasfdasdfasdf'></textarea>
+        </view>
+        <view class="background">
+            <image src='/image/blackboard.jpg' mode='scaleToFill'></image>
+        </view>
+    </view>
+
+    <!-- 评分 -->
+    <view class="score">
+
+    </view>
+
+    <!-- 用户信息 -->
+    <view class='userInfo'>
+        <view class="content">
+            <image src='/image/user-icon.jpg' mode='aspectFit'></image>
+            <view class='info'>
+                <view class="name">name</view>
+                <view class="countNote">笔记 45条</view>
+            </view>
+            <view class="arrow">个人主页></view>
+        </view>
+        <image class="background" src="/image/userInfoBackground.jpg" mode='scaleToFill'></image>
+    </view>
+
+    <!-- note -->
+    <view class='notes'>
+        <view class='note'>
+            <view class='top'>
+                <image src='/image/user-icon.jpg' mode='aspectFit'></image>
+                <view class="info">
+                    <view class="name">gray</view>
+                    <view class="time">刚刚</view>
+                </view>
+            </view>
+            <view class='middle'>
+                <view class='text'>
+                    Sed fringilla et quam a tempus. Nam volutpat augue eu lorem maximus, id luctus dolor venenatis. Morbi et vestibulum orci. Donec pretium suscipit massa quis convallis. Etiam et est dolor. Quisque eget lectus id risus vulputate venenatis. Praesent varius
+                    facilisis lorem id sagittis. Nullam vel elit quis neque dapibus lacinia.
+                </view>
+                <view class='images'>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                </view>
+            </view>
+        </view>
+
+        <view class='note'>
+            <view class='top'>
+                <image src='/image/user-icon.jpg' mode='aspectFit'></image>
+                <view class="info">
+                    <view class="name">gray</view>
+                    <view class="time">刚刚</view>
+                </view>
+            </view>
+            <view class='middle'>
+                <view class='text'>
+                    Sed fringilla et quam a tempus. Nam volutpat augue eu lorem maximus, id luctus dolor venenatis. Morbi et vestibulum orci. Donec pretium suscipit massa quis convallis. Etiam et est dolor. Quisque eget lectus id risus vulputate venenatis. Praesent varius
+                    facilisis lorem id sagittis. Nullam vel elit quis neque dapibus lacinia.
+                </view>
+                <view class='images'>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                    <image src='/image/english1.png' mode="aspectFill"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

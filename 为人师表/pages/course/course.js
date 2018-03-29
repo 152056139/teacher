@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+	  blackboard_content:"请好好听课！！！"
   },
 
   /**

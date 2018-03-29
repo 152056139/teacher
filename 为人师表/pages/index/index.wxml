@@ -8,7 +8,7 @@
         </picker>
         <image src="/image/add_icon.png" mode='scaleToFill' bindtap="menu"></image>
     </view>
-	<view style="padding: 5px;width: 100px; height:50px; background:#eeeeee; position:fixed; right: 0px; top: 40px; display:{{display}};">
+	<view class="menu" style=" display:{{display}}">
 		<text style="font-size:15px;display:block">加入班科</text>
 		<text style="font-size:15px;">创建班科</text>
 	</view>

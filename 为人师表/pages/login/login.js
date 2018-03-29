@@ -1,7 +1,7 @@
 // pages/login/login.js
 var app = getApp()
-
 const requestUrl = require('../../config').requestUrl
+
 Page({
 
 	/**
@@ -130,6 +130,6 @@ Page({
 	 * 用户点击右上角分享
 	 */
 	onShareAppMessage: function () {
-
+		
 	}
 })
