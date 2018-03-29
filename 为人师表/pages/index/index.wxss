@@ -61,4 +61,5 @@
 }
 .background-white {
 	background: #ffffff;
+	color: #ffffff;
 }

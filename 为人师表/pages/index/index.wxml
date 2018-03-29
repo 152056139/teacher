@@ -52,6 +52,24 @@
 				<view class="height-big background-green">大学英语1王老师</view>
 				<view class="height-big background-white"></view>
 			</view>
+			<view class="right width-middle">
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-white"></view>
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-white"></view>
+			</view>
+			<view class="right width-middle">
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-white"></view>
+				<view class="height-big background-white"></view>
+				<view class="height-big background-green">大学英语1王老师</view>
+			</view>
+			<view class="right width-middle">
+				<view class="height-big background-white">a</view>
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-green">大学英语1王老师</view>
+				<view class="height-big background-white"></view>
+			</view>
         </view>
     </view>
 </view>
