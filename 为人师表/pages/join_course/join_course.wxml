@@ -24,7 +24,4 @@
             <button formType="submit">加入</button>
         </form>
     </view>
-    <view wx:for="{{array}}">
-        {{index}}: {{item.message}}
-    </view>
 </view>

@@ -1,0 +1,33 @@
+<!--pages/chat_detail/chat_detail.wxml-->
+<view class='container'>
+    <view class='input'>
+        <input type='text' />
+        <button size='mini' type='default'>发送</button>
+    </view>
+    <view class="items">
+        <view class='item item-left'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+            <view class='text'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
+        </view>
+        <view class='item item-right'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+            <view class='text'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
+        </view>
+        <view class='item item-left'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+            <view class='text'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
+        </view>
+        <view class='item item-right'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+            <view class='text'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
+        </view>
+        <view class='item item-left'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+            <view class='text'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
+        </view>
+        <view class='item item-right'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+            <view class='text'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</view>
+        </view>
+    </view>
+</view>

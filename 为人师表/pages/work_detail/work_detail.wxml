@@ -1,0 +1,31 @@
+<!--pages/work_detail/work_detail.wxml-->
+<view class='container'>
+    <view class='block'>
+        <view class='bar'>
+			<view class='text'>蟑螂皮卡丘同笼问题</view>
+        </view>
+        <view class='question content'>
+            <textarea disabled='true' value='蟑螂皮卡丘同笼，共17个头，230条腿。问：蟑螂有几只，皮卡丘有几只？'></textarea>
+            <view class='images'>
+				<image src='/image/english1.png' mode='aspectFill'></image>
+				<image src='/image/english1.png' mode='aspectFill'></image>
+				<image src='/image/english1.png' mode='aspectFill'></image>
+            </view>
+        </view>
+    </view>
+
+	<view class='block'>
+        <view class='bar'>
+			<view class='text'>开始你的表演</view>
+        </view>
+        <view class='answer content'>
+            <textarea  value='兔：（42-17×2）/2=4只	鸡： 17-4=13只'></textarea>
+            <view class='images'>
+				<image src='/image/english1.png' mode='aspectFill'></image>
+				<image src='/image/english1.png' mode='aspectFill'></image>
+				<image src='/image/english1.png' mode='aspectFill'></image>
+            </view>
+        </view>
+    </view>
+	<button size='default'>已提交</button>
+</view>
