@@ -1,2 +1,21 @@
 <!--pages/chat/chat.wxml-->
-<text>pages/chat/chat.wxml</text>
+<view class='container'>
+    <view class='search'>
+        <input type='text' placeholder='搜索'/>
+        <icon type='search' size="15"></icon>
+    </view>
+    <view class='friend-list'>
+        <view class='friend'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+			<text>杜志鹏</text>
+        </view>
+        <view class='friend'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+			<text>杜志鹏</text>
+        </view>
+        <view class='friend'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+			<text>杜志鹏</text>
+        </view>
+    </view>
+</view>

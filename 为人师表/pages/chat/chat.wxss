@@ -1,1 +1,44 @@
 /* pages/chat/chat.wxss */
+.container {
+    width: 100%;
+	padding-top: 1%;
+}
+
+.search {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 95%;
+}
+
+.search input {
+    display: inline-block;
+    width: 90%;
+}
+
+.search icon {
+    display: inline-block;
+    width: 10;
+}
+
+.friend-list {
+    width: 95%;
+}
+
+.friend {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    padding: 15rpx 0;
+    border-bottom: solid 1px #eeeeee;
+}
+
+.friend image {
+    height: 80rpx;
+    width: 80rpx;
+}
+.friend text {
+	margin-left: 20rpx;
+	font-size: 35rpx;
+	color: #555555;
+}

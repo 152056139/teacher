@@ -1,13 +1,15 @@
 {
     "pages": [
-		"pages/join_course/join_course",
-		"pages/create_course/create_course",
+		"pages/chat_detail/chat_detail",
+        "pages/chat/chat",
+        "pages/join_course/join_course",
         "pages/course/course",
+        "pages/work_detail/work_detail",
+        "pages/create_course/create_course",
         "pages/index/index",
         "pages/register/register",
         "pages/login/login",
         "pages/work/work",
-        "pages/chat/chat",
         "pages/logs/logs"
     ],
     "window": {
