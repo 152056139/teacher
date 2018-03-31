@@ -28,27 +28,109 @@
                 <text class='bottom'>总答题量</text>
             </view>
         </view>
-		<view class='table'>
-			<view class='th tr'>
-				<view class='td tdone'>排名</view>
-				<view class='td tdtwo'>我的同学</view>
-				<view class='td tdthree'>综合评分</view>
-			</view>
-			<view class='tr my'>
-				<view class='td tdone'>
-					
-				</view>
-				<view class='td tdtwo'>
-				
-				</view>
-				<view class='td tdthree'>
-				
-				</view>
-			</view>
-		</view>
+        <view class='table'>
+            <view class='th'>
+                <view class='td tdone'>排名</view>
+                <view class='td tdtwo'>我的同学</view>
+                <view class='td tdthree'>综合评分</view>
+            </view>
+            <view class='tr my'>
+                <view class='td tdone'>
+                    <text class='rank-text'>28</text>
+                </view>
+                <view class='td tdtwo'>
+                    <image class='user-icon' src='/image/user-icon.png' mode='aspectFit'></image>
+                    <view class='info'>
+                        <view class='name'>郭浩卓</view>
+                        <progress percent="80" stroke-width="12" color='#234253' active />
+                    </view>
+                </view>
+                <view class='td tdthree'>
+                    <text class='score'>80</text>
+                </view>
+            </view>
+
+            <!-- -->
+            <view class='tr other'>
+                <view class='td tdone'>
+                    <image class='rank-icon' src='/image/first.png' mode='aspectFit'></image>
+                </view>
+                <view class='td tdtwo'>
+                    <image class='user-icon' src='/image/user-icon.png' mode='aspectFit'></image>
+                    <view class='info'>
+                        <view class='name'>郭浩卓</view>
+                        <progress percent="80" stroke-width="12" color='#234253' active />
+                    </view>
+                </view>
+                <view class='td tdthree'>
+                    <text class='score'>80</text>
+                </view>
+            </view>
+			<view class='tr other'>
+                <view class='td tdone'>
+                    <image class='rank-icon' src='/image/second.png' mode='aspectFit'></image>
+                </view>
+                <view class='td tdtwo'>
+                    <image class='user-icon' src='/image/user-icon.png' mode='aspectFit'></image>
+                    <view class='info'>
+                        <view class='name'>郭浩卓</view>
+                        <progress percent="80" stroke-width="12" color='#234253' active />
+                    </view>
+                </view>
+                <view class='td tdthree'>
+                    <text class='score'>80</text>
+                </view>
+            </view>
+			<view class='tr other'>
+                <view class='td tdone'>
+                    <image class='rank-icon' src='/image/third.png' mode='aspectFit'></image>
+                </view>
+                <view class='td tdtwo'>
+                    <image class='user-icon' src='/image/user-icon.png' mode='aspectFit'></image>
+                    <view class='info'>
+                        <view class='name'>郭浩卓</view>
+                        <progress percent="80" stroke-width="12" color='#234253' active />
+                    </view>
+                </view>
+                <view class='td tdthree'>
+                    <text class='score'>80</text>
+                </view>
+            </view>
+			<view class='tr other'>
+                <view class='td tdone'>
+                    <text class='rank-text'>28</text>
+                </view>
+                <view class='td tdtwo'>
+                    <image class='user-icon' src='/image/user-icon.png' mode='aspectFit'></image>
+                    <view class='info'>
+                        <view class='name'>郭浩卓</view>
+                        <progress percent="80" stroke-width="12" color='#234253' active />
+                    </view>
+                </view>
+                <view class='td tdthree'>
+                    <text class='score'>80</text>
+                </view>
+            </view>
+			<view class='tr other'>
+                <view class='td tdone'>
+                    <text class='rank-text'>28</text>
+                </view>
+                <view class='td tdtwo'>
+                    <image class='user-icon' src='/image/user-icon.png' mode='aspectFit'></image>
+                    <view class='info'>
+                        <view class='name'>郭浩卓</view>
+                        <progress percent="80" stroke-width="12" color='#234253' active />
+                    </view>
+                </view>
+                <view class='td tdthree'>
+                    <text class='score'>80</text>
+                </view>
+            </view>
+        </view>
     </view>
     <view class='notes'>
         <view class='bar'>
+			<view class='bar'>学习笔记</view>
         </view>
     </view>
 </view>
