@@ -1,2 +1,27 @@
 <!--pages/work/work.wxml-->
-<text>pages/work/work.wxml</text>
+<view class='container'>
+	<view class='work'>
+		<image src='/image/work-icon.png'></image>
+		<view class='info'>
+			<view class='name'>鸡兔同笼</view>
+			<view class='time'>已截止</view>
+		</view>
+		<view class='status'>已提交</view>
+	</view>
+	<view class='work'>
+		<image src='/image/work-icon.png'></image>
+		<view class='info'>
+			<view class='name'>鸡兔同笼</view>
+			<view class='time'>已截止</view>
+		</view>
+		<view class='status' style='color: #f8cc55;'>已提交</view>
+	</view>
+	<view class='work'>
+		<image src='/image/work-icon.png'></image>
+		<view class='info'>
+			<view class='name'>鸡兔同笼</view>
+			<view class='time'>已截止</view>
+		</view>
+		<view class='status' style='color: red;'>已提交</view>
+	</view>
+</view>
