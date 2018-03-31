@@ -1,6 +1,6 @@
 // pages/login/login.js
 var app = getApp()
-const requestUrl = require('../../config').requestUrl
+const requestUrl = require('../../../config').requestUrl
 
 Page({
 

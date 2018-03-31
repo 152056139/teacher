@@ -1,0 +1,132 @@
+/* pages/home/student/student.wxss */
+
+.container {
+    width: 100%;
+    padding: 0%;
+}
+
+.top {
+    width: 100%;
+    height: 500rpx;
+}
+
+.top .background {
+	position: relative;
+	bottom: 500rpx;
+	z-index: -1;
+}
+
+.top .background image {
+	width: 100%;
+    height: 500rpx;
+}
+
+.top .info {
+    width: 100%;
+    height: 500rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.top .info image {
+    height: 200rpx;
+    width: 200rpx;
+    margin: 30rpx;
+}
+
+.top .info .other {
+    padding: 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.top .info .other .name {
+    color: #fff;
+    font-size: 70rpx;
+}
+
+.top .info .other .sex {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+
+.rank {
+	width: 100%;
+}
+.rank .bar {
+	width: 100%;
+	height: 100rpx;
+	background: #e4e4e4;
+	color: #69c5d8;
+	font-size: 50rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.rank .panels {
+	width: 100%;
+	height: 130rpx;
+	background: #eeeeee;
+	display: flex;
+	flex-direction: row;
+}
+.rank .panels .panel {
+	height: 130rpx;
+	width: 250rpx;
+	color: #ffffff;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+}
+.rank .panels .panel .top{
+	font-size: 60rpx;
+	height: 80rpx;
+}
+.rank .panels .panel .bottom{
+	font-size: 30rpx;
+	height: 50rpx;
+}
+.rank .panels .one{
+	background: #c39df8;
+}
+.rank .panels .two{
+	background: #f29d70;
+}
+.rank .panels .three{
+	background: #a3ca9d;
+}
+
+.table{
+	background: #e3e3e3;
+	padding-top: 10rpx;
+}
+.tr {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+.th {
+	background: #ffffff;
+	border-radius: 10rpx;
+	color: #949494;
+	font-size: 35rpx;
+}
+.my {
+	background: #e3e3e3;
+}
+.td {
+
+}
+.tdone {
+	width: 150rpx;
+}
+.tdtwo {
+	width: 450rpx;
+}
+.tdthree {
+	width: 150rpx;
+}

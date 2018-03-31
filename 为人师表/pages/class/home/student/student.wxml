@@ -1,0 +1,54 @@
+<!--pages/home/student/student.wxml-->
+<view class='container'>
+    <view class='top'>
+        <view class='info'>
+            <image src='/image/user-icon.png' mode='aspectFit'></image>
+            <view class='other'>
+                <view class='name'>gray</view>
+                <image class='sex' src='/image/male.png' mode='aspectFit'></image>
+            </view>
+        </view>
+        <view class='background'>
+            <image src='/image/home_background.jpg' mode='aspectFill'></image>
+        </view>
+    </view>
+    <view class='rank'>
+        <view class='bar'>本周学习概况</view>
+        <view class='panels'>
+            <view class='panel one'>
+                <text class='top'>85</text>
+                <text class='bottom'>综合评分</text>
+            </view>
+            <view class='panel two'>
+                <text class='top'>10%</text>
+                <text class='bottom'>班级前十率</text>
+            </view>
+            <view class='panel three'>
+                <text class='top'>46</text>
+                <text class='bottom'>总答题量</text>
+            </view>
+        </view>
+		<view class='table'>
+			<view class='th tr'>
+				<view class='td tdone'>排名</view>
+				<view class='td tdtwo'>我的同学</view>
+				<view class='td tdthree'>综合评分</view>
+			</view>
+			<view class='tr my'>
+				<view class='td tdone'>
+					
+				</view>
+				<view class='td tdtwo'>
+				
+				</view>
+				<view class='td tdthree'>
+				
+				</view>
+			</view>
+		</view>
+    </view>
+    <view class='notes'>
+        <view class='bar'>
+        </view>
+    </view>
+</view>

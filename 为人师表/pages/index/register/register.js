@@ -1,6 +1,6 @@
 // pages/register/register.js
 var app = getApp()
-const requestUrl = require('../../config').requestUrl
+const requestUrl = require('../../../config.js').requestUrl
 
 Page({
 
