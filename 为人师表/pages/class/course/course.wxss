@@ -128,3 +128,32 @@
 	margin-left: 14rpx;
 	margin-top: 5px;
 }
+
+.score {
+	width: 750rpx;
+	height: 200rpx;
+	display: flex;
+	flex-direction: row;
+	border-bottom: solid #eeeeee 1px;
+}
+.score .text {
+	width: 250rpx;
+	height: 200rpx;
+	font-size: 70rpx;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.score .stars {
+	width: 500rpx;
+	height: 200rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.score .stars image {
+	width: 50rpx;
+	height: 50rpx;
+}

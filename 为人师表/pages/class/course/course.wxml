@@ -14,7 +14,14 @@
 
     <!-- 评分 -->
     <view class="score">
-
+		<view class='text'>score</view>
+		<view class='stars'>
+			<image id='0' src='/image/{{stars[0]}}.png' bindtap='score'></image>
+			<image id='1' src='/image/{{stars[1]}}.png' bindtap='score'></image>
+			<image id='2' src='/image/{{stars[2]}}.png' bindtap='score'></image>
+			<image id='3' src='/image/{{stars[3]}}.png' bindtap='score'></image>
+			<image id='4' src='/image/{{stars[4]}}.png' bindtap='score'></image>
+		</view>
     </view>
 
     <!-- 用户信息 -->
