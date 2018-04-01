@@ -1,8 +1,9 @@
 {
     "pages": [
-		"pages/class/work/work",
-		"pages/class/work/work_detail/work_detail",
-		"pages/class/home/student/student",
+		"pages/class/home/student/other/other",
+        "pages/class/work/work",
+        "pages/class/work/work_detail/work_detail",
+        "pages/class/home/student/student",
         "pages/class/chat/chat_detail/chat_detail",
         "pages/class/chat/chat",
         "pages/class/course/course",

@@ -1,0 +1,29 @@
+<!--pages/class/home/student/other/other.wxml-->
+<view class='container'>
+	<view class='top'>
+		<view class='content'>
+			<image src='/image/user-icon.png'></image>
+			<text>郭浩卓</text>
+		</view>
+		<view class='background'>
+			<image src='/image/home_background.jpg' mode='aspectFill'></image>
+		</view>
+	</view>
+	<view class='info'>
+		<view class='bar'>基本信息</view>
+		<view class='content'>
+			<view class='list'>
+				<text>学号</text>
+				<text>152056139</text>
+			</view>
+			<view class='list'>
+				<text>学号</text>
+				<text>152056139</text>
+			</view>
+			<view class='list'>
+				<text>学号</text>
+				<text>152056139</text>
+			</view>
+		</view>
+	</view>
+</view>
