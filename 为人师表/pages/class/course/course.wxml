@@ -10,6 +10,9 @@
         <view class="background">
             <image src='/image/blackboard.jpg' mode='scaleToFill'></image>
         </view>
+		<view class='abcd'>
+			<image src=''>
+		</view>
     </view>
 
     <!-- 评分 -->

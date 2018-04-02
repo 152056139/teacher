@@ -9,8 +9,10 @@
         <image src="/image/add_icon.png" mode='scaleToFill' bindtap="menu"></image>
     </view>
 	<view class="menu" style=" display:{{display}}">
-		<text style="font-size:15px;display:block">加入班科</text>
-		<text style="font-size:15px;">创建班科</text>
+		<view>加入班科</view>
+		<view>创建班科</view>
+		<view>我的</view>
+		<view>系统设置</view>
 	</view>
     <view class="choose-course">
         <view class='weaks title-color height-little'>

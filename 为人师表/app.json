@@ -1,7 +1,10 @@
 {
     "pages": [
-		"pages/class/course/course",
-		"pages/class/home/student/other/other",
+        "pages/class/course/course",
+        "pages/index/system_setting/system_setting",
+        "pages/index/mine/mine",
+        "pages/index/index",
+        "pages/class/home/student/other/other",
         "pages/class/work/work",
         "pages/class/work/work_detail/work_detail",
         "pages/class/home/student/student",
@@ -9,10 +12,10 @@
         "pages/class/chat/chat",
         "pages/class/course/join_course/join_course",
         "pages/class/course/create_course/create_course",
-        "pages/index/index",
         "pages/index/register/register",
         "pages/index/login/login",
-        "pages/logs/logs"
+        "pages/logs/logs",
+        "pages/index/system_setting/change_passwd/change_passwd"
     ],
     "window": {
         "backgroundTextStyle": "light",
