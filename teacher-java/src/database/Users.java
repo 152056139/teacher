@@ -1,6 +1,5 @@
 package database;
 
-import java.lang.reflect.Executable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,7 +41,7 @@ public class Users {
 		String password = "";
 		try {
 			while (resultset.next()) {
-				// 通过字段检索
+				// 閫氳繃瀛楁妫�绱�
 				password = resultset.getString("user_password");
 			}
 		} catch (SQLException e) {
@@ -68,7 +67,7 @@ public class Users {
 		
 		try {
 			while (resultSet.next()) {
-				// 通过字段检索
+				// 閫氳繃瀛楁妫�绱�
 				count = resultSet.getInt("count");
 			}
 		} catch (SQLException e) {
