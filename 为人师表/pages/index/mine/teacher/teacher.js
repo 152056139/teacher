@@ -1,40 +1,18 @@
-// pages/course/course.js
+// pages/index/mine/teacher/teacher.js
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		stars: ["grayStar", "grayStar", "grayStar", "grayStar", "grayStar"],
-		display: "none"
+		arraySex: ['男', '女'],
+		indexSex: 0,
+		arrayIdentity: ['学生', '老师'],
+		indexIdentity: 1,
+		date: '2018-04-01'
 	},
-	toggerMenu: function (e) {
-		if (this.data["display"] == "none") {
-			this.setData({ display: "flex" })
-		} else {
-			this.setData({ display: "none" })
-		}
-	},
-	score: function (e) {
-		console.log(e);
-		var targetId = e.target.id
-
-		for(var i = targetId; i >= 0; i--){
-			this.data.stars[i] = "yellowStar"
-		}
-		for(var i = targetId; i <= 4; i++){
-			this.data.stars[i] = "grayStar"
-		}
-		this.data.stars[targetId] = "yellowStar"
-		console.log(this.data.stars)
-		this.setData({
-			'stars[0]': this.data.stars[0],
-			'stars[1]': this.data.stars[1],
-			'stars[2]': this.data.stars[2],
-			'stars[3]': this.data.stars[3],
-			'stars[4]': this.data.stars[4],
-
-		})
+	bindDateChange: function (e) {
+		console.log(e.detail.value)
 	},
 	/**
 	 * 生命周期函数--监听页面加载

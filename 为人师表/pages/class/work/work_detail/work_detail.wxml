@@ -1,31 +1,61 @@
 <!--pages/work_detail/work_detail.wxml-->
 <view class='container'>
-    <view class='block'>
+    <view class='block question'>
         <view class='bar'>
-			<view class='text'>蟑螂皮卡丘同笼问题</view>
+            <view class='text'>蟑螂皮卡丘同笼问题</view>
         </view>
-        <view class='question content'>
+        <view class='content'>
             <textarea disabled='true' value='蟑螂皮卡丘同笼，共17个头，230条腿。问：蟑螂有几只，皮卡丘有几只？'></textarea>
             <view class='images'>
-				<image src='/image/english1.png' mode='aspectFill'></image>
-				<image src='/image/english1.png' mode='aspectFill'></image>
-				<image src='/image/english1.png' mode='aspectFill'></image>
+                <image src='/image/english1.png' mode='aspectFill'></image>
+                <image src='/image/english1.png' mode='aspectFill'></image>
+                <image src='/image/english1.png' mode='aspectFill'></image>
             </view>
         </view>
     </view>
 
-	<view class='block'>
+    <view class='block list'>
         <view class='bar'>
-			<view class='text'>开始你的表演</view>
+            <view class='text'>学生完成情况</view>
         </view>
-        <view class='answer content'>
-            <textarea  value='兔：（42-17×2）/2=4只	鸡： 17-4=13只'></textarea>
+        <view class='content'>
+			<view class='titles'>
+				<view class='finish-title'>
+					已提交
+				</view>
+				<view class='unfinish-title'>
+					未提交
+				</view>
+			</view>
+			<view class='finish'>
+				<view class='item'>
+					<image src='/image/user-icon.png'></image>
+					<view class='name'>杜志鹏</view>
+				</view>
+				<view class='item'>
+					<image src='/image/user-icon.png'></image>
+					<view class='name'>杜志鹏</view>
+				</view>
+				<view class='item'>
+					<image src='/image/user-icon.png'></image>
+					<view class='name'>杜志鹏</view>
+				</view>
+			</view>
+		</view>
+    </view>
+
+    <view class='block answer' style='display:none;'>
+        <view class='bar'>
+            <view class='text'>开始你的表演</view>
+        </view>
+        <view class='content'>
+            <textarea value='兔：（42-17×2）/2=4只	鸡： 17-4=13只'></textarea>
             <view class='images'>
-				<image src='/image/english1.png' mode='aspectFill'></image>
-				<image src='/image/english1.png' mode='aspectFill'></image>
-				<image src='/image/english1.png' mode='aspectFill'></image>
+                <image src='/image/english1.png' mode='aspectFill'></image>
+                <image src='/image/english1.png' mode='aspectFill'></image>
+                <image src='/image/english1.png' mode='aspectFill'></image>
             </view>
         </view>
+        <button size='default'>已提交</button>
     </view>
-	<button size='default'>已提交</button>
 </view>

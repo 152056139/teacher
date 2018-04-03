@@ -1,19 +1,13 @@
-// pages/work/work.js
+// pages/class/work/new_work/new_work.js
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		display: "none"
+		date: '2018-04-01'
 	},
-	toggerMenu: function (e) {
-		if(this.data["display"] == "none"){
-			this.setData({display: "flex"})
-		} else {
-			this.setData({display: "none" })
-		}
-	},
+
 	/**
 	 * 生命周期函数--监听页面加载
 	 */

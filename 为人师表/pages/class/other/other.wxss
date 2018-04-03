@@ -1,0 +1,50 @@
+/* pages/class/other/other.wxss */
+page{
+	background: #eeeeee;
+}
+.container {
+	padding: 0;
+}
+.container .exit {
+	width: 100%;
+	position: absolute;
+	bottom: 10rpx;
+}
+.top {
+	width: 100%;
+	height: 300rpx;
+	background: #ffffff;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.top image {
+	width: 180rpx;
+	height: 250rpx;
+	margin-left: 30rpx;
+}
+.top .info {
+	margin-left: 50rpx;
+	align-self: flex-end;
+	position: relative;
+	bottom: 30rpx;
+}
+.top .info .name {
+	font-size: 50rpx;
+}
+.top .info .teacher {
+	font-size: 35rpx;
+	color: #999999;
+}
+
+.list{
+	width: 100%;
+	margin-top: 50rpx;
+	background: #ffffff;
+}
+.list .item {
+	width: 710rpx;
+	padding: 15rpx 0;
+	margin: 0 20rpx;
+	border-bottom: solid #eeeeee 1rpx;
+}

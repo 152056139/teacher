@@ -1,0 +1,21 @@
+<!--pages/class/work/new_work/new_work.wxml-->
+<view class='container'>
+    <view class='list'>
+        <view class='item'>
+            <text class='left'>标题</text>
+            <input class='right' placeholder='未设置' placeholder-class='right-placeholder' />
+        </view>
+        <view class='item'>
+            <text class='left'>详细内容</text>
+            <input class='right' placeholder='未设置' placeholder-class='right-placeholder' disabled='true' />
+        </view>
+        <view class='item'>
+            <text class='left'>截止时间</text>
+            <picker class='right' mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <view class="picker">
+                    {{date}}
+                </view>
+            </picker>
+        </view>
+    </view>
+</view>

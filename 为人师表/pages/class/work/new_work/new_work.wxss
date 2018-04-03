@@ -1,0 +1,28 @@
+/* pages/class/work/new_work/new_work.wxss */
+.container {
+	padding: 0;
+}
+.list {
+	width: 100%;
+}
+.list .item {
+	width: 750rpx;
+	height: 80rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-bottom: 1px solid #eeeeee;
+}
+.list .item .left {
+	width: 150rpx;
+	padding-left: 20rpx;
+	font-size: 30rpx;
+}
+.list .item .right {
+	width: 600rpx;
+	font-size: 30rpx;
+}
+.list .item .right-placeholder
+{
+	font-size: 30rpx;
+}
