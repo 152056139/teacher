@@ -17,5 +17,6 @@
                 </view>
             </picker>
         </view>
+		<button style='default'>发布作业</button>
     </view>
 </view>

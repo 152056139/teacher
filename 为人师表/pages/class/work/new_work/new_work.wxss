@@ -4,6 +4,17 @@
 }
 .list {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.list button {
+	position: absolute;
+	bottom: 20rpx;
+	width: 95%;
+	background: #3f99f8;
+	color: #ffffff;
 }
 .list .item {
 	width: 750rpx;
