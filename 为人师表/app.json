@@ -1,64 +1,64 @@
 {
-    "pages": [
+	"pages": [
+		"pages/index/login/login",
 		"pages/class/work/new_work/new_work",
-        "pages/class/work/work",
-        "pages/class/work/work_detail/work_detail",
-        "pages/class/other/other",
-        "pages/index/mine/teacher/teacher",
-        "pages/index/mine/student/student",
-        "pages/index/system_setting/change_passwd/change_passwd",
-        "pages/class/course/course",
-        "pages/index/system_setting/system_setting",
-        "pages/index/index",
-        "pages/class/home/student/other/other",
-        "pages/class/home/student/student",
-        "pages/class/chat/chat_detail/chat_detail",
-        "pages/class/chat/chat",
-        "pages/class/course/join_course/join_course",
-        "pages/class/course/create_course/create_course",
-        "pages/index/register/register",
-        "pages/index/login/login",
-        "pages/logs/logs",
-        "pages/class/home/teacher/teacher"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#3f99f8",
-        "navigationBarTitleText": "为人师表",
-        "navigationBarTextStyle": "light"
-    },
-    "tabBar": {
-        "selectedColor": "#3f99f8",
-        "list": [
-            {
-                "pagePath": "pages/class/work/work",
-                "text": "作业",
-                "iconPath": "image/work1.png",
-                "selectedIconPath": "image/work2.png"
-            },
-            {
-                "pagePath": "pages/class/course/course",
-                "text": "课堂",
-                "iconPath": "image/course1.png",
-                "selectedIconPath": "image/course2.png"
-            },
-            {
-                "pagePath": "pages/class/chat/chat",
-                "text": "课下聊",
-                "iconPath": "image/chat1.png",
-                "selectedIconPath": "image/chat2.png"
-            },
-            {
-                "pagePath": "pages/class/other/other",
-                "text": "其他",
-                "iconPath": "image/other1.png",
-                "selectedIconPath": "image/other2.png"
-            }
-        ]
-    },
-    "networkTimeout": {
-        "request": 10000,
-        "downloadFile": 10000
-    },
-    "debug": true
+		"pages/class/work/work",
+		"pages/class/work/work_detail/work_detail",
+		"pages/class/other/other",
+		"pages/index/mine/teacher/teacher",
+		"pages/index/mine/student/student",
+		"pages/index/system_setting/change_passwd/change_passwd",
+		"pages/class/course/course",
+		"pages/index/system_setting/system_setting",
+		"pages/index/index",
+		"pages/class/home/student/other/other",
+		"pages/class/home/student/student",
+		"pages/class/chat/chat_detail/chat_detail",
+		"pages/class/chat/chat",
+		"pages/class/course/join_course/join_course",
+		"pages/class/course/create_course/create_course",
+		"pages/index/register/register",
+		"pages/logs/logs",
+		"pages/class/home/teacher/teacher"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#3f99f8",
+		"navigationBarTitleText": "为人师表",
+		"navigationBarTextStyle": "light"
+	},
+	"tabBar": {
+		"selectedColor": "#3f99f8",
+		"list": [
+			{
+				"pagePath": "pages/class/work/work",
+				"text": "作业",
+				"iconPath": "image/work1.png",
+				"selectedIconPath": "image/work2.png"
+			},
+			{
+				"pagePath": "pages/class/course/course",
+				"text": "课堂",
+				"iconPath": "image/course1.png",
+				"selectedIconPath": "image/course2.png"
+			},
+			{
+				"pagePath": "pages/class/chat/chat",
+				"text": "课下聊",
+				"iconPath": "image/chat1.png",
+				"selectedIconPath": "image/chat2.png"
+			},
+			{
+				"pagePath": "pages/class/other/other",
+				"text": "其他",
+				"iconPath": "image/other1.png",
+				"selectedIconPath": "image/other2.png"
+			}
+		]
+	},
+	"networkTimeout": {
+		"request": 10000,
+		"downloadFile": 10000
+	},
+	"debug": true
 }
