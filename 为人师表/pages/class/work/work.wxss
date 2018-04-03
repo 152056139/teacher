@@ -1,4 +1,28 @@
 /* pages/work/work.wxss */
+.btn {
+	position: fixed;
+	bottom: 20rpx;
+	right: 20rpx;
+}
+.btn image {
+	width: 80rpx;
+	height: 80rpx;
+}
+.btn .menu {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: flex-end;
+	position: fixed;
+	bottom: 150rpx;
+	right: 20rpx;
+}
+.btn .menu text {
+	padding: 15rpx 50rpx;
+	margin: 10rpx 0;
+	border: #dddddd solid 2rpx;
+	border-radius: 20rpx;
+	text-align: right;
+}
 .container{
 	padding: 0%;
 }

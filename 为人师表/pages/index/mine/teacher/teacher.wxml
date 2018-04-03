@@ -1,0 +1,51 @@
+<!--pages/index/mine/teacher/teacher.wxml-->
+<view class='container'>
+    <view class='user-icon'>
+        <image src='/image/user-icon.png' mode='aspectFill'></image>
+    </view>
+    <view class='list'>
+        <view class='setting'>
+            <view class='left'>姓名</view>
+            <view class='right'>郭浩卓</view>
+        </view>
+        <view class='setting'>
+            <view class='left'>昵称</view>
+            <view class='right'>郭浩卓</view>
+        </view>
+        <view class='setting'>
+            <view class='left'>性别</view>
+            <view class='right'>
+                <picker bindchange="bindPickerChange" value="{{indexSex}}" range="{{arraySex}}">
+                    <view class="picker">
+                        {{arraySex[indexSex]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class='setting'>
+            <view class='left'>生日</view>
+            <view class='right'>
+                <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                    <view class="picker">
+                        {{date}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class='setting'>
+            <view class='left'>工号</view>
+            <view class='right'>152056101</view>
+        </view>
+
+        <view class='setting'>
+            <view class='left'>身份</view>
+            <view class='right'>
+                <picker bindchange="bindPickerChange" value="{{indexIdentity}}" range="{{arrayIdentity}}">
+                    <view class="picker">
+                        {{arrayIdentity[indexIdentity]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+</view>

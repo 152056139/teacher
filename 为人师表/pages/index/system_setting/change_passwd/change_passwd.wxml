@@ -1,2 +1,15 @@
 <!--pages/index/system_setting/change_passwd/change_passwd.wxml-->
-<text>pages/index/system_setting/change_passwd/change_passwd.wxml</text>
+<view class='container'>
+    <view class='list'>
+        <view class='setting'>
+			<input type='password' placeholder='请输入旧密码'/>
+        </view>
+        <view class='setting'>
+			<input type='password' placeholder='请设置新密码'/>
+        </view>
+        <view class='setting'>
+			<input type='password' placeholder='请再次输入新密码'/>
+        </view>
+    </view>
+	<button type='warn' size='default'>确认修改</button>
+</view>

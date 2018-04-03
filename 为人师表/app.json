@@ -1,12 +1,16 @@
 {
     "pages": [
-        "pages/class/course/course",
-        "pages/index/system_setting/system_setting",
-        "pages/index/mine/mine",
-        "pages/index/index",
-        "pages/class/home/student/other/other",
+		"pages/class/work/new_work/new_work",
         "pages/class/work/work",
         "pages/class/work/work_detail/work_detail",
+        "pages/class/other/other",
+        "pages/index/mine/teacher/teacher",
+        "pages/index/mine/student/student",
+        "pages/index/system_setting/change_passwd/change_passwd",
+        "pages/class/course/course",
+        "pages/index/system_setting/system_setting",
+        "pages/index/index",
+        "pages/class/home/student/other/other",
         "pages/class/home/student/student",
         "pages/class/chat/chat_detail/chat_detail",
         "pages/class/chat/chat",
@@ -15,7 +19,7 @@
         "pages/index/register/register",
         "pages/index/login/login",
         "pages/logs/logs",
-        "pages/index/system_setting/change_passwd/change_passwd"
+        "pages/class/home/teacher/teacher"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -43,6 +47,12 @@
                 "text": "课下聊",
                 "iconPath": "image/chat1.png",
                 "selectedIconPath": "image/chat2.png"
+            },
+            {
+                "pagePath": "pages/class/other/other",
+                "text": "其他",
+                "iconPath": "image/other1.png",
+                "selectedIconPath": "image/other2.png"
             }
         ]
     },

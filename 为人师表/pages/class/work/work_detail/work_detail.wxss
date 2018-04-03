@@ -6,8 +6,16 @@
 .block {
 	width: 100%;
 }
+
+.block button {
+	margin: 5%;
+	width: 90%;
+	background: #5cc73b;
+	color: #ffffff;
+}
+
 .bar {
-	height: 50px;
+	height: 100rpx;
 	background: #59cafa;
 	display: flex;
 	align-items: center;
@@ -33,9 +41,59 @@
 	width: 200rpx;
 	height: 200rpx;
 }
-.container button {
-	margin: 5%;
-	width: 90%;
-	background: #5cc73b;
-	color: #ffffff;
+
+.list {
+	width: 100%;
+	height: 200rpx;
+}
+.list .content {
+	padding: 0;
+	width: 100%;
+}
+.list .content .titles {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+.list .content .titles .finish-title {
+	width: 50%;
+	height: 80rpx;
+	border-bottom: #59cafa solid 5rpx;
+	font-size: 30rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.list .content .titles .unfinish-title {
+	width: 50%;
+	height: 80rpx;
+	border-bottom: #59cafa solid 0rpx;
+	font-size: 30rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.list .content  .finish {
+	width: 100%;
+}
+.list .content .finish .item {
+	width: 100%;
+	height: 100rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	border-bottom: solid 1rpx #dddddd;
+}
+.list .content .finish .item image {
+	width: 80rpx;
+	height: 80rpx;
+	margin-left: 20rpx;
+}
+.list .content .finish .item .name {
+	margin-left: 20rpx;
+	font-size: 35rpx;
+	align-self: flex-end;
+	position: relative;
+	bottom: 15rpx;
 }
