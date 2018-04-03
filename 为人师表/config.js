@@ -3,7 +3,7 @@
  */
 
 
-var host = "192.168.1.192"
+var host = "192.168.1.107"
 
 var config = {
 
