@@ -27,7 +27,7 @@ Page({
 			})
 		} else {
 			wx.request({
-				url: 'http://192.168.1.166:8080/teacher/Login',
+				url: requestUrl+'/teacher/Login',
 				data: {
 					username: username,
 					password: password
@@ -38,10 +38,15 @@ Page({
 				success: function (res) {
 					console.log(res.data)
 					var status = res.data['status']
+					var id = res.data['id']
 					if (status == "success") {
 						console.log("login success")
-						wx.switchTab({
-							url: '/pages/class/course/course'
+						//存储个人信息
+						app.userId = id
+						console.log("用户ID为"+app.userId)
+						//跳转到主页
+						wx.navigateTo({
+							url: '/pages/index/index'
 						})
 					} else if (status == "not found user") {
 						console.log("not found user")

@@ -10,7 +10,7 @@
     </view>
 	<view class="menu" style=" display:{{display}}">
 		<view>加入班科</view>
-		<view>创建班科</view>
+		<view bindtap='toCreateCourse'>创建班科</view>
 		<view>我的</view>
 		<view>系统设置</view>
 	</view>

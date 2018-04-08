@@ -94,5 +94,11 @@ Page({
 				display: "none",
 			})
 		}
+	},
+	toCreateCourse: function() {
+		console.log("跳转到创建班科")
+		wx.navigateTo({
+			url: '/pages/class/course/create_course/create_course',
+		})
 	}
 })
