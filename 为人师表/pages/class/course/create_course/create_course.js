@@ -1,6 +1,7 @@
 // pages/create_course/create_course.js
+var app = getApp()
+const requestUrl = require('/../../../../config').requestUrl
 Page({
-
 	/**
 	 * 页面的初始数据
 	 */
@@ -19,7 +20,7 @@ Page({
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
 	onReady: function () {
-		
+
 	},
 
 	/**
@@ -27,7 +28,7 @@ Page({
 	 */
 	onShow: function () {
 
-		
+
 	},
 
 	/**
@@ -62,6 +63,31 @@ Page({
 	 * 用户点击右上角分享
 	 */
 	onShareAppMessage: function () {
-		
+
+	},
+	/**
+	 * 创建班科
+	 */
+	createCourse: function (e) {
+		console.log(e.detail.value)
+
+		var courseName = e.detail.value.course_name
+		console.log("获得成功，ID是" + app.userId)
+		wx.request({
+			url: requestUrl+ '/teacher/CreateCourse', //仅为示例，并非真实的接口地址
+			data: {
+				course_name: courseName,
+				user_id: app.userId
+			},
+			header: {
+				'content-type': 'application/json' // 默认值
+			},
+			success: function (res) {
+				console.log(res.data)
+			},
+			fail: function (err) {
+				console.log("创建课程失败" + err)
+			}
+		})
 	}
 })
