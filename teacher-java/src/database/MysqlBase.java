@@ -58,16 +58,20 @@ public class MysqlBase {
 	 * 
 	 * @param sql
 	 */
-	public void execute(String sql, Connection conn) {
+	public boolean execute(String sql, Connection conn) {
 		System.out.println("正在执行插入，删除，修改操作");
 		Statement stmt = null;
+		boolean flag = false;
 		try {
 			stmt = conn.createStatement();
-			stmt.execute(sql);
+			flag = stmt.execute(sql);
+			System.out.println("mysql返回"+flag);
+			flag = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return flag;
 	}
 
 	public void close(Connection conn) {

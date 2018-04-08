@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,6 +34,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -44,7 +47,17 @@ public class Login extends HttpServlet {
 
 		// create user object
 		Users user = new Users();
-		String password = user.getPasswordFormMysql(username_form);
+		String password="";
+		String id = "";
+		Map<String,String> map=new HashMap<String,String>();
+		 map = user.getPasswordFormMysql(username_form);
+		 password = map.get("password");
+		 id = map.get("id");
+		 System.out.println("数据库中搜索到id="+id);
+		 
+		 
+		 
+		 
 		System.out.println("从数据库中搜到的密码:" + password);
 
 		System.out.println("表单传过来的密码：" + password_form);
@@ -55,6 +68,7 @@ public class Login extends HttpServlet {
 			// response wx,return login success
 			JSONObject success = new JSONObject();
 			success.put("status", "success");
+			success.put("id", id);
 			out.println(success.toString());
 		} else if (password.isEmpty()) {
 			// console log
