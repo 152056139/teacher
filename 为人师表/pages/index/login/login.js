@@ -27,21 +27,21 @@ Page({
 			})
 		} else {
 			wx.request({
-				url: requestUrl + '/teacher/Login',
+				url: 'http://192.168.1.166:8080/teacher/Login',
 				data: {
 					username: username,
 					password: password
 				},
 				header: {
 					'content-type': 'application/json'
-				},
+				},		
 				success: function (res) {
 					console.log(res.data)
 					var status = res.data['status']
 					if (status == "success") {
 						console.log("login success")
 						wx.switchTab({
-							url: '/pages/course/course'
+							url: '/pages/class/course/course'
 						})
 					} else if (status == "not found user") {
 						console.log("not found user")
