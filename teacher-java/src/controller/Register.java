@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import database.Users;
 import net.sf.json.JSONObject;
 
@@ -37,33 +36,40 @@ public class Register extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
+		String type = request.getParameter("flag");
+		System.out.println(type);
 
-		String username_form = request.getParameter("username");
-		String password_form = request.getParameter("password");
-		int count = new Users().countUserName(username_form);System.out.println(count);
-		if (count == 0)
-		{
-			boolean flag = new Users().inSert(username_form, password_form);
+		if (type.equals("base")) {
+			String username_form = request.getParameter("username");
+			String password_form = request.getParameter("password");
+			int count = new Users().countUserName(username_form);
+			System.out.println(count);
+			if (count == 0) {
+				boolean flag = new Users().inSert(username_form, password_form);
 
-			if (flag) {
-				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("status", "RegisterSuccess");
-				out.println(jsonObject.toString());
+				if (flag) {
+					JSONObject jsonObject = new JSONObject();
+					jsonObject.put("status", "RegisterSuccess");
+					out.println(jsonObject.toString());
+				} else {
+					JSONObject jsonObject = new JSONObject();
+					jsonObject.put("status", "Registerfail");
+					out.println(jsonObject.toString());
+				}
 			} else {
 				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("status", "Registerfail");
+				jsonObject.put("status", "userNamExist");
 				out.println(jsonObject.toString());
 			}
-		} 
-		else{
-			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("status", "userNamExist");
-			out.println(jsonObject.toString());
-		}
 
-		// response.getWriter().append("Served at:
-		// ").append(request.getContextPath());
+			// response.getWriter().append("Served at:
+			// ").append(request.getContextPath());
+		}
+		else if(type.equals("other")) {
+			
+		}
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
