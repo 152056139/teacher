@@ -1,7 +1,13 @@
-package controller;
+package controller.index;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +40,6 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -43,21 +48,47 @@ public class Login extends HttpServlet {
 
 		String username_form = request.getParameter("username");
 		String password_form = request.getParameter("password");
-		System.out.println("username:" + username_form + " password:" + password_form);
+		String js_code = request.getParameter("jscode");
+		System.out.println("username:" + username_form + " password:" + password_form + "code:" + js_code);
 
+		// 给微信发http请求
+		String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wx6a9f4a2764223f63&secret=fed750aeb0b275ac935abc24563f5507&js_code="
+				+ js_code + "&grant_type=authorization_code";
+		String result = "";
+		try {
+			URL httpUrl = new URL(url);
+			URLConnection connection = httpUrl.openConnection();
+			InputStream in = connection.getInputStream();
+			InputStreamReader isr = new InputStreamReader(in, "utf-8");
+			BufferedReader br = new BufferedReader(isr);
+			String line;
+			StringBuilder sb = new StringBuilder();
+			while ((line = br.readLine()) != null) {
+				sb.append(line);
+			}
+			br.close();
+			isr.close();
+			in.close();
+			result = sb.toString();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		System.out.println(result);
+		
 		// create user object
 		Users user = new Users();
-		String password="";
+		String password = "";
 		String id = "";
-		Map<String,String> map=new HashMap<String,String>();
-		 map = user.getPasswordFormMysql(username_form);
-		 password = map.get("password");
-		 id = map.get("id");
-		 System.out.println("数据库中搜索到id="+id);
-		 
-		 
-		 
-		 
+		Map<String, String> map = new HashMap<String, String>();
+		map = user.getPasswordFormMysql(username_form);
+		password = map.get("password");
+		id = map.get("id");
+		System.out.println("数据库中搜索到id=" + id);
+
 		System.out.println("从数据库中搜到的密码:" + password);
 
 		System.out.println("表单传过来的密码：" + password_form);

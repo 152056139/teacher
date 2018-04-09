@@ -1,0 +1,32 @@
+/* pages/index/register/choose_identity/choose_identity.wxss */
+page{
+	background: #eeeeee;
+}
+.container{
+	padding: 0;
+}
+.list {
+	width: 750rpx;
+	background: #ffffff;
+	margin: 20rpx 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.item {
+	width: 710rpx;
+	height: 80rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #eeeeee;
+}
+button {
+	position: absolute;
+	bottom: 20rpx;
+	width: 710rpx;
+	background: #3f99f8;
+	color: #ffffff;
+	margin-left: 20rpx;
+}

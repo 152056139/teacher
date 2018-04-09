@@ -1,4 +1,4 @@
-package controller;
+package controller.index;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -66,10 +66,10 @@ public class Register extends HttpServlet {
 			// ").append(request.getContextPath());
 		}
 		else if(type.equals("other")) {
-			
+
 		}
 	}
-	
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

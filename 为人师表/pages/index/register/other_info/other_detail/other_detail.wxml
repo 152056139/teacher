@@ -1,0 +1,13 @@
+<!--pages/index/register/other_info/other_detail/other_detail.wxml-->
+<view class='container'>
+    <form bindsubmit='ok'>
+        <view class="input">
+            <input type='text' name='value'></input>
+            <icon type='clear'></icon>
+        </view>
+        <view class='button'>
+            <button bindtap="cancel">取消</button>
+            <button formType='submit'>完成</button>
+        </view>
+    </form>
+</view>

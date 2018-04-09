@@ -1,0 +1,46 @@
+<!--pages/index/register/other_info/other_info.wxml-->
+<view class='container'>
+    <form bindsubmit='submit'>
+        <view class='user-icon'>
+            <image src='/image/user-icon.png' mode='aspectFill'></image>
+        </view>
+        <view class='list'>
+            <view class='setting'>
+                <view class='left'>性别</view>
+                <view class='right'>
+                    <picker bindchange="bindPickerChange" value="{{indexSex}}" range="{{arraySex}}" bindchange="bindSexChange">
+                        <view class="picker">
+                            {{arraySex[indexSex]}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class='setting'>
+                <view class='left'>生日</view>
+                <view class='right'>
+                    <picker mode="date" value="{{birthday}}" start="1937-04-12" end="2017-09-01" bindchange="bindDateChange">
+                        <view class="picker">
+                            {{birthday}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class='setting' bindtap='toDetail' data-setting='学号'>
+                <view class='left'>学号</view>
+                <view class='right'>{{id}}</view>
+            </view>
+            <view class='setting' bindtap='toDetail' data-setting='邮箱'>
+                <view class='left'>邮箱</view>
+                <view class='right'>{{email}}</view>
+            </view>
+            <view class='setting' bindtap='toDetail' data-setting='手机号'>
+                <view class='left'>手机号</view>
+                <view class='right'>{{phone}}</view>
+            </view>
+        </view>
+        <view class='button'>
+            <button bindtap='skip'>跳过</button>
+            <button formType='submit'>完成</button>
+        </view>
+    </form>
+</view>

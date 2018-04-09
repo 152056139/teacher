@@ -1,6 +1,7 @@
-// pages/create_course/create_course.js
-var app = getApp()
+// pages/index/register/other_info/other_detail/other_detail.js
 Page({
+	title: "",
+	value: "",
 	/**
 	 * 页面的初始数据
 	 */
@@ -12,9 +13,27 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		console.log(options)
+		this.title = options.setting
+		wx.setNavigationBarTitle({
+			title: options.setting,
+		})
 
 	},
+	cancel: function () {
+		wx.navigateBack({
 
+		})
+	},
+	ok: function (e) {
+		console.log(e.detail.value)
+		// 获取输入的文本
+		this.value = e.detail.value.value
+		
+		wx.navigateBack({
+			url: '/pages/index/register/other_info/other_info',
+		})
+	},
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
@@ -26,7 +45,6 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-
 
 	},
 
@@ -41,7 +59,11 @@ Page({
 	 * 生命周期函数--监听页面卸载
 	 */
 	onUnload: function () {
-
+		// 存入缓存中
+		wx.setStorage({
+			key: this.title,
+			data: this.value,
+		})
 	},
 
 	/**
@@ -63,30 +85,5 @@ Page({
 	 */
 	onShareAppMessage: function () {
 
-	},
-	/**
-	 * 创建班科
-	 */
-	createCourse: function (e) {
-		console.log(e.detail.value)
-
-		var courseName = e.detail.value.course_name
-
-		wx.request({
-			url: app.globalData.requestUrl+ '/teacher/CreateCourse', 
-			data: {
-				course_name: courseName,
-				user_id: app.globalData.userId
-			},
-			header: {
-				'content-type': 'application/json' // 默认值
-			},
-			success: function (res) {
-				console.log(res.data)
-			},
-			fail: function (err) {
-				console.log("创建课程失败" + err)
-			}
-		})
 	}
 })
