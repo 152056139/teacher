@@ -1,13 +1,8 @@
 package database;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class Course {
-	private String courseName;
-	
-	
 	public boolean inSert(String coursename,int userid)
 	{
 		MysqlBase mysqlBase = new MysqlBase();

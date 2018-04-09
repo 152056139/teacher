@@ -1,4 +1,4 @@
-package controller;
+package controller.index;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 import database.Users;
 import net.sf.json.JSONObject;
@@ -37,32 +36,30 @@ public class Register extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-
+		JSONObject status = new JSONObject();
+		
+		// 接收表单的注册信息
 		String username_form = request.getParameter("username");
 		String password_form = request.getParameter("password");
-		int count = new Users().countUserName(username_form);System.out.println(count);
-		if (count == 0)
-		{
+		
+		// 判断是否有重名
+		int count = new Users().countUserName(username_form);
+		System.out.println("register：" + username_form + "在数据库中的个数" + count);
+
+		if (count == 0) {
 			boolean flag = new Users().inSert(username_form, password_form);
 
 			if (flag) {
-				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("status", "RegisterSuccess");
-				out.println(jsonObject.toString());
+				status.put("status", "RegisterSuccess");
+				out.println(status.toString());
 			} else {
-				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("status", "Registerfail");
-				out.println(jsonObject.toString());
+				status.put("status", "Registerfail");
+				out.println(status.toString());
 			}
-		} 
-		else{
-			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("status", "userNamExist");
-			out.println(jsonObject.toString());
+		} else {
+			status.put("status", "userNamExist");
+			out.println(status.toString());
 		}
-
-		// response.getWriter().append("Served at:
-		// ").append(request.getContextPath());
 	}
 
 	/**

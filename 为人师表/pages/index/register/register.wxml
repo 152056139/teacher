@@ -6,7 +6,7 @@
     </view>
     <view class='form'>
         <form bindsubmit="register">
-            <input placeholder-class="phcolor" type='text' placeholder='请输入用户名' name='username'></input>
+            <input placeholder-class="phcolor" type='text' placeholder='请输入用户名' name='username' value='{{userName}}'></input>
             <input placeholder-class="phcolor" type='password' placeholder='请输入密码' name='password'></input>
             <input placeholder-class="phcolor" type='password' placeholder='请重新输入密' name='repeadPassword'></input>
             <button type='default' formType="submit">注册</button>

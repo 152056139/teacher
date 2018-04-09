@@ -1,0 +1,29 @@
+/* pages/index/register/other_info/other_detail/other_detail.wxss */
+page{
+	background: #eeeeee;
+}
+.container{
+	padding: 20rpx 0;
+}
+.input{ 
+	width: 750rpx;
+	display: flex;
+	background: #ffffff;
+	align-items: center;
+}
+.input input{
+	height: 80rpx;
+	width: 650rpx;
+	margin: 0 20rpx;
+}
+
+.button {
+	position: fixed;
+	bottom: 20rpx;
+}
+button {
+	background: #3f99f8;
+	width: 710rpx;
+	margin: 20rpx;
+	color: #ffffff;
+}

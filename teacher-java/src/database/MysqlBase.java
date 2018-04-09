@@ -5,7 +5,7 @@ import java.sql.*;
 public class MysqlBase {
 	// JDBC 驱动名及数据库 URL
 	private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/teacher";
+	private static final String DB_URL = "jdbc:mysql://192.168.1.166:3306/teacher?useSSL=true";
 
 	// 数据库的用户名与密码，需要根据自己的设置
 	private static final String USER = "root";
@@ -16,11 +16,11 @@ public class MysqlBase {
 	 * 创建连接
 	 */
 	public Connection createConnect() {
+		System.out.println("mysqlbase 正在创建数据库连接");
 		Connection conn = null;
 		// 注册 JDBC 驱动
 		try {
 			Class.forName(JDBC_DRIVER);// 打开链接
-			System.out.println("正在连接数据库");
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -29,6 +29,7 @@ public class MysqlBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("mysqlbase 连接创建成功");
 		return conn;
 	}
 
@@ -39,10 +40,10 @@ public class MysqlBase {
 	 * @return
 	 */
 	public ResultSet search(String sql, Connection conn) {
+		System.out.println("mysqlbase 正在执行查询操作");
 		// 执行查询
 		Statement stmt = null;
 		ResultSet resultSet = null;
-		System.out.println("正在执行查询操作");
 		try {
 			stmt = conn.createStatement();
 			resultSet = stmt.executeQuery(sql);
@@ -50,6 +51,7 @@ public class MysqlBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("mysqlbase 查询操作执行成功");
 		return resultSet;
 	}
 

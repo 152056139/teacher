@@ -1,6 +1,10 @@
 {
 	"pages": [
+		"pages/index/register/register",
+		"pages/index/register/other_info/other_info",
+		"pages/index/register/other_info/other_detail/other_detail",
 		"pages/index/login/login",
+		"pages/index/register/choose_identity/choose_identity",
 		"pages/class/work/new_work/new_work",
 		"pages/class/work/work",
 		"pages/class/work/work_detail/work_detail",
@@ -17,7 +21,6 @@
 		"pages/class/chat/chat",
 		"pages/class/course/join_course/join_course",
 		"pages/class/course/create_course/create_course",
-		"pages/index/register/register",
 		"pages/logs/logs",
 		"pages/class/home/teacher/teacher"
 	],
