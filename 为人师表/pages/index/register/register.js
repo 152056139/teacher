@@ -32,7 +32,8 @@ Page({
 					url: app.globalData.requestUrl + '/teacher/Register',
 					data: {
 						username: username,
-						password: password
+						password: password,
+						flag:"base"
 					},
 					header: {
 						'content-type': 'application/json'

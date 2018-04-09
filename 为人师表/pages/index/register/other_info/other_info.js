@@ -13,7 +13,8 @@ Page({
 		// 学号
 		id: "",
 		email: "",
-		phone: ""
+		phone: "",
+		identity:"",
 	},
 	/**
 	 * 改动性别
@@ -65,14 +66,49 @@ Page({
 	 * 点击提交按钮
 	 */
 	submit: function (e) {
+		var that = this
+		wx.getStorage({
+			key: 'user_inentity',
+			success: function (res) { 
+				that.identity = res.data
+			},
+		})
+
 		wx.request({
-			url: app.globalData.requestUrl + '/teacher/Register', 
+			url: app.globalData.requestUrl + '/teacher/Register',
 			data: {
 				sex: this.data.indexSex,
 				birthday: this.data.birthday,
 				schoolid: this.data.id,
 				email: this.data.email,
-				phone: this.data.phone
+				phone: this.data.phone,
+				identity: this.data.identity,
+				flag: "other"
+			},
+			header: {
+				'content-type': 'application/json' // 默认值
+			},
+			success: function (res) {
+				console.log(res.data)
+			}
+		})
+	},
+	/**
+	 * 点击跳过
+	 */
+	skip: function () {
+		var that = this
+		wx.getStorage({
+			key: 'user_inentity',
+			success: function (res) {
+				that.identity = res.data
+			},
+		})
+		wx.request({
+			url: app.globalData.requestUrl + '/teacher/Register',
+			data: {
+				identity: this.data.identity,
+				flag:"onlyIdentity"
 			},
 			header: {
 				'content-type': 'application/json' // 默认值
@@ -92,7 +128,7 @@ Page({
 		// 删掉缓存
 		wx.removeStorage({
 			key: '学号',
-			success: function(res) {},
+			success: function (res) { },
 		})
 		wx.removeStorage({
 			key: '邮箱',
@@ -119,7 +155,7 @@ Page({
 	 */
 	onReady: function () {
 
-		
+
 	},
 
 	/**

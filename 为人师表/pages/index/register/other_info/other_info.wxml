@@ -39,7 +39,7 @@
             </view>
         </view>
         <view class='button'>
-            <button>跳过</button>
+            <button bindtap='skip'>跳过</button>
             <button formType='submit'>完成</button>
         </view>
     </form>
