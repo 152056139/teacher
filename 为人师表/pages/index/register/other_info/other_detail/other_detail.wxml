@@ -2,7 +2,7 @@
 <view class='container'>
     <form bindsubmit='ok'>
         <view class="input">
-            <input type='text' name='value'></input>
+            <input type='text' name='value' auto-focus></input>
             <icon type='clear'></icon>
         </view>
         <view class='button'>

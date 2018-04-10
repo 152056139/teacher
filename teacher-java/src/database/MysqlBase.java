@@ -67,7 +67,6 @@ public class MysqlBase {
 		try {
 			stmt = conn.createStatement();
 			flag = stmt.execute(sql);
-			System.out.println("mysql返回"+flag);
 			flag = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

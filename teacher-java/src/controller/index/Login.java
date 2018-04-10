@@ -84,7 +84,7 @@ public class Login extends HttpServlet {
 		String password = "";
 		String id = "";
 		Map<String, String> map = new HashMap<String, String>();
-		map = user.getPasswordFormMysql(username_form);
+		map = user.getPassword(username_form);
 		password = map.get("password");
 		id = map.get("id");
 		System.out.println("数据库中搜索到id=" + id);
