@@ -2,6 +2,8 @@ package controller.index;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,10 +48,20 @@ public class Register extends HttpServlet {
 			System.out.println(count);
 			if (count == 0) {
 				boolean flag = new Users().inSert(username_form, password_form);
-
+				Map<String, String> map = new HashMap<String, String>();
+				map=new Users().getPasswordFormMysql(username_form);
+                
+               String id= map.get("id");
+                System.out.println(id);
+                
+                
+                
+                
 				if (flag) {
 					JSONObject jsonObject = new JSONObject();
+					jsonObject.put("id", id);
 					jsonObject.put("status", "RegisterSuccess");
+					
 					out.println(jsonObject.toString());
 				} else {
 					JSONObject jsonObject = new JSONObject();
@@ -66,7 +78,23 @@ public class Register extends HttpServlet {
 			// ").append(request.getContextPath());
 		}
 		else if(type.equals("other")) {
+			String sex_form = request.getParameter("sex");
+			String birthday_form = request.getParameter("birthday");
+			String schoolid_form = request.getParameter("schoolid");
+			String email_form = request.getParameter("email");
+			String phone_form = request.getParameter("phone");
+			String identity_form = request.getParameter("identity");
+			String id_form = request.getParameter("id");
 
+		}
+		else if(type.equals("onlyIdentity")) {
+			String id_form = request.getParameter("id");
+			
+			String identity_form = request.getParameter("identity");
+			System.out.println(identity_form);
+			int Identity_form=Integer.parseInt(identity_form);
+			
+			new Users().update_onlyIdentity(Identity_form, id_form);
 		}
 	}
 

@@ -90,4 +90,20 @@ public class Users {
 	}
 	
 	
+	public  void update_other(String sex,String birthday,String schoolid,String email,String phone,String id,String identity) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		mysqlBase.execute("update ",connection);
+		mysqlBase.close(connection);
+		
+	}
+	
+	public  void update_onlyIdentity(int identity,String id) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		mysqlBase.execute("update user set user_identity ='"+identity+"'  where user_id='"+id+"'",connection);
+		mysqlBase.close(connection);
+		
+	}
+	
 }
