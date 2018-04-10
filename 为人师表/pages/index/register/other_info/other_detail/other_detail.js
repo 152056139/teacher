@@ -1,39 +1,63 @@
 // pages/index/register/other_info/other_detail/other_detail.js
 var app = getApp()
 Page({
-	title: "",
-	value: "",
+	title: "",	// 页面标题
+	value: "",	// 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
+		keyboardType: "text",
+		inputValue: "",
+	},
+	/**
+	 * 清除输入框
+	 */
+	clearInput: function () {
+		this.setData({
+			inputValue: ""
+		})
+	},
+	/**
+	 * 点击取消
+	 */
+	cancel: function () {
+		// 直接返回上个页面
+		wx.navigateBack({
+			url: '/pages/index/register/other_info/other_info',
+		})
+	},
+	/**
+	 * 点击完成
+	 */
+	ok: function (e) {
+
+		// 页面退出时，将表单的内容写入内存
+		wx.setStorage({
+			key: this.title,
+			data: e.detail.value.value,
+		})
+		wx.navigateBack({
+			url: '/pages/index/register/other_info/other_info',
+		})
+
 
 	},
-
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		console.log(options)
+		// 获取页面标题并且设置
 		this.title = options.setting
 		wx.setNavigationBarTitle({
 			title: options.setting,
 		})
-
-	},
-	cancel: function () {
-		wx.navigateBack({
-
+		// 获取输入类型，并且弹出相应的键盘
+		this.setData({
+			keyboardType: options.type
 		})
-	},
-	ok: function (e) {
-		console.log(e.detail.value)
-		// 获取输入的文本
-		this.value = e.detail.value.value
-		
-		wx.navigateBack({
-			url: '/pages/index/register/other_info/other_info',
-		})
+
+
 	},
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
@@ -46,7 +70,16 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-
+		// 根据标题获取缓存中的值，直接写到表单中
+		var that = this
+		wx.getStorage({
+			key: this.title,
+			success: function (res) {
+				that.setData({
+					inputValue: res.data
+				})
+			},
+		})
 	},
 
 	/**
@@ -60,11 +93,7 @@ Page({
 	 * 生命周期函数--监听页面卸载
 	 */
 	onUnload: function () {
-		// 存入缓存中
-		wx.setStorage({
-			key: this.title,
-			data: this.value,
-		})
+
 	},
 
 	/**

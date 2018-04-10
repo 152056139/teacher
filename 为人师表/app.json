@@ -1,9 +1,9 @@
 {
 	"pages": [
+		"pages/index/login/login",
+		"pages/index/register/other_info/other_detail/other_detail",
 		"pages/index/register/register",
 		"pages/index/register/other_info/other_info",
-		"pages/index/register/other_info/other_detail/other_detail",
-		"pages/index/login/login",
 		"pages/index/register/choose_identity/choose_identity",
 		"pages/class/work/new_work/new_work",
 		"pages/class/work/work",

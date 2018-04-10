@@ -1,6 +1,5 @@
 // pages/index/register/choose_identity/choose_identity.js
 Page({
-
 	/**
 	 * 页面的初始数据
 	 */
@@ -12,12 +11,19 @@ Page({
 	 * 点击下一步
 	 */
 	next: function () {
-		wx.navigateTo({
-			url: '/pages/index/register/other_info/other_info',
+		// 判断时学生还是老师
+		wx.getStorage({
+			key: 'user_identity',
+			success: function (res) {
+				// 跳转到完善信息页面
+				wx.navigateTo({
+					url: '/pages/index/register/other_info/other_info?identity=' + res.data,
+				})
+			},
 		})
 	},
 	chooseStudent: function () {
-		if(this.data.student == "none"){
+		if (this.data.student == "none") {
 			// 改变界面的对号
 			this.setData({
 				student: "inline",
@@ -25,7 +31,7 @@ Page({
 			})
 			// 将数据放入缓存中
 			wx.setStorage({
-				key: 'user_inentity',
+				key: 'user_identity',
 				data: '0'
 			})
 		}
@@ -38,7 +44,7 @@ Page({
 			})
 			// 将数据放入缓存中
 			wx.setStorage({
-				key: 'user_inentity',
+				key: 'user_identity',
 				data: '1'
 			})
 		}
@@ -52,7 +58,7 @@ Page({
 		})
 		// 给缓存中放入默认用户身份
 		wx.setStorage({
-			key: 'user_inentity',
+			key: 'user_identity',
 			data: '0'
 		})
 	},

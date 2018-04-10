@@ -2,8 +2,8 @@
 <view class='container'>
     <form bindsubmit='ok'>
         <view class="input">
-            <input type='text' name='value' auto-focus></input>
-            <icon type='clear'></icon>
+            <input auto-focus='true' type='{{keyboardType}}' name='value' confirm-type='完成' value='{{inputValue}}'></input>
+            <icon type='clear' bindtap='clearInput'></icon>
         </view>
         <view class='button'>
             <button bindtap="cancel">取消</button>
