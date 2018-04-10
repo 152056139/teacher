@@ -1,4 +1,5 @@
 // pages/index/register/other_info/other_detail/other_detail.js
+var app = getApp()
 Page({
 	title: "",
 	value: "",

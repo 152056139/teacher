@@ -41,7 +41,12 @@ Page({
 					success: function (res) {
 						wx.hideLoading();
 
-						console.log(res.data)
+						console.log("注册请求成功",res.data)
+						// 获得用户id
+						var id = res.data.id
+						app.globalData.userId = id
+						
+						// 获得注册状态
 						var status = res.data.status
 
 						if (status == 'userNamExist') {

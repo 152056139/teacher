@@ -70,28 +70,29 @@ Page({
 		wx.getStorage({
 			key: 'user_inentity',
 			success: function (res) { 
-				that.identity = res.data
+				wx.request({
+					url: app.globalData.requestUrl + '/teacher/Register',
+					data: {
+						flag: "other",
+						sex: this.data.indexSex,
+						birthday: this.data.birthday,
+						schoolid: this.data.id,
+						email: this.data.email,
+						phone: this.data.phone,
+						identity: res.data,
+						id: app.globalData.userId
+					},
+					header: {
+						'content-type': 'application/json' // 默认值
+					},
+					success: function (res) {
+						console.log(res.data)
+					}
+				})
 			},
 		})
 
-		wx.request({
-			url: app.globalData.requestUrl + '/teacher/Register',
-			data: {
-				sex: this.data.indexSex,
-				birthday: this.data.birthday,
-				schoolid: this.data.id,
-				email: this.data.email,
-				phone: this.data.phone,
-				identity: this.data.identity,
-				flag: "other"
-			},
-			header: {
-				'content-type': 'application/json' // 默认值
-			},
-			success: function (res) {
-				console.log(res.data)
-			}
-		})
+		
 	},
 	/**
 	 * 点击跳过
@@ -101,22 +102,24 @@ Page({
 		wx.getStorage({
 			key: 'user_inentity',
 			success: function (res) {
-				that.identity = res.data
+				wx.request({
+					url: app.globalData.requestUrl + '/teacher/Register',
+					data: {
+						flag: "onlyIdentity",
+						identity: res.data,
+						id: app.globalData.userId
+					},
+					header: {
+						'content-type': 'application/json' // 默认值
+					},
+					success: function (res) {
+						console.log(res.data)
+					}
+				})
 			},
 		})
-		wx.request({
-			url: app.globalData.requestUrl + '/teacher/Register',
-			data: {
-				identity: this.data.identity,
-				flag:"onlyIdentity"
-			},
-			header: {
-				'content-type': 'application/json' // 默认值
-			},
-			success: function (res) {
-				console.log(res.data)
-			}
-		})
+
+		
 	},
 	/**
 	 * 生命周期函数--监听页面加载

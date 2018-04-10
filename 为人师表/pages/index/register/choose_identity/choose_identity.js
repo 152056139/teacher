@@ -26,7 +26,7 @@ Page({
 			// 将数据放入缓存中
 			wx.setStorage({
 				key: 'user_inentity',
-				data: 'student'
+				data: '0'
 			})
 		}
 	},
@@ -39,7 +39,7 @@ Page({
 			// 将数据放入缓存中
 			wx.setStorage({
 				key: 'user_inentity',
-				data: 'teacher'
+				data: '1'
 			})
 		}
 	},
@@ -53,7 +53,7 @@ Page({
 		// 给缓存中放入默认用户身份
 		wx.setStorage({
 			key: 'user_inentity',
-			data: 'student'
+			data: '0'
 		})
 	},
 
