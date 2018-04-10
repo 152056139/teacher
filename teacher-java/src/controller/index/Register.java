@@ -89,7 +89,6 @@ public class Register extends HttpServlet {
 		}
 		else if(type.equals("onlyIdentity")) {
 			String id_form = request.getParameter("id");
-			
 			String identity_form = request.getParameter("identity");
 			System.out.println(identity_form);
 			int Identity_form=Integer.parseInt(identity_form);
