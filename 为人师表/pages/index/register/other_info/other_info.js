@@ -74,11 +74,11 @@ Page({
 					url: app.globalData.requestUrl + '/teacher/Register',
 					data: {
 						flag: "other",
-						sex: this.data.indexSex,
-						birthday: this.data.birthday,
-						schoolid: this.data.id,
-						email: this.data.email,
-						phone: this.data.phone,
+						sex: that.data.indexSex,
+						birthday: that.data.birthday,
+						schoolid: that.data.id,
+						email: that.data.email,
+						phone: that.data.phone,
 						identity: res.data,
 						id: app.globalData.userId
 					},

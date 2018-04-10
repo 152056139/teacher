@@ -2,6 +2,11 @@ package controller.index;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.jni.User;
 
 import database.Users;
 import net.sf.json.JSONObject;
@@ -41,27 +48,25 @@ public class Register extends HttpServlet {
 		String type = request.getParameter("flag");
 		System.out.println(type);
 
+		// 判断基本注册
 		if (type.equals("base")) {
 			String username_form = request.getParameter("username");
 			String password_form = request.getParameter("password");
 			int count = new Users().countUserName(username_form);
 			System.out.println(count);
 			if (count == 0) {
-				boolean flag = new Users().inSert(username_form, password_form);
+				boolean flag = new Users().register(username_form, password_form);
 				Map<String, String> map = new HashMap<String, String>();
-				map=new Users().getPasswordFormMysql(username_form);
-                
-               String id= map.get("id");
-                System.out.println(id);
-                
-                
-                
-                
+				map = new Users().getPassword(username_form);
+
+				String id = map.get("id");
+				System.out.println(id);
+
 				if (flag) {
 					JSONObject jsonObject = new JSONObject();
 					jsonObject.put("id", id);
 					jsonObject.put("status", "RegisterSuccess");
-					
+
 					out.println(jsonObject.toString());
 				} else {
 					JSONObject jsonObject = new JSONObject();
@@ -73,11 +78,9 @@ public class Register extends HttpServlet {
 				jsonObject.put("status", "userNamExist");
 				out.println(jsonObject.toString());
 			}
-
-			// response.getWriter().append("Served at:
-			// ").append(request.getContextPath());
 		}
-		else if(type.equals("other")) {
+		// 判断其他信息
+		else if (type.equals("other")) {
 			String sex_form = request.getParameter("sex");
 			String birthday_form = request.getParameter("birthday");
 			String schoolid_form = request.getParameter("schoolid");
@@ -86,17 +89,37 @@ public class Register extends HttpServlet {
 			String identity_form = request.getParameter("identity");
 			String id_form = request.getParameter("id");
 
+
+			int id = Integer.parseInt(id_form);
+			int identity = Integer.parseInt(identity_form);
+			// 转化sex
+			int sex = Integer.parseInt(sex_form);
+			// 转化birthday
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			try {
+				date = format.parse(birthday_form);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Timestamp birthday = new Timestamp(date.getTime());
+			String email = email_form;
+			String phone = phone_form;
+			int schoolid = Integer.parseInt(schoolid_form);
+			new Users().update_other(identity, sex, birthday, schoolid, email, phone, identity);
 		}
-		else if(type.equals("onlyIdentity")) {
+		// 判断只有身份
+		else if (type.equals("onlyIdentity")) {
 			String id_form = request.getParameter("id");
+
 			String identity_form = request.getParameter("identity");
 			System.out.println(identity_form);
-			int Identity_form=Integer.parseInt(identity_form);
-			
+			int Identity_form = Integer.parseInt(identity_form);
+
 			new Users().update_onlyIdentity(Identity_form, id_form);
 		}
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
