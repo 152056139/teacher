@@ -27,7 +27,7 @@ import net.sf.json.JSONObject;
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+                  
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -48,7 +48,7 @@ public class Register extends HttpServlet {
 		String type = request.getParameter("flag");
 		System.out.println(type);
 
-		// 判断基本注册
+		// 判断基本注册(账号密码)
 		if (type.equals("base")) {
 			String username_form = request.getParameter("username");
 			String password_form = request.getParameter("password");
@@ -79,7 +79,7 @@ public class Register extends HttpServlet {
 				out.println(jsonObject.toString());
 			}
 		}
-		// 判断其他信息
+		// 判断其他信息（教师、学生、电话、email、生日、性别、学号、头像）
 		else if (type.equals("other")) {
 			String sex_form = request.getParameter("sex");
 			String birthday_form = request.getParameter("birthday");
@@ -88,9 +88,9 @@ public class Register extends HttpServlet {
 			String phone_form = request.getParameter("phone");
 			String identity_form = request.getParameter("identity");
 			String id_form = request.getParameter("id");
-
-
+            //转化id
 			int id = Integer.parseInt(id_form);
+			//转化身份
 			int identity = Integer.parseInt(identity_form);
 			// 转化sex
 			int sex = Integer.parseInt(sex_form);
@@ -106,15 +106,18 @@ public class Register extends HttpServlet {
 			Timestamp birthday = new Timestamp(date.getTime());
 			String email = email_form;
 			String phone = phone_form;
+			//转化学号
 			int schoolid = Integer.parseInt(schoolid_form);
-			new Users().update_other(identity, sex, birthday, schoolid, email, phone, identity);
+			//头像
+			new Users().update_other(id, sex, birthday, schoolid, email, phone, identity);
 		}
-		// 判断只有身份
+		// 判断只有身份（教师、学生）
 		else if (type.equals("onlyIdentity")) {
 			String id_form = request.getParameter("id");
 
 			String identity_form = request.getParameter("identity");
 			System.out.println(identity_form);
+			
 			int Identity_form = Integer.parseInt(identity_form);
 
 			new Users().update_onlyIdentity(Identity_form, id_form);

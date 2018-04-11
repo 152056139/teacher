@@ -107,6 +107,7 @@ public class Users {
 				+ " WHERE user_id='"+id+"';";
 		mysqlBase.execute(sql, connection);
 		mysqlBase.close(connection);
+		System.out.println(sql);
 		System.out.println("注册，其他信息插入成功"+sex+birthday+schoolid+email+phone+identity+id);
 	}
 
