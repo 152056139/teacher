@@ -106,7 +106,7 @@ public class Register extends HttpServlet {
 			Timestamp birthday = new Timestamp(date.getTime());
 			String email = email_form;
 			String phone = phone_form;
-			int schoolid = Integer.parseInt(schoolid_form);
+			String schoolid = schoolid_form;
 			new Users().update_other(identity, sex, birthday, schoolid, email, phone, identity);
 		}
 		// 判断只有身份
