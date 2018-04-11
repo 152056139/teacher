@@ -3,7 +3,6 @@ package database;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +16,69 @@ public class Users {
 	private int userSex;
 	private String userEmail;
 	private String userPhone;
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
+	public Timestamp getUserBirthday() {
+		return userBirthday;
+	}
+
+	public void setUserBirthday(Timestamp userBirthday) {
+		this.userBirthday = userBirthday;
+	}
+
+	public int getUserIdentity() {
+		return userIdentity;
+	}
+
+	public void setUserIdentity(int userIdentity) {
+		this.userIdentity = userIdentity;
+	}
+
+	public int getUserSex() {
+		return userSex;
+	}
+
+	public void setUserSex(int userSex) {
+		this.userSex = userSex;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public String getUserPhone() {
+		return userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
 
 	public Users() {
 

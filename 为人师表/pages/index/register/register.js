@@ -8,6 +8,16 @@ Page({
 		userName: ""
 	},
 	/**
+	 * 点击选择头像
+	 */
+	chooseImage: function (e) {
+		wx.chooseImage({
+			success: function(res) {
+				
+			},
+		})
+	},
+	/**
 	 * 点击注册
 	 */
 	register: function (e) {

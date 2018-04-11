@@ -2,7 +2,6 @@ package controller.index;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.jni.User;
 
 import database.Users;
 import net.sf.json.JSONObject;
@@ -107,7 +105,7 @@ public class Register extends HttpServlet {
 			String email = email_form;
 			String phone = phone_form;
 			//转化学号
-			int schoolid = Integer.parseInt(schoolid_form);
+			String schoolid = schoolid_form;
 			//头像
 			new Users().update_other(id, sex, birthday, schoolid, email, phone, identity);
 		}
