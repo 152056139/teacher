@@ -7,21 +7,26 @@ Page({
 	data: {
 		userName: ""
 	},
+	/**
+	 * 点击注册
+	 */
 	register: function (e) {
+		// 显示loading
 		wx.showLoading({
 			title: '正在注册...',
 		})
-		console.log(e.detail.value);
+		// 获取表单信息
 		var username = e.detail.value.username
 		var password = e.detail.value.password
 		var repeatPassword = e.detail.value.repeadPassword
-
+		// 检测表单信息是否为空
 		if (username == "" || password == "" || repeatPassword == "") {
 			wx.showToast({
 				title: '用户名或密码不能为空',
 				icon: 'none'
 			})
 		} else {
+			// 判断两次输入密码是否一致
 			if (password != repeatPassword) {
 				wx.showToast({
 					title: '两次输入密码不一致',
@@ -33,22 +38,30 @@ Page({
 					data: {
 						username: username,
 						password: password,
-						flag:"base"
+						flag: "base"
 					},
 					header: {
 						'content-type': 'application/json'
 					},
 					success: function (res) {
+						// 成功后隐藏loading
 						wx.hideLoading();
 
-						console.log("注册请求成功",res.data)
-						// 获得用户id
+						// 获得用户id,存入全局变量，存入缓存
 						var id = res.data.id
 						app.globalData.userId = id
-						
-						// 获得注册状态
-						var status = res.data.status
+						wx.setStorage({
+							key: 'USERID',
+							data: id,
+						})
+						wx.setStorage({
+							key: 'STATUS',
+							data: 'login',
+						})
 
+						// 获得服务器返回的状态码
+						var status = res.data.status
+						// 用户名被占用
 						if (status == 'userNamExist') {
 							wx.showModal({
 								title: '注册失败',
@@ -61,14 +74,18 @@ Page({
 									}
 								}
 							})
-						} else if (status == 'RegisterSuccess') {
+						}
+						// 注册成功
+						 else if (status == 'RegisterSuccess') {
 							wx.reLaunch({
 								url: '/pages/index/register/choose_identity/choose_identity'
 							})
-						} else {
+						}
+						// 服务器返回注册失败
+						 else {
 							wx.showModal({
 								title: '注册失败',
-								content: '注册失败，请检查用户名或密码中是否包含非法字符后重试。',
+								content: '注册失败，请检查用户名或密码中是否包含非法字符，或联系管理人员检查系统是否崩溃。',
 							})
 						}
 					},

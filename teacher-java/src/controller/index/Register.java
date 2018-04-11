@@ -27,7 +27,7 @@ import net.sf.json.JSONObject;
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-                  
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -117,7 +117,7 @@ public class Register extends HttpServlet {
 
 			String identity_form = request.getParameter("identity");
 			System.out.println(identity_form);
-			
+
 			int Identity_form = Integer.parseInt(identity_form);
 
 			new Users().update_onlyIdentity(Identity_form, id_form);

@@ -5,22 +5,19 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		// 性别
-		arraySex: ['男', '女'],
-		indexSex: 0,
-		// 生日
+		textIdentity:"学号",
+		arraySex: ['男', '女'],	// 性别
+		indexSex: 0,	// 性别数组角标
 		birthday: '1997-05-14',
-		// 学号
-		id: "",
+		id: "",	// 学号
 		email: "",
 		phone: "",
-		identity:"",
+		identity: "",
 	},
 	/**
 	 * 改动性别
 	 */
 	bindSexChange: function (e) {
-		console.log(e.detail.value)
 		// 0是男，1是女
 		if (e.detail.value == 0) {
 			this.setData({
@@ -39,8 +36,6 @@ Page({
 				data: '1',
 			})
 		}
-
-
 	},
 	/**
 	 * 改动时间
@@ -59,17 +54,20 @@ Page({
 	 */
 	toDetail: function (e) {
 		wx.navigateTo({
-			url: '/pages/index/register/other_info/other_detail/other_detail?setting=' + e.currentTarget.dataset.setting,
+			url: '/pages/index/register/other_info/other_detail/other_detail?setting=' + e.currentTarget.dataset.setting + '&type=' + e.currentTarget.dataset.type,
 		})
 	},
 	/**
 	 * 点击提交按钮
 	 */
 	submit: function (e) {
+		// 判断信息的填入情况
+
+		// 将其他信息发送给服务器
 		var that = this
 		wx.getStorage({
-			key: 'user_inentity',
-			success: function (res) { 
+			key: 'user_identity',
+			success: function (res) {
 				wx.request({
 					url: app.globalData.requestUrl + '/teacher/Register',
 					data: {
@@ -83,7 +81,7 @@ Page({
 						id: app.globalData.userId
 					},
 					header: {
-						'content-type': 'application/json' // 默认值
+						'content-type': 'application/json' 
 					},
 					success: function (res) {
 						console.log(res.data)
@@ -91,8 +89,9 @@ Page({
 				})
 			},
 		})
-
-		
+		wx.reLaunch({
+			url: '/pages/index/index',
+		})
 	},
 	/**
 	 * 点击跳过
@@ -118,35 +117,34 @@ Page({
 				})
 			},
 		})
-
-		
+		wx.reLaunch({
+			url: '/pages/index/index',
+		})
 	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		// 设置显示学号还是工号
+		if(options.identity=='0'){
+			this.setData({
+				textIdentity:"学号"
+			})
+		}else if(options.identity=='1'){
+			this.setData({
+				textIdentity: "工号"
+			})
+		}
+		// 设置标题信息
 		wx.setNavigationBarTitle({
 			title: '详细信息',
 		})
-		// 删掉缓存
-		wx.removeStorage({
-			key: '学号',
-			success: function (res) { },
-		})
-		wx.removeStorage({
-			key: '邮箱',
-			success: function (res) { },
-		})
-		wx.removeStorage({
-			key: '手机号',
-			success: function (res) { },
-		})
-		// 性别默认男
+
+		// 加载页面时默认填充性别和生日
 		wx.setStorage({
 			key: 'sex',
 			data: '0',
 		})
-		// 生日默认
 		wx.setStorage({
 			key: 'birthday',
 			data: this.data.birthday,
@@ -169,7 +167,6 @@ Page({
 		wx.getStorage({
 			key: '学号',
 			success: function (res) {
-				console.log('other_info显示：学号为', res)
 				that.setData({
 					id: res.data
 				})
@@ -178,7 +175,6 @@ Page({
 		wx.getStorage({
 			key: '邮箱',
 			success: function (res) {
-				console.log('other_info显示：邮箱为', res)
 				that.setData({
 					email: res.data
 				})
@@ -187,7 +183,6 @@ Page({
 		wx.getStorage({
 			key: '手机号',
 			success: function (res) {
-				console.log('other_info显示：手机号为', res)
 				that.setData({
 					phone: res.data
 				})
@@ -206,6 +201,31 @@ Page({
 	 * 生命周期函数--监听页面卸载
 	 */
 	onUnload: function () {
+		//页面卸载后删除缓存中的值
+		wx.removeStorage({
+			key: 'user_identity',
+			success: function (res) { },
+		})
+		wx.removeStorage({
+			key: 'sex',
+			success: function (res) { },
+		})
+		wx.removeStorage({
+			key: 'birthday',
+			success: function (res) { },
+		})
+		wx.removeStorage({
+			key: '学号',
+			success: function (res) { },
+		})
+		wx.removeStorage({
+			key: '邮箱',
+			success: function (res) { },
+		})
+		wx.removeStorage({
+			key: '手机号',
+			success: function (res) { },
+		})
 
 	},
 

@@ -25,15 +25,15 @@
                     </picker>
                 </view>
             </view>
-            <view class='setting' bindtap='toDetail' data-setting='学号'>
-                <view class='left'>学号</view>
+            <view class='setting' bindtap='toDetail' data-setting='学号' data-type='number'>
+                <view class='left'>{{textIdentity}}</view>
                 <view class='right'>{{id}}</view>
             </view>
-            <view class='setting' bindtap='toDetail' data-setting='邮箱'>
+            <view class='setting' bindtap='toDetail' data-setting='邮箱' data-type='text'>
                 <view class='left'>邮箱</view>
                 <view class='right'>{{email}}</view>
             </view>
-            <view class='setting' bindtap='toDetail' data-setting='手机号'>
+            <view class='setting' bindtap='toDetail' data-setting='手机号' data-type='number'>
                 <view class='left'>手机号</view>
                 <view class='right'>{{phone}}</view>
             </view>

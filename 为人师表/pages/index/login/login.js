@@ -25,6 +25,7 @@ Page({
 		// 微信登录
 		wx.login({
 			success: function (res) {
+				// 判断登陆码是否获取到
 				if (res.code) {
 					// 获取表单数据并检测
 					username = e.detail.value.username
@@ -57,30 +58,40 @@ Page({
 								if (status == "success") {
 									console.log("login success")
 
-									// 讲个人信息加载如全局变量
+									// 将个人信息加载如全局变量存入缓存
 									app.globalData.userId = id
-
+									wx.setStorage({
+										key: 'USERID',
+										data: id,
+									})
+									// 登陆成功后隐藏loading
 									wx.hideLoading()
 
 									//跳转到主页
 									wx.redirectTo({
 										url: '/pages/index/index'
 									})
-								} else if (status == "not found user") {
+								}
+								// 用户名不存在
+								 else if (status == "not found user") {
 									console.log("not found user")
 									wx.showToast({
 										title: '没有该用户',
 										icon: 'none',
 										duration: 2000
 									})
-								} else if (status == "wrong password") {
+								}
+								// 密码错误
+								 else if (status == "wrong password") {
 									console.log("wrong password")
 									wx.showToast({
 										title: '密码错误',
 										icon: 'none',
 										duration: 2000
 									})
-								} else {
+								}
+								// 服务器操作失败
+								 else {
 									console.log("login fail")
 									wx.showToast({
 										title: '登陆失败',

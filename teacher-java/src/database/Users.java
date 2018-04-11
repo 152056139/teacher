@@ -93,7 +93,7 @@ public class Users {
 		return true;
 	}
 
-	public void update_other(int id, int sex, Timestamp birthday, int schoolid, String email, String phone,
+	public void update_other(int id, int sex, Timestamp birthday, String schoolid, String email, String phone,
 			int identity) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
