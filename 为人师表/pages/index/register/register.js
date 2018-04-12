@@ -5,26 +5,19 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		userName: ""
+		userName: "",
+		user_icon: "/image/user-icon.png",
 	},
 	/**
 	 * 点击选择头像
 	 */
 	chooseImage: function (e) {
+		var that = this
 		wx.chooseImage({
 			success: function (res) {
-				var tempFilePaths = res.tempFilePaths
-				wx.uploadFile({
-					url: 'http://localhost:6274/uploadfile/UploadServlet', //仅为示例，非真实的接口地址
-					filePath: tempFilePaths[0],
-					name: 'file',
-					formData: {
-						'user': 'test'
-					},
-					success: function (res) {
-						var data = res.data
-						//do something
-					}
+				that.tempFilePaths = res.tempFilePaths
+				that.setData({
+					user_icon: res.tempFilePaths[0]
 				})
 			}
 		})
@@ -55,16 +48,29 @@ Page({
 					icon: 'none'
 				})
 			} else {
-				wx.request({
+				wx.uploadFile({
 					url: app.globalData.requestUrl + '/teacher/Register',
+					filePath: this.tempFilePaths[0],
+					name: 'file',
+					formData: {
+
+					},
+					success: function(res){
+						console.log(res)
+					}
+				})
+
+				wx.request({
+					url: app.globalData.requestUrl + '/teacher/UploadFile',
 					data: {
 						username: username,
 						password: password,
 						flag: "base"
 					},
 					header: {
-						'content-type': 'application/json'
+						'content-type': 'application/x-www-form-urlencoded'
 					},
+					method: 'POST',
 					success: function (res) {
 						// 成功后隐藏loading
 						wx.hideLoading();
