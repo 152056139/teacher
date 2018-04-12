@@ -12,9 +12,21 @@ Page({
 	 */
 	chooseImage: function (e) {
 		wx.chooseImage({
-			success: function(res) {
-				
-			},
+			success: function (res) {
+				var tempFilePaths = res.tempFilePaths
+				wx.uploadFile({
+					url: 'http://localhost:6274/uploadfile/UploadServlet', //仅为示例，非真实的接口地址
+					filePath: tempFilePaths[0],
+					name: 'file',
+					formData: {
+						'user': 'test'
+					},
+					success: function (res) {
+						var data = res.data
+						//do something
+					}
+				})
+			}
 		})
 	},
 	/**
@@ -86,13 +98,13 @@ Page({
 							})
 						}
 						// 注册成功
-						 else if (status == 'RegisterSuccess') {
+						else if (status == 'RegisterSuccess') {
 							wx.reLaunch({
 								url: '/pages/index/register/choose_identity/choose_identity'
 							})
 						}
 						// 服务器返回注册失败
-						 else {
+						else {
 							wx.showModal({
 								title: '注册失败',
 								content: '注册失败，请检查用户名或密码中是否包含非法字符，或联系管理人员检查系统是否崩溃。',

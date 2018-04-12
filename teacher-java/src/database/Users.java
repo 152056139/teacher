@@ -7,6 +7,8 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
+import common.MysqlBase;
+
 public class Users {
 	private int userId;
 	private String userName;
@@ -16,6 +18,16 @@ public class Users {
 	private int userSex;
 	private String userEmail;
 	private String userPhone;
+	private String userSchoolId;
+	
+	public String getUserSchoolId() {
+		return userSchoolId;
+	}
+
+	public void setUserSchoolId(String userSchoolId) {
+		this.userSchoolId = userSchoolId;
+	}
+
 	public int getUserId() {
 		return userId;
 	}
