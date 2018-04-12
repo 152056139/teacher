@@ -2,7 +2,7 @@
 <view class='container'>
     <image class='background' src='/image/background.jpg' mode='widthFix'></image>
     <view class='icon'>
-        <image src='/image/user-icon.png' mode='aspectFit' bindtap='chooseImage'></image>
+        <image src='{{user_icon}}' mode='aspectFill' bindtap='chooseImage'></image>
     </view>
     <view class='form'>
         <form bindsubmit="register">
