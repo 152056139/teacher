@@ -9,10 +9,6 @@ class TestUser {
 	void setUp() throws Exception {
 	}
 
-	@Test
-	void testInsert() {
-		Users users = new Users("username", "userPassword", "1997-10-09", "0", "0", "116@qq.com", "110", "123", "....");
-		users.insert();
-	}
+	
 
 }

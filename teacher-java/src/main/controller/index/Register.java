@@ -46,9 +46,70 @@ public class Register extends HttpServlet {
 		System.out.println(type);
 
 		// 判断基本注册(账号密码)
-		if (type.equals("base")) {
+
+		// 判断其他信息（教师、学生、电话、email、生日、性别、学号、头像）
+		if (type.equals("other")) {
+			String sex_form = request.getParameter("sex");
+			String birthday_form = request.getParameter("birthday");
+			String schoolid_form = request.getParameter("schoolid");
+			String email_form = request.getParameter("email");
+			String phone_form = request.getParameter("phone");
+			String identity_form = request.getParameter("identity");
+			String id_form = request.getParameter("id");
+			// 转化id
+			int id = Integer.parseInt(id_form);
+			// 转化身份
+			int identity = Integer.parseInt(identity_form);
+			// 转化sex
+			int sex = Integer.parseInt(sex_form);
+			// 转化birthday
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			try {
+				date = format.parse(birthday_form);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Timestamp birthday = new Timestamp(date.getTime());
+			String email = email_form;
+			String phone = phone_form;
+			// 转化学号
+			String schoolid = schoolid_form;
+			// 头像
+
+			new Users().update_other(id, sex, birthday, schoolid, email, phone, identity);
+		}
+		// 判断只有身份（教师、学生）
+		else if (type.equals("onlyIdentity")) {
+			String id_form = request.getParameter("id");
+
+			String identity_form = request.getParameter("identity");
+			System.out.println(identity_form);
+
+			int Identity_form = Integer.parseInt(identity_form);
+
+			new Users().update_onlyIdentity(Identity_form, id_form);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		String type = request.getParameter("flag");
+		System.out.println(type);
+		if (type.equals("base")) {// 获取表单数据（账号、密码）
 			String username_form = request.getParameter("username");
 			String password_form = request.getParameter("password");
+			
+			// 检测数据库中是否已含有该用户名
 			int count = new Users().countUserName(username_form);
 			System.out.println(count);
 			if (count == 0) {
@@ -76,59 +137,7 @@ public class Register extends HttpServlet {
 				out.println(jsonObject.toString());
 			}
 		}
-		// 判断其他信息（教师、学生、电话、email、生日、性别、学号、头像）
-		else if (type.equals("other")) {
-			String sex_form = request.getParameter("sex");
-			String birthday_form = request.getParameter("birthday");
-			String schoolid_form = request.getParameter("schoolid");
-			String email_form = request.getParameter("email");
-			String phone_form = request.getParameter("phone");
-			String identity_form = request.getParameter("identity");
-			String id_form = request.getParameter("id");
-            //转化id
-			int id = Integer.parseInt(id_form);
-			//转化身份
-			int identity = Integer.parseInt(identity_form);
-			// 转化sex
-			int sex = Integer.parseInt(sex_form);
-			// 转化birthday
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-			Date date = null;
-			try {
-				date = format.parse(birthday_form);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Timestamp birthday = new Timestamp(date.getTime());
-			String email = email_form;
-			String phone = phone_form;
-			//转化学号
-			String schoolid = schoolid_form;
-			//头像
-			new Users().update_other(id, sex, birthday, schoolid, email, phone, identity);
-		}
-		// 判断只有身份（教师、学生）
-		else if (type.equals("onlyIdentity")) {
-			String id_form = request.getParameter("id");
 
-			String identity_form = request.getParameter("identity");
-			System.out.println(identity_form);
-
-			int Identity_form = Integer.parseInt(identity_form);
-
-			new Users().update_onlyIdentity(Identity_form, id_form);
-		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
