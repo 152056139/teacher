@@ -1,8 +1,8 @@
-package database;
+package main.database;
 
 import java.sql.Connection;
 
-import common.MysqlBase;
+import main.common.MysqlBase;
 
 public class Course {
 	public boolean inSert(String coursename,int userid)

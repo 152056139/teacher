@@ -1,4 +1,4 @@
-package controller.classes;
+package main.controller.classes;
 
 import java.io.IOException;
 import javax.servlet.ServletConfig;

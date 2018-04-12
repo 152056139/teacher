@@ -1,25 +1,47 @@
-package database;
+package main.database;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
-import common.MysqlBase;
+import main.common.MysqlBase;
 
 public class Users {
 	private int userId;
 	private String userName;
 	private String userPassword;
-	private Timestamp userBirthday;
+	private String userBirthday;
 	private int userIdentity;
 	private int userSex;
 	private String userEmail;
 	private String userPhone;
 	private String userSchoolId;
-	
+	private String userImage;
+
+
+	public String getUserBirthday() {
+		return userBirthday;
+	}
+	public void setUserBirthday(String userBirthday) {
+		this.userBirthday = userBirthday;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getUserImage() {
+		return userImage;
+	}
+
+	public void setUserImage(String userImage) {
+		this.userImage = userImage;
+	}
+
 	public String getUserSchoolId() {
 		return userSchoolId;
 	}
@@ -27,13 +49,8 @@ public class Users {
 	public void setUserSchoolId(String userSchoolId) {
 		this.userSchoolId = userSchoolId;
 	}
-
 	public int getUserId() {
 		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public String getUserName() {
@@ -52,13 +69,7 @@ public class Users {
 		this.userPassword = userPassword;
 	}
 
-	public Timestamp getUserBirthday() {
-		return userBirthday;
-	}
 
-	public void setUserBirthday(Timestamp userBirthday) {
-		this.userBirthday = userBirthday;
-	}
 
 	public int getUserIdentity() {
 		return userIdentity;
@@ -94,6 +105,19 @@ public class Users {
 
 	public Users() {
 
+	}
+	public Users(String userName, String userPassword, String userBirthday, String userIdentity,
+			String userSex, String userEmail, String userPhone, String userSchoolId, String userImage) {
+		super();
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.userIdentity = Integer.parseInt(userIdentity);
+		this.userSex = Integer.parseInt(userSex);
+		this.userEmail = userEmail;
+		this.userPhone = userPhone;
+		this.userSchoolId = userSchoolId;
+		this.userImage = userImage;
+		this.userBirthday = userBirthday;
 	}
 
 	/**
@@ -171,18 +195,13 @@ public class Users {
 			int identity) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
-		String sql = "UPDATE user SET"
-				+ " user_sex='"+sex+"',"
-				+ " user_birthday='"+birthday+"',"
-				+ " user_schoolid='"+schoolid+"',"
-				+ " user_email='"+email+"',"
-				+ " user_phone='"+phone+"',"
-				+ " user_identity='"+identity+"'"
-				+ " WHERE user_id='"+id+"';";
+		String sql = "UPDATE user SET" + " user_sex='" + sex + "'," + " user_birthday='" + birthday + "',"
+				+ " user_schoolid='" + schoolid + "'," + " user_email='" + email + "'," + " user_phone='" + phone + "',"
+				+ " user_identity='" + identity + "'" + " WHERE user_id='" + id + "';";
 		mysqlBase.execute(sql, connection);
 		mysqlBase.close(connection);
 		System.out.println(sql);
-		System.out.println("注册，其他信息插入成功"+sex+birthday+schoolid+email+phone+identity+id);
+		System.out.println("注册，其他信息插入成功" + sex + birthday + schoolid + email + phone + identity + id);
 	}
 
 	public void update_onlyIdentity(int identity, String id) {

@@ -1,4 +1,4 @@
-package controller.index;
+package main.controller.index;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,8 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import database.*;
+import main.database.*;
 import net.sf.json.JSONObject;
 
 /**
