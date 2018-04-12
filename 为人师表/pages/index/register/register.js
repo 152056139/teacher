@@ -6,7 +6,8 @@ Page({
 	 */
 	data: {
 		userName: "",
-		user_icon: "/image/user-icon.png",
+		user_icon: "",
+		background: ""
 	},
 	/**
 	 * 点击选择头像
@@ -127,8 +128,27 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		var that = this
 		wx.setNavigationBarTitle({
 			title: '注册'
+		})
+		wx.downloadFile({
+			url: "http://localhost:8080/teacher/image/user-icon.png",
+			success: function (res) {
+				console.log(res)
+				that.setData({
+					user_icon:res.tempFilePath
+				})
+			}
+		})
+		wx.downloadFile({
+			url: "http://localhost:8080/teacher/image/background.jpg",
+			success: function (res) {
+				console.log(res)
+				that.setData({
+					background: res.tempFilePath
+				})
+			}
 		})
 	},
 
