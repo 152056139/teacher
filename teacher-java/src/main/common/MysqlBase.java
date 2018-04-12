@@ -16,7 +16,6 @@ public class MysqlBase {
 	 * 创建连接
 	 */
 	public Connection createConnect() {
-		System.out.println("mysqlbase 正在创建数据库连接");
 		Connection conn = null;
 		// 注册 JDBC 驱动
 		try {
@@ -29,7 +28,6 @@ public class MysqlBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("mysqlbase 连接创建成功");
 		return conn;
 	}
 
@@ -40,7 +38,6 @@ public class MysqlBase {
 	 * @return
 	 */
 	public ResultSet search(String sql, Connection conn) {
-		System.out.println("mysqlbase 正在执行查询操作");
 		// 执行查询
 		Statement stmt = null;
 		ResultSet resultSet = null;
@@ -51,7 +48,6 @@ public class MysqlBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("mysqlbase 查询操作执行成功");
 		return resultSet;
 	}
 
@@ -61,7 +57,6 @@ public class MysqlBase {
 	 * @param sql
 	 */
 	public boolean execute(String sql, Connection conn) {
-		System.out.println("正在执行插入，删除，修改操作");
 		Statement stmt = null;
 		boolean flag = false;
 		try {
@@ -82,7 +77,5 @@ public class MysqlBase {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		System.out.println("关闭成功");
 	}
 }

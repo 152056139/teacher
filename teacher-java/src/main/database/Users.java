@@ -1,11 +1,9 @@
 package main.database;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -182,10 +180,10 @@ public class Users {
 	 * @param password
 	 * @return
 	 */
-	public boolean register(String username, String password) {
+	public boolean register(String username, String password, String path) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
-		mysqlBase.execute("insert into user (user_name,user_password) values ('" + username + "','" + password + "')",
+		mysqlBase.execute("insert into user (user_name, user_password, user_image) values ('" + username + "','" + password + "','" + path + "')",
 				connection);
 		mysqlBase.close(connection);
 		return true;
@@ -200,7 +198,6 @@ public class Users {
 				+ " user_identity='" + identity + "'" + " WHERE user_id='" + id + "';";
 		mysqlBase.execute(sql, connection);
 		mysqlBase.close(connection);
-		System.out.println(sql);
 		System.out.println("注册，其他信息插入成功" + sex + birthday + schoolid + email + phone + identity + id);
 	}
 

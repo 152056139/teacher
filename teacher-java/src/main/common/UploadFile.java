@@ -2,12 +2,11 @@ package main.common;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,13 +14,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-/**
- * Servlet implementation class UploadServlet
- */
-@WebServlet("/UploadFile")
-public class UploadFile extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
+public class UploadFile {
 	// 上传文件存储目录
 	private static final String UPLOAD_DIRECTORY = "upload";
 
@@ -30,29 +23,11 @@ public class UploadFile extends HttpServlet {
 	private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
 	private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MBÏ
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public UploadFile() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	public Map<String, String> uploadFile (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub// 检测是否为多媒体上传
-		if (!ServletFileUpload.isMultipartContent(request)) {
-			// 如果不是则停止
-			PrintWriter writer = response.getWriter();
-			writer.println("Error: 表单必须包含 enctype=multipart/form-data");
-			writer.flush();
-			return;
-		}
-
+	    request.setCharacterEncoding("utf-8");  //设置编码
+		Map<String, String> map = new HashMap<String, String>();
+		
 		// 配置上传参数
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		// 设置内存临界值 - 超过后将产生临时文件并存储于临时目录中
@@ -72,6 +47,7 @@ public class UploadFile extends HttpServlet {
 		upload.setHeaderEncoding("UTF-8");
 
 		// 构造临时路径来存储上传的文件
+		
 		// 这个路径相对当前应用的目录
 		String uploadPath = request.getServletContext().getRealPath(".") + File.separator + UPLOAD_DIRECTORY;
 
@@ -95,18 +71,18 @@ public class UploadFile extends HttpServlet {
 						File storeFile = new File(filePath);
 						// 在控制台输出文件的上传路径
 						System.out.println(filePath);
+						map.put("filepath", filePath);
 						// 保存文件到硬盘
 						item.write(storeFile);
-						request.setAttribute("message", "文件上传成功!");
+						
+					} else {
+						map.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"),"utf-8"));
 					}
 				}
 			}
 		} catch (Exception ex) {
-			request.setAttribute("message", "错误信息: " + ex.getMessage());
+			
 		}
-		// 跳转到 message.jsp
-		request.getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
-
+		return map;
 	}
-
 }

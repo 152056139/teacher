@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import main.common.UploadFile;
 import main.database.Users;
 import net.sf.json.JSONObject;
 
@@ -23,6 +24,7 @@ import net.sf.json.JSONObject;
  */
 @WebServlet("/Register")
 public class Register extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -41,9 +43,7 @@ public class Register extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
 		String type = request.getParameter("flag");
-		System.out.println(type);
 
 		// 判断基本注册(账号密码)
 
@@ -100,44 +100,46 @@ public class Register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		String type = request.getParameter("flag");
-		System.out.println(type);
-		if (type.equals("base")) {// 获取表单数据（账号、密码）
-			String username_form = request.getParameter("username");
-			String password_form = request.getParameter("password");
+		Map<String, String> map = new HashMap<String, String>();
+		
+		// 上传图片
+		UploadFile uploadFile = new UploadFile();
+		map = uploadFile.uploadFile(request, response);
+		
+		String username_form = map.get("username");
+		String password_form = map.get("password");
+		String path_form = map.get("filepath");
+		
+		// 检测数据库中是否已含有该用户名
+		int count = new Users().countUserName(username_form);
+		if (count == 0) {
+			boolean flag = new Users().register(username_form, password_form, path_form);
 			
-			// 检测数据库中是否已含有该用户名
-			int count = new Users().countUserName(username_form);
-			System.out.println(count);
-			if (count == 0) {
-				boolean flag = new Users().register(username_form, password_form);
-				Map<String, String> map = new HashMap<String, String>();
-				map = new Users().getPassword(username_form);
+			Map<String, String> mapUser = new HashMap<String, String>();
+			mapUser = new Users().getPassword(username_form);
 
-				String id = map.get("id");
-				System.out.println(id);
+			String id = mapUser.get("id");
 
-				if (flag) {
-					JSONObject jsonObject = new JSONObject();
-					jsonObject.put("id", id);
-					jsonObject.put("status", "RegisterSuccess");
+			if (flag) {
+				
+				JSONObject jsonObject = new JSONObject();
+				jsonObject.put("id", id);
+				jsonObject.put("status", "RegisterSuccess");
 
-					out.println(jsonObject.toString());
-				} else {
-					JSONObject jsonObject = new JSONObject();
-					jsonObject.put("status", "Registerfail");
-					out.println(jsonObject.toString());
-				}
+				out.println(jsonObject.toString());
 			} else {
 				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("status", "userNamExist");
+				jsonObject.put("status", "Registerfail");
 				out.println(jsonObject.toString());
 			}
+		} else {
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("status", "userNamExist");
+			out.println(jsonObject.toString());
 		}
-
 	}
 
 }

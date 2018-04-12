@@ -48,35 +48,30 @@ Page({
 					icon: 'none'
 				})
 			} else {
+				// 提交表单
 				wx.uploadFile({
 					url: app.globalData.requestUrl + '/teacher/Register',
 					filePath: this.tempFilePaths[0],
+					header: { "Content-Type": "multipart/form-data" },
 					name: 'file',
 					formData: {
-
-					},
-					success: function(res){
-						console.log(res)
-					}
-				})
-
-				wx.request({
-					url: app.globalData.requestUrl + '/teacher/UploadFile',
-					data: {
 						username: username,
 						password: password,
-						flag: "base"
 					},
-					header: {
-						'content-type': 'application/x-www-form-urlencoded'
-					},
-					method: 'POST',
 					success: function (res) {
+						console.log(res)
 						// 成功后隐藏loading
 						wx.hideLoading();
 
+						// 解析res的data
+						var dataStr = res.data.slice(0, res.data.length - 1)
+						var data = JSON.parse(dataStr)
+
+
+
+
 						// 获得用户id,存入全局变量，存入缓存
-						var id = res.data.id
+						var id = data.id
 						app.globalData.userId = id
 						wx.setStorage({
 							key: 'USERID',
@@ -86,9 +81,8 @@ Page({
 							key: 'STATUS',
 							data: 'login',
 						})
-
 						// 获得服务器返回的状态码
-						var status = res.data.status
+						var status = data.status
 						// 用户名被占用
 						if (status == 'userNamExist') {
 							wx.showModal({
