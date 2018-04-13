@@ -1,6 +1,6 @@
 <!--pages/register/register.wxml-->
 <view class='container'>
-    <image class='background' src='/image/background.jpg' mode='widthFix'></image>
+    <image class='background' src='{{background}}' mode='aspectFill'></image>
     <view class='icon'>
         <image src='{{user_icon}}' mode='aspectFill' bindtap='chooseImage'></image>
     </view>

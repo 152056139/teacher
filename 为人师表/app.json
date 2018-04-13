@@ -1,7 +1,7 @@
 {
 	"pages": [
-		"pages/index/register/register",
 		"pages/index/login/login",
+		"pages/index/register/register",
 		"pages/index/register/other_info/other_detail/other_detail",
 		"pages/index/register/other_info/other_info",
 		"pages/index/register/choose_identity/choose_identity",
@@ -12,15 +12,15 @@
 		"pages/index/mine/teacher/teacher",
 		"pages/index/mine/student/student",
 		"pages/index/system_setting/change_passwd/change_passwd",
-		"pages/class/course/course",
+		"pages/class/class/class",
 		"pages/index/system_setting/system_setting",
 		"pages/index/index",
 		"pages/class/home/student/other/other",
 		"pages/class/home/student/student",
 		"pages/class/chat/chat_detail/chat_detail",
 		"pages/class/chat/chat",
-		"pages/class/course/join_course/join_course",
-		"pages/class/course/create_course/create_course",
+		"pages/class/class/join_course/join_course",
+		"pages/class/class/create_course/create_course",
 		"pages/logs/logs",
 		"pages/class/home/teacher/teacher"
 	],
@@ -40,7 +40,7 @@
 				"selectedIconPath": "image/work2.png"
 			},
 			{
-				"pagePath": "pages/class/course/course",
+				"pagePath": "pages/class/class/class",
 				"text": "课堂",
 				"iconPath": "image/course1.png",
 				"selectedIconPath": "image/course2.png"

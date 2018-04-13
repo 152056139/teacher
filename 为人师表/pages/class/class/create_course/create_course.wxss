@@ -1,0 +1,31 @@
+/* pages/create_course/create_course.wxss */
+.container {
+    padding: 0;
+    height: 100%;
+	width: 100%;
+}
+.suface {
+	width: 100%;
+	height: 200px;
+	text-align: center;
+}
+.suface image {
+	width: 120px;
+	height: 120px;
+	margin: 50px;
+}
+
+.form label {
+	display: inline-block;
+}
+.form input {
+	display: inline-block;
+}
+.form button {
+	margin-top: 70%;
+	background: #3f99f8;
+	color: #ffffff;
+}
+.form .courseName {
+	border-bottom: solid 1px #eeeeee;
+}
