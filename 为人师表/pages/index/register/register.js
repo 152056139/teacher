@@ -7,7 +7,7 @@ Page({
 	data: {
 		userName: "",
 		user_icon: "",
-		background: ""
+		background: "/image/background.jpg"
 	},
 	/**
 	 * 点击选择头像
@@ -141,6 +141,7 @@ Page({
 				})
 			}
 		})
+		/*
 		wx.downloadFile({
 			url: "http://localhost:8080/teacher/image/background.jpg",
 			success: function (res) {
@@ -150,6 +151,7 @@ Page({
 				})
 			}
 		})
+		*/
 	},
 
 	/**
