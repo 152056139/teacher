@@ -1,0 +1,35 @@
+/* pages/class/class/create_class_single/create_class_single.wxss */
+page {
+	background: #eeeeee;
+}
+.container {
+	padding: 0;
+}
+.list {
+	width: 100%;
+	background: #ffffff;
+	margin-top: 20rpx;
+}
+.item {
+	height: 80rpx;
+	border-bottom: #eeeeee 1px solid;
+	margin: 0 20rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.left { 
+	width: 160rpx;
+}
+.right {
+	color: #aaaaaa;
+	width: 550rpx;
+}
+button {
+	width: 710rpx;
+	background: #3f99f8;
+	position: absolute;
+	bottom: 20rpx;
+	color: #ffffff;
+	margin: 0 20rpx;
+}

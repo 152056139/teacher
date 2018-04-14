@@ -133,9 +133,8 @@ Page({
 			title: '注册'
 		})
 		wx.downloadFile({
-			url: "http://localhost:8080/teacher/image/user-icon.png",
+			url: app.globalData.requestUrl + "/teacher/image/user-icon.png",
 			success: function (res) {
-				console.log(res)
 				that.setData({
 					user_icon:res.tempFilePath
 				})

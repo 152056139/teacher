@@ -1,0 +1,33 @@
+/* pages/class/class/create_class_single/choose_course/choose_course.wxss */
+page {
+	background: #eeeeee;
+}
+.container {
+	padding: 0;
+}
+.list {
+	margin-top: 20rpx;
+	width: 100%;
+	background: #ffffff;
+}
+.item {
+	width: 710rpx;
+	height: 80rpx;
+	margin: 0 20rpx;
+	border-bottom: #eeeeee solid 1px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.item input {
+	display: none
+}
+button {
+	width: 710rpx;
+	background: #3f99f8;
+	position: absolute;
+	bottom: 20rpx;
+	color: #ffffff;
+	margin: 0 20rpx;
+}
