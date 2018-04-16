@@ -15,10 +15,13 @@ button{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: flex-start;
 }
 image {
 	height: 230rpx;
 	width: 230rpx;
 	margin-top: 30rpx;
+}
+.add-image {
+	border: 1px solid #3f99f8;
 }

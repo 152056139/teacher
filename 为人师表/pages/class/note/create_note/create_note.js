@@ -27,7 +27,7 @@ Page({
 				for (var i = 0; i < that.data.tempFilePaths.length; i++){
 					
 					wx.uploadFile({
-						url: app.globalData.requestUrl + '/teacher/TakeNotes',
+						url: app.globalData.requestUrl + '/teacher/TakeNoteImage',
 						header: { "Content-Type": "multipart/form-data" },
 						filePath: that.data.tempFilePaths[i],
 						formData: {

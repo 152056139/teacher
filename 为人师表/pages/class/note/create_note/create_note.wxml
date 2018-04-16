@@ -7,7 +7,7 @@
 			<block wx:for="{{tempFilePaths}}">
 				<image src='{{item}}' mode='aspectFill'></image>
 			</block>
-			<image src='/image/add-icon.png' mode='aspectFill' bindtap='chooseImage'></image>
+			<image class="add-image" src='/image/add-icon.png' mode='aspectFill' bindtap='chooseImage'></image>
         </view>
         <button form-type='submit'>发布</button>
     </form>

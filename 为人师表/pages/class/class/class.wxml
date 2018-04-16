@@ -1,5 +1,5 @@
 <!--pages/course/course.wxml-->
-<view class="contailer">
+<view class="contailer" id='contailer' bindtap='bind'>
 
     <view class='btn'>
         <image src='/image/add.png' bindtap='toggerMenu'></image>
@@ -8,6 +8,10 @@
             <text bindtap='toCreateNote'>发布笔记</text>
         </view>
     </view>
+	<view class='comment-edit' style='display:{{commentDisabled}}'>
+		<input placeholder='发表你的评论' focus='{{commentFocus}}' bindinput='judgeChange'></input>
+		<button bindtap='toggleComment' data-commentButtonText='{{commentButtonText}}'>{{commentButtonText}}</button>
+	</view>
     <!-- 顶部的黑板 -->
     <view class="blackboard">
         <view class="content">
@@ -74,6 +78,10 @@
                     <image src='/image/english1.png' mode="aspectFill"></image>
                 </view>
             </view>
+			<view class='bottom'>
+				<view class='good'>赞</view>
+				<view class='comment' id='comment' bindtap='toComment'>评</view>
+			</view>
         </view>
 
         <view class='note'>

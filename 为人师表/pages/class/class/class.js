@@ -18,6 +18,44 @@ Page({
 		isFocus:"false",	//textarea是否获取焦点
 
 		scoreDisabled: "none",
+
+		commentDisabled: "none",
+		commentButtonText: "取消",
+	},
+	toggleComment: function(e){
+		if (e.currentTarget.dataset.commentbuttontext=="取消"){
+			this.setData({
+				commentDisabled: "none",
+			})
+		} else if (e.currentTarget.dataset.commentbuttontext == "发送"){
+
+		}
+	},
+	/**
+	 * 监听评论框中的文本输入
+	 */
+	judgeChange: function(e) {
+		if(e.detail.value==""){
+			this.setData({commentButtonText: "取消"})
+		} else {
+			this.setData({ commentButtonText: "发送" })
+		}
+	},
+	/**
+	 * 点击评论跳出评论
+	 */
+	bind: function(e) {
+		console.log(e)
+		if(e.target.id=="comment"){
+			this.setData({
+				commentDisabled: "flex",
+				commentFocus: "true"
+			})
+		} else {
+			this.setData({
+				commentDisabled: "none",
+			})
+		}
 	},
 	/**
 	 * 点击编辑按钮

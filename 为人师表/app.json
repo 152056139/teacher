@@ -1,9 +1,9 @@
 {
     "pages": [
+		"pages/class/note/create_note/create_note",
 		"pages/class/class/class",
 		"pages/index/index",
 		"pages/index/mine/mine",
-		"pages/class/note/create_note/create_note",
 		"pages/index/system_setting/system_setting",
 		"pages/index/login/login",
         "pages/class/class/create_class_single/create_class_single",
