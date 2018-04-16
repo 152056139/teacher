@@ -51,18 +51,24 @@ Page({
 							success: function (res) {
 								console.log(res.data)
 
-								// 获取服务器的返回信息
+								// 获取服务器的返回信息s
 								var status = res.data['status']
 								var id = res.data['id']
+								var identity = res.data['identity']
 
 								if (status == "success") {
 									console.log("login success")
 
 									// 将个人信息加载如全局变量存入缓存
+									app.globalData.userIdentity = identity
 									app.globalData.userId = id
 									wx.setStorage({
 										key: 'USERID',
 										data: id,
+									})
+									wx.setStorage({
+										key: 'USERIDENTITY',
+										data: identity,
 									})
 									// 登陆成功后隐藏loading
 									wx.hideLoading()

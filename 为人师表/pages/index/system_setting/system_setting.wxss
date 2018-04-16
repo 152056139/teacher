@@ -1,27 +1,30 @@
 /* pages/index/system_setting/system_setting.wxss */
+page {
+	background: #eeeeee;
+}
 .container{
 	padding: 0;
 	width: 100%;
-
 }
 
 .list {
 	width: 100%;
+	margin-top: 20rpx;
+	background: #ffffff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-.list .setting {
-	width: 100%;
-	height: 80rpx;
-	border-bottom: solid #dddddd 1rpx;
+.setting {
+	width: 710rpx;
+	height: 100rpx;
+	border-bottom: solid #eeeeee 1px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 }
-.list .setting .left {
-	padding-left: 20rpx;
-}
-.list .setting .right {
-	padding-right: 20rpx;
+.right {
 	color: #999999;
 }
 button{

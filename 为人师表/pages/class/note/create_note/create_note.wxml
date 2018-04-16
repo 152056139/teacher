@@ -1,0 +1,14 @@
+<!--pages/class/note/create_note/create_note.wxml-->
+<view class='container'>
+    <form bindsubmit="formSubmit">
+        <textarea class='textarea' placeholder='写下你的想法' name='note'></textarea>
+		<input style='display:none' placeholder='' value='{{userId}}' name='userId'></input>
+        <view class='image'>
+			<block wx:for="{{tempFilePaths}}">
+				<image src='{{item}}' mode='aspectFill'></image>
+			</block>
+			<image class="add-image" src='/image/add-icon.png' mode='aspectFill' bindtap='chooseImage'></image>
+        </view>
+        <button form-type='submit'>发布</button>
+    </form>
+</view>

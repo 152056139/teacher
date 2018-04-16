@@ -1,77 +1,82 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="choose-time">
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-            <view class="picker">
-                {{array[index]}}
-            </view>
-        </picker>
+    <view class='top'>
+        <image src='/image/user-icon.png' mode='aspectFill' bindtap='toMine'></image>
+        <view class="choose-time">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                    {{array[index]}}
+                </view>
+            </picker>
+        </view>
         <image src="/image/add_icon.png" mode='scaleToFill' bindtap="menu"></image>
+        <view class="menu" style=" display:{{display}}">
+            <view>加入班科</view>
+            <view bindtap='toCreateCourse'>创建班科</view>
+            <view>我的</view>
+            <view>系统设置</view>
+        </view>
     </view>
-	<view class="menu" style=" display:{{display}}">
-		<view>加入班科</view>
-		<view bindtap='toCreateCourse'>创建班科</view>
-		<view>我的</view>
-		<view>系统设置</view>
+    <view class="choose-date">
+		<view class='day today'>
+			<view class='week'>一</view>
+			<view class='date'>12</view>
+		</view>
+		<view class='day'>
+			<view class='week'>二</view>
+			<view class='date'>12</view>
+		</view>
+		<view class='day'>
+			<view class='week'>三</view>
+			<view class='date'>12</view>
+		</view>
+		<view class='day'>
+			<view class='week'>四</view>
+			<view class='date'>12</view>
+		</view>
+		<view class='day'>
+			<view class='week'>五</view>
+			<view class='date'>12</view>
+		</view>
+		<view class='day'>
+			<view class='week'>六</view>
+			<view class='date'>12</view>
+		</view>
+		<view class='day'>
+			<view class='week'>日</view>
+			<view class='date'>12</view>
+		</view>
 	</view>
-    <view class="choose-course">
-        <view class='weaks title-color height-little'>
-            <view class='width-little display-inline-block'>3月</view>
-            <view class='width-middle display-inline-block'>周日</view>
-            <view class='width-middle display-inline-block'>周一</view>
-            <view class='width-middle display-inline-block'>周二</view>
-            <view class='width-middle display-inline-block'>周三</view>
-            <view class='width-middle display-inline-block'>周四</view>
-            <view class='width-middle display-inline-block'>周五</view>
-            <view class='width-middle display-inline-block'>周六</view>
-        </view>
-        <view class='count-course'>
-            <view class='left  title-color width-little'>
-                <view class='height-middle'>1</view>
-                <view class='height-middle'>2</view>
-                <view class='height-middle'>3</view>
-                <view class='height-middle'>4</view>
-                <view class='height-middle'>5</view>
-                <view class='height-middle'>6</view>
-                <view class='height-middle'>7</view>
-                <view class='height-middle'>8</view>
-            </view>
-			<view class="right width-middle">
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-white"></view>
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-white"></view>
+	<view class='list'>
+		<view class='item' bindtap='toClass'>
+			<image src='/image/english1.png' mode='widthFix'/>
+			<view class='info'>
+				<view class='name'>大学英语1</view>
+				<view class='classroom'>教室：Z1234</view>
+				<view class='time'>上课时间：12:00-14:00</view>
+				<view class='teacher'>教师：葛艳梅</view>
+				
 			</view>
-			<view class="right width-middle">
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-white"></view>
-				<view class="height-big background-white"></view>
-				<view class="height-big background-green">大学英语1王老师</view>
+		</view>
+		<view class='item'>
+			<image src='/image/english1.png' mode='widthFix'/>
+			<view class='info'>
+				<view class='name'>大学英语1</view>
+				<view class='classroom'>教室：Z1234</view>
+				<view class='time'>上课时间：12:00-14:00</view>
+				<view class='teacher'>教师：葛艳梅</view>
+				
 			</view>
-			<view class="right width-middle">
-				<view class="height-big background-white">a</view>
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-white"></view>
+		</view>
+		<view class='item'>
+			<image src='/image/english1.png' mode='widthFix'/>
+			<view class='info'>
+				<view class='name'>大学英语1</view>
+				<view class='classroom'>教室：Z1234</view>
+				<view class='time'>上课时间：12:00-14:00</view>
+				<view class='teacher'>教师：葛艳梅</view>
+				
 			</view>
-			<view class="right width-middle">
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-white"></view>
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-white"></view>
-			</view>
-			<view class="right width-middle">
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-white"></view>
-				<view class="height-big background-white"></view>
-				<view class="height-big background-green">大学英语1王老师</view>
-			</view>
-			<view class="right width-middle">
-				<view class="height-big background-white">a</view>
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-green">大学英语1王老师</view>
-				<view class="height-big background-white"></view>
-			</view>
-        </view>
-    </view>
+		</view>
+	</view>
 </view>

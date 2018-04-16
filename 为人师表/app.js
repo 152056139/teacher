@@ -4,11 +4,9 @@ App({
 		
 	},
 	globalData: {
-		// 用户信息
-		userId: 0,
-
-		// 系统信息
+		userId:'',
+		userIdentity:'',
 		requestUrl: require('config.js').requestUrl,
-		jscode: "fasdfas"
+		//jscode: ""
 	}
 })

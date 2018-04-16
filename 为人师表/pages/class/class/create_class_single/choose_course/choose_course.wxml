@@ -1,11 +1,8 @@
 <!--pages/class/class/create_class_single/choose_course/choose_course.wxml-->
 <view class='container'>
 	<form class='list'>
-		<view class='item' bindtap='submit' data-courseid='19' data-coursename='大学英语1'>
-			<view class='left'>大学英语1</view>
-		</view>
-		<view class='item' bindtap='submit' data-courseid='20' data-coursename='大学英语2'>
-			<view class='left'>大学英语2</view>
+		<view wx:for="{{courseList}}" class='item' bindtap='submit' data-courseid='{{item.courseId}}' data-coursename='{{item.courseName}}'>
+			<view class='left'>{{item.courseName}}</view>
 		</view>
 	</form>
 </view>

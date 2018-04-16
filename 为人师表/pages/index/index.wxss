@@ -1,91 +1,79 @@
 /**index.wxss**/
-
+page {
+	background: #eeeeee;
+}
 .container {
     padding: 0;
     align-items: initial;
     font-size: 11px;
 }
-
-.choose-time {
-    padding: 10px 0;
+.top {
+	width: 710rpx;
+	height: 100rpx;
+	background: #ffffff;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20rpx;
+}
+.top image{
+	height: 60rpx;
+	width: 60rpx;
 }
 
-.choose-time picker {
+.top .choose-time picker {
     color: #3f99f8;
     text-align: center;
     font-size: 15px;
 }
 
-.choose-time image {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.choose-course {
+.choose-date {
     width: 100%;
-    height: 100%;
+	background: #eeeeee;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+.day {
+	display: flex;
+	flex-direction: column;
+}
+.today {
+	border-bottom: #3f99f8 solid 5rpx;
+	color: #3f99f8;
+}
+.week {
+	margin-top: 5rpx;
+}
+.date {
+	margin: 5rpx 0 10rpx 0;
+}
+.list {
+	background: #ffffff;
+	width: 100%;
+}
+.item {
+	width: 710rpx;
+	margin: 0 20rpx;
+	padding: 20rpx 0;
+	border-bottom: 1px solid #eeeeee;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
 }
 
-.choose-course .title-color {
-    background: #e5f7fe;
+.item image {
+	width: 110rpx;
 }
-
-.choose-course .display-inline-block {
-    display: inline-block;
+.item .info {
+	margin-left: 20rpx;
+	font-size: 25rpx;
+	color: #555555;
 }
-
-.choose-course .width-middle {
-    width: 13%;
-    text-align: center;
-}
-
-.choose-course .width-little {
-    width: 9%;
-    text-align: center;
-}
-
-.choose-course .height-big {
-    height: 140px;
-    border-radius: 5px;
-}
-
-.choose-course .height-middle {
-    height: 70px;
-}
-
-.choose-course .height-little {
-    height: 40px;
-}
-
-.choose-course .weaks {
-    width: 100%;
-}
-
-.left {
-    display: inline-table;
-}
-
-.right {
-    display: inline-table;
-}
-
-.background-green {
-    background: #b0e36e;
-}
-
-.background-white {
-    background: #fff;
-    color: #fff;
-}
-
-.menu {
-    padding: 5px;
-    width: 100px;
-    background: #eee;
-    position: fixed;
-    right: 0px;
-    top: 40px;
+.info .name {
+	font-size: 30rpx;
+	margin-bottom: 5rpx;
+	color: #000000;
 }
