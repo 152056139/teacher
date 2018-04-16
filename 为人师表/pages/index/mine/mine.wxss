@@ -1,0 +1,46 @@
+/* pages/index/mine/mine.wxss */
+page{
+	background: #eeeeee;
+}
+.container{
+	padding: 0;
+	width: 100%;
+}
+.list {
+	margin-top: 20rpx;
+	width: 100%;
+	background: #ffffff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.list .setting {
+	width: 710rpx;
+	height: 80rpx;
+	border-bottom: solid #eeeeee 1rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.list .setting .left {
+	width: 200rpx;
+}
+.list .setting .right {
+	color: #999999;
+}
+
+.user-icon {
+	width: 710rpx;
+	height: 200rpx;
+	border-bottom: solid #eeeeee 1rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.user-icon image{
+	width: 150rpx;
+	height: 150rpx;
+}

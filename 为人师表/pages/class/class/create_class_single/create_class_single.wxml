@@ -1,6 +1,6 @@
 <!--pages/class/class/create_class_single/create_class_single.wxml-->
 <view class='container'>
-    <form class='list' bindsubmit='submit'>
+    <form class='list' bindsubmit="formSubmit">
         <view class='item'>
             <view class='left'>课程</view>
             <view class='right' bindtap='chooseCourse'>{{courseName}}</view>
@@ -26,7 +26,7 @@
 
         <view class='item'>
             <view class='left'>教室</view>
-            <input class='right' value='{{classroom}}'></input>
+            <input class='right' name='classroom'></input>
         </view>
 		<button formType="submit">添加</button>
     </form>

@@ -65,9 +65,13 @@ Page({
 
 		// 将其他信息发送给服务器
 		var that = this
+		console.log(that.data)
 		wx.getStorage({
 			key: 'user_identity',
 			success: function (res) {
+				that.setData({
+					identity: res.data
+				})
 				wx.request({
 					url: app.globalData.requestUrl + '/teacher/Register',
 					data: {
@@ -77,7 +81,7 @@ Page({
 						schoolid: that.data.id,
 						email: that.data.email,
 						phone: that.data.phone,
-						identity: res.data,
+						identity: that.data.identity,
 						id: app.globalData.userId
 					},
 					header: {
@@ -85,6 +89,10 @@ Page({
 					},
 					success: function (res) {
 						console.log(res.data)
+						wx.setStorage({
+							key: 'USERIDENTITY',
+							data: that.data.identity,
+						})
 					}
 				})
 			},
@@ -113,6 +121,10 @@ Page({
 					},
 					success: function (res) {
 						console.log(res.data)
+						wx.setStorage({
+							key: 'USERIDENTITY',
+							data: that.data.identity,
+						})
 					}
 				})
 			},

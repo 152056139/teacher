@@ -28,7 +28,16 @@ Page({
 		index: 0,
 		display: "none"
 	},
-
+	toMine: function () {
+		wx.navigateTo({
+			url: '/pages/index/mine/mine',
+		})
+	},
+	toClass: function () {
+		wx.switchTab({
+			url: '/pages/class/class/class',
+		})
+	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
@@ -84,21 +93,27 @@ Page({
 	onShareAppMessage: function () {
 
 	},
+	/**
+	 * 点击菜单
+	 */
 	menu: function(){
-		if(this.data["display"]=="none"){
-			this.setData({
-				display: "inline",
-			})
-		}else {
-			this.setData({
-				display: "none",
-			})
-		}
-	},
-	toCreateCourse: function() {
-		console.log("跳转到创建班科")
-		wx.navigateTo({
-			url: '/pages/class/course/create_course/create_course',
+		wx.showActionSheet({
+			itemList: ["创建班课","系统设置"],
+			itemColor: '',
+			success: function(res) {
+				console.log(res.tapIndex)
+				if(res.tapIndex == 0){
+					wx.navigateTo({
+						url: '/pages/class/course/create_course/create_course',
+					})
+				} else if(res.tapIndex == 1) {
+					wx.navigateTo({
+						url: 'system_setting/system_setting',
+					})
+				}
+			},
+			fail: function(res) {},
+			complete: function(res) {},
 		})
 	}
 })

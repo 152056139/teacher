@@ -6,7 +6,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-
+		courseList: ""
 	},
 	/**
 	 * 点击确定选中某个课程
@@ -28,7 +28,6 @@ Page({
 	 */
 	onLoad: function (options) {
 		var that = this
-
 		wx.getStorage({
 			key: 'USERID',
 			success: function (res) {
@@ -41,7 +40,9 @@ Page({
 						'content-type': 'application/json'
 					},
 					success: function (res) {
-						console.log(res)
+						that.setData({
+							courseList: res.data
+						})
 					}
 				})
 			},

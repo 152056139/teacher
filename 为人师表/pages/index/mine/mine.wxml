@@ -1,9 +1,12 @@
 <!--pages/index/mine/mine.wxml-->
 <view class='container'>
-    <view class='user-icon'>
-        <image src='/image/user-icon.png' mode='aspectFill'></image>
-    </view>
     <view class='list'>
+        <view class='user-icon'>
+            <view class='left'>头像</view>
+            <view class='right'>
+                <image src='/image/user-icon.png' mode='aspectFill'></image>
+            </view>
+        </view>
         <view class='setting'>
             <view class='left'>姓名</view>
             <view class='right'>郭浩卓</view>

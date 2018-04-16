@@ -1,4 +1,12 @@
+page {
+	background: #eeeeee;
+}
+.contailer {
+    padding: 0;
+    align-items: flex-start;
+	flex-direction: column;
 
+}
 .btn {
 	position: fixed;
 	bottom: 20rpx;
@@ -24,9 +32,8 @@
 	text-align: right;
 	background: #ffffff
 }
-.contailer {
-    padding: 0;
-    align-items: flex-start;
+.blackboard {
+	height: 520rpx;
 }
 .blackboard .abcd {
 	position: absolute;
@@ -40,10 +47,22 @@
 	height: 150rpx;
 }
 .blackboard .content {
-    padding: 25px;
+    padding: 50rpx;
 	padding-bottom: 10rpx;
 }
-
+.blackboard .content button {
+	margin: 0;
+	padding: 0 20rpx;
+	width: 100rpx;
+	height: 50rpx;
+	font-size: 30rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	left: 565rpx;
+	top: 20rpx;
+}
 .blackboard .content image {
     width: 50px;
     height: 50px;
@@ -58,9 +77,10 @@
 }
 
 .blackboard .content textarea {
-    margin-top: 5px;
+    margin-top: 5rpx;
     color: #fff;
     width: 100%;
+	height: 245rpx;
     font-size: 90%;
     overflow: scroll;
 }
@@ -75,7 +95,7 @@
 .userInfo {
 	width: 100%;
 	height: 100px;
-	margin-top: 20px;
+	margin-top: 10rpx;
 }
 
 .userInfo .content image{
@@ -120,13 +140,13 @@
 }
 
 .notes {
-	margin-top: 10px;
+	margin-top: 10rpx;
 }
 
 .notes .note {
-	margin-top: 10px;
-	padding: 15px;
-	background: #eeeeee;
+	background: #ffffff;
+	padding: 20rpx 20rpx;
+	border-bottom: #eeeeee 1px solid;
 }
 
 .notes .note .top image {
@@ -152,26 +172,30 @@
 }
 .notes .note .middle .text{
 	height: 4em;
+	font-size: 30rpx; 
 	overflow: hidden;
 }
 .notes .note .middle .images{
+	width: 710rpx;
 	margin-top: 5px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 .notes .note .middle .images image{
-	display: inline-flex;
-	width: 200rpx;
-	height:200rpx;
-	margin-right: 14rpx;
-	margin-left: 14rpx;
-	margin-top: 5px;
+	width: 210rpx;
+	height:210rpx;
+	margin: 13rpx;
 }
 
 .score {
+	margin-top: 15rpx;
+	background: #ffffff;
 	width: 750rpx;
 	height: 150rpx;
 	display: flex;
 	flex-direction: row;
-	border-bottom: solid #eeeeee 1px;
 }
 .score .text {
 	width: 250rpx;

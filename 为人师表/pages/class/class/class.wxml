@@ -4,19 +4,22 @@
     <view class='btn'>
         <image src='/image/add.png' bindtap='toggerMenu'></image>
 
-        <view class='menu' style="display:{{display}}">
-            <text>发布笔记</text>
+        <view class='menu' style="display:{{display}};">
+            <text bindtap='toCreateNote'>发布笔记</text>
         </view>
     </view>
     <!-- 顶部的黑板 -->
     <view class="blackboard">
         <view class="content">
-            <image src='/image/user-icon.png' mode='aspectFit'></image>
-            <text>Teacher Say:</text>
-            <textarea disabled='true' value='asdfasdfasdfasdfasdfasdfasdfassadfsasfsafasfdasdfasdf'></textarea>
+            <form bindsubmit="edit">
+                <image src='/image/user-icon.png' mode='aspectFix'></image>
+                <text>Teacher Say:</text>
+                <textarea focus='{{isFocus}}' name='textarea' disabled='{{blackboardDisabled}}' value='{{blackboardContent}}'></textarea>
+                <button style="display:{{editDisplay}}; color:{{editColor}}; background:{{editBackground}};" class='edit' form-type='submit' data-text='{{editText}}' bindtap='changeEdit'>{{editText}}</button>
+            </form>
         </view>
         <view class="background">
-            <image src='/image/blackboard.jpg' mode='scaleToFill'></image>
+            <image src='/image/blackboard.jpg' mode='widthFix'></image>
         </view>
         <view class='abcd'>
             <image src='/image/a.png' mode='aspectFit'></image>
@@ -24,7 +27,7 @@
     </view>
 
     <!-- 评分 -->
-    <view class="score">
+    <view class="score" style="display:{{scoreDisabled}}">
         <view class='text'>score</view>
         <view class='stars'>
             <image id='0' src='/image/{{stars[0]}}.png' bindtap='score'></image>
