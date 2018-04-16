@@ -128,14 +128,16 @@ public class Users {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		ResultSet resultset = mysqlBase
-				.search("select user_password,user_id from user where user_name = '" + userName + "';", connection);
+				.search("select user_password,user_id , user_identity from user where user_name = '" + userName + "';", connection);
 
 		String password = "";
 		int id = 0;
+		int identity=0;
 		try {
 			while (resultset.next()) {
 				password = resultset.getString("user_password");
 				id = resultset.getInt("user_id");
+				identity=resultset.getInt("user_identity");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -146,6 +148,7 @@ public class Users {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("password", password);
 		map.put("id", Integer.toString(id));
+		map.put("identity", Integer.toString(identity));
 		return map;
 	}
 

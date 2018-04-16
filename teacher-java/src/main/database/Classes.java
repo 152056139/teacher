@@ -16,16 +16,13 @@ public class Classes {
 	 * @param classroom
 	 * @param teachersay
 	 */
-	public static void update_class(int classid,int courseid, Timestamp classtime, String classroom, String teachersay) {
+	public static void update_class(String sql) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();//
-		String sql = "UPDATE class SET" + " course_id='" + courseid + "',"
-				                        + " class_time='" + classtime + "'," 
-		                                + " class_room='" + classroom + "'," 
-				                        + " teacher_say='" + teachersay + "' WHERE class_id='"+classid+"';";
+		
 		mysqlBase.execute(sql, connection);
 		mysqlBase.close(connection);
-		System.out.println("注册，课堂信息插入成功"  + courseid + classtime + classroom + teachersay );
+		System.out.println("class基类更新成功！"   );
 	}
 	/**
 	 * 创建某一堂课
@@ -34,17 +31,17 @@ public class Classes {
 	 * @param classroom
 	 * @param teachersay
 	 */
-	public static void insert_class(int courseid, Timestamp classtime, String classroom, String teachersay) {
+	public static void insert_class(int courseid, String classtime, String classroom) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();//
-		String sql = "insert into class(course_id,class_room,class_time,teacher_say) values('"+courseid+"','"
-		                                                                                      +classtime+"','"
-				                                                                              +classroom+"','"
-		                                                                                      +teachersay+"')";
+		String sql = "insert into class(course_id,class_room,class_time) values('"+courseid+"','"
+		                                                                          +classroom+"','"
+		                                                                          +classtime+"')";
 		mysqlBase.execute(sql, connection);
 		mysqlBase.close(connection);
-		System.out.println("注册，课堂信息插入成功"  + courseid + classtime + classroom + teachersay );
+		System.out.println("注册，课堂信息插入成功    "  + courseid + " " + classtime + " " + classroom );
 	}
+
 	
 	
 	

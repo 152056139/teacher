@@ -50,7 +50,8 @@ public class UploadFile {
 		
 		// 这个路径相对当前应用的目录
 		String uploadPath = request.getServletContext().getRealPath(".") + File.separator + UPLOAD_DIRECTORY;
-
+           
+           
 		// 如果目录不存在则创建
 		File uploadDir = new File(uploadPath);
 		if (!uploadDir.exists()) {
@@ -71,7 +72,7 @@ public class UploadFile {
 						File storeFile = new File(filePath);
 						// 在控制台输出文件的上传路径
 						System.out.println(filePath);
-						map.put("filepath", filePath);
+						map.put("filepath", fileName);
 						// 保存文件到硬盘
 						item.write(storeFile);
 						

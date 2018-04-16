@@ -82,15 +82,21 @@ public class Login extends HttpServlet {
 		Users user = new Users();
 		String password = "";
 		String id = "";
+		String identity="";
 		Map<String, String> map = new HashMap<String, String>();
 		map = user.getPassword(username_form);
+		
+		
 		password = map.get("password");
 		id = map.get("id");
+		identity=map.get("identity");
 		System.out.println("数据库中搜索到id=" + id);
 
 		System.out.println("从数据库中搜到的密码:" + password);
 
 		System.out.println("表单传过来的密码：" + password_form);
+		
+		System.out.println("数据库中的用户身份：" + identity);
 		if (password_form.equals(password)) {
 			// console log
 			System.out.println("登陆成功 ");
@@ -99,6 +105,7 @@ public class Login extends HttpServlet {
 			JSONObject success = new JSONObject();
 			success.put("status", "success");
 			success.put("id", id);
+			success.put("identity", identity);
 			out.println(success.toString());
 		} else if (password.isEmpty()) {
 			// console log

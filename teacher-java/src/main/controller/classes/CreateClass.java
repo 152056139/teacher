@@ -45,24 +45,19 @@ public class CreateClass extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		response.setContentType("text/html;charset=UTF-8");
-		
-
-		
 		    Map<Integer, String> map = new HashMap<Integer, String>();
 			//获取前端数据
 			String courseid_form = request.getParameter("courseid");
 			String classroom_form = request.getParameter("classroom");
 			String classtime_form = request.getParameter("classtime");
-			String teachersay_form = request.getParameter("teachersay");
 			
 			// 转化courseid
 			int corId = Integer.parseInt(courseid_form);
 			
 			// 转化classtime
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			Date date = null;
 			try {
 				date = format.parse(classtime_form);
@@ -70,11 +65,11 @@ public class CreateClass extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			Timestamp classTime = new Timestamp(date.getTime());
-			Classes.insert_class( corId, classTime, classroom_form, teachersay_form);
-			
-			
-
+			String strTime = classTime.toString();
+			strTime = strTime.substring(0, 19);
+			Classes.insert_class( corId, strTime, classroom_form);
 		}
 	
 

@@ -15,6 +15,7 @@ import org.apache.jasper.tagplugins.jstl.core.Out;
 
 import main.database.Classes;
 import main.database.Course;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
@@ -41,17 +42,20 @@ public class GetCourseList extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		JSONObject jsonObject = new JSONObject();
+		JSONArray jsonArray = new JSONArray();
 		String teacherid_form = request.getParameter("teacherid");
 		// 转化teacherid
 		int teaId = Integer.parseInt(teacherid_form);
 		Map<Integer, String> map = new HashMap<Integer, String>();
 		map = Course.search_course(teaId);
 		for(Integer key: map.keySet()) {
-			jsonObject.put(key, map.get(key));
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("courseId", key);
+			jsonObject.put("courseName", map.get(key));
+			jsonArray.add(jsonObject);
 		}
-		out.println(jsonObject);
-		System.out.println("查到的id，name"+jsonObject);
+		out.println(jsonArray);
+		System.out.println("查到的id，name"+jsonArray);
 		System.out.println(teacherid_form);
 	}
 

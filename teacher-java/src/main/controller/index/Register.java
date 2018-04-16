@@ -76,7 +76,7 @@ public class Register extends HttpServlet {
 			String phone = phone_form;
 			// 转化学号
 			String schoolid = schoolid_form;
-			// 头像
+			
 
 			new Users().update_other(id, sex, birthday, schoolid, email, phone, identity);
 		}
@@ -116,9 +116,11 @@ public class Register extends HttpServlet {
 		// 检测数据库中是否已含有该用户名
 		int count = new Users().countUserName(username_form);
 		if (count == 0) {
+			//
 			boolean flag = new Users().register(username_form, password_form, path_form);
 			
 			Map<String, String> mapUser = new HashMap<String, String>();
+			
 			mapUser = new Users().getPassword(username_form);
 
 			String id = mapUser.get("id");
