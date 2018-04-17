@@ -2,12 +2,15 @@
 <view class='container'>
     <form bindsubmit="formSubmit">
         <textarea class='textarea' placeholder='写下你的想法' name='note'></textarea>
-		<input style='display:none' placeholder='' value='{{userId}}' name='userId'></input>
-        <view class='image'>
-			<block wx:for="{{tempFilePaths}}">
-				<image src='{{item}}' mode='aspectFill'></image>
-			</block>
-			<image class="add-image" src='/image/add-icon.png' mode='aspectFill' bindtap='chooseImage'></image>
+        <input style='display:none' placeholder='' value='{{userId}}' name='userId'></input>
+        <view class='images'>
+            <block wx:for="{{tempFilePaths}}">
+				<view class='image'>
+                    <image src='{{item}}' mode='aspectFill' bindtap='previewImage' data-index='{{index}}'></image>
+                    <icon type="clear" size='20' bindtap='removeImage' data-index='{{index}}'></icon>
+				</view>
+            </block>
+            <image class="add-image" src='/image/add-icon.png' mode='aspectFill' bindtap='chooseImage' style='display:{{addIconDisplay}}'></image>
         </view>
         <button form-type='submit'>发布</button>
     </form>

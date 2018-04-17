@@ -1,11 +1,11 @@
 {
     "pages": [
+		"pages/index/login/login",
 		"pages/class/note/create_note/create_note",
 		"pages/class/class/class",
 		"pages/index/index",
 		"pages/index/mine/mine",
 		"pages/index/system_setting/system_setting",
-		"pages/index/login/login",
         "pages/class/class/create_class_single/create_class_single",
         "pages/class/class/create_class_single/choose_course/choose_course",
         "pages/index/register/register",
