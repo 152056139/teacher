@@ -3,13 +3,7 @@ package main.controller.classes;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Date;
-import java.text.SimpleDateFormat;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,16 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
 
-import com.alibaba.fastjson.JSON;
-import com.mysql.fabric.xmlrpc.base.Data;
-
-import main.common.UploadFile;
 import main.database.Notes;
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import net.sf.json.util.JSONBuilder;
 
 /**
  * Servlet implementation class TakeNotes

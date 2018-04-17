@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.alibaba.fastjson.JSON;
+
 
 import main.database.Notes;
 
@@ -31,6 +31,8 @@ public class TakeNoteCmd extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		// 丛表单获取笔记内容， 笔记id， userid
 		String notecmd_form=request.getParameter("notecmd");
 		String noteid_form =request.getParameter("noteid");
 		String userid_form=request.getParameter("userid");

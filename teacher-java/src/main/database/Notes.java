@@ -3,13 +3,7 @@ package main.database;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.naming.spi.DirStateFactory.Result;
-
-import com.mysql.jdbc.UpdatableResultSet;
 
 import main.common.MysqlBase;
 public class Notes {

@@ -5,8 +5,6 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -47,7 +45,6 @@ public class CreateClass extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		response.setContentType("text/html;charset=UTF-8");
-		    Map<Integer, String> map = new HashMap<Integer, String>();
 			//获取前端数据
 			String courseid_form = request.getParameter("courseid");
 			String classroom_form = request.getParameter("classroom");
