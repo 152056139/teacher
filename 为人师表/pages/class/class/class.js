@@ -6,6 +6,8 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		imagePath: app.globalData.requestUrl+"/teacher/upload/",
+		noteList:"",	// 笔记列表
 		userIdentity: '',
 		stars: ["grayStar", "grayStar", "grayStar", "grayStar", "grayStar"],	
 		display: "none",	// 悬浮菜单是否显示
@@ -175,7 +177,10 @@ Page({
 				'content-type': 'application/x-www-form-urlencoded' // 默认值
 			},
 			success: function(res){
-				console.log(res)
+				console.log(res.data)
+				that.setData({
+					noteList: res.data
+				})
 			}
 		})
 
