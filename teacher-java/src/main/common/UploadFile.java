@@ -79,7 +79,10 @@ public class UploadFile {
 						map.put("filepath", fileName);
 						// 保存文件到硬盘
 						item.write(storeFile);
-						Thumbnails.of(filePath).scale(1f).outputQuality(0.3f).toFile(filePath);
+						Thumbnails.of(filePath)
+						.scale(1f)
+						.outputQuality(0.3f)
+						.toFile(filePath);
 
 					} else {
 						map.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"), "utf-8"));
