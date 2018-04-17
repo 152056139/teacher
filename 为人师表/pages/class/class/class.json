@@ -2,6 +2,5 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3f99f8",
     "navigationBarTitleText": "大学英语1",
-    "navigationBarTextStyle": "light",
-	"enablePullDownRefresh": true
+    "navigationBarTextStyle": "light"
 }
