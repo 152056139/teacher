@@ -1,4 +1,7 @@
 /* pages/index/system_setting/change_passwd/change_passwd.wxss */
+page{
+	background: #eeeeee;
+}
 .container{
 	padding: 0;
 	width: 100%;
@@ -6,12 +9,14 @@
 }
 
 .list {
-	width: 100%;
+	margin-top: 20rpx;
+	background: #ffffff;
 }
 .list .setting {
-	width: 100%;
-	height: 80rpx;
-	border-bottom: solid #dddddd 1rpx;
+	width: 710rpx;
+	margin: 0 20rpx;
+	height: 90rpx;
+	border-bottom: solid #eeeeee 1rpx;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -21,7 +26,8 @@
 	padding: 20rpx;
 }
 button{
-	width: 95%;
+	width: 710rpx;
+	margin: 0 20rpx;
 	position: absolute;
 	bottom: 20rpx;
 }

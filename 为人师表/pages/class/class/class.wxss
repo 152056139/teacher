@@ -7,6 +7,16 @@ page {
     align-items: flex-start;
     flex-direction: column;
 }
+.tools{
+	width: 750rpx;
+	padding: 0 20rpx;
+	height: 80rpx;
+	color: #ffffff;
+	background: #3f99f8;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 
 .btn {
     position: fixed;
@@ -39,6 +49,7 @@ page {
 
 .blackboard {
     height: 520rpx;
+	position: relative;
 }
 
 .blackboard .abcd {
@@ -60,17 +71,13 @@ page {
 }
 
 .blackboard .content button {
-    margin: 0;
-    padding: 0 20rpx;
-    width: 100rpx;
-    height: 50rpx;
-    font-size: 30rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    left: 565rpx;
-    top: 20rpx;
+    position: absolute;
+    left: 593rpx;
+    top: 430rpx;
+	font-size: 30rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .blackboard .content image {
@@ -98,7 +105,7 @@ page {
 .blackboard .background image {
     width: 100%;
     position: absolute;
-    top: 0%;
+	top: 0rpx;
     z-index: -1;
 }
 

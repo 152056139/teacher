@@ -1,6 +1,11 @@
 <!--pages/course/course.wxml-->
 <view class="contailer" id='contailer' bindtap='bind'>
-
+<!--
+    <view class='tools'>
+		<view class='back'>返回</view>
+		<view class='a'></view>
+    </view>
+-->
     <view class='btn'>
         <image src='/image/add.png' bindtap='toggerMenu'></image>
 
@@ -19,14 +24,15 @@
                 <image src='/image/user-icon.png' mode='aspectFix'></image>
                 <text>Teacher Say:</text>
                 <textarea focus='{{isFocus}}' name='textarea' disabled='{{blackboardDisabled}}' value='{{blackboardContent}}'></textarea>
-                <button style="display:{{editDisplay}}; color:{{editColor}}; background:{{editBackground}};" class='edit' form-type='submit' data-text='{{editText}}' bindtap='changeEdit'>{{editText}}</button>
+                <button size='mini' style="display:{{editDisplay}}; color:{{editColor}}; background:{{editBackground}};" class='edit' form-type='submit' data-text='{{editText}}' bindtap='changeEdit'>{{editText}}</button>
             </form>
+
+            <view class='abcd'>
+                <image src='/image/a.png' mode='aspectFit'></image>
+            </view>
         </view>
         <view class="background">
             <image src='/image/blackboard.jpg' mode='widthFix'></image>
-        </view>
-        <view class='abcd'>
-            <image src='/image/a.png' mode='aspectFit'></image>
         </view>
     </view>
 

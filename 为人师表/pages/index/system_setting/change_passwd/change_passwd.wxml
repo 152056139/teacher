@@ -1,15 +1,17 @@
 <!--pages/index/system_setting/change_passwd/change_passwd.wxml-->
 <view class='container'>
-    <view class='list'>
-        <view class='setting'>
-			<input type='password' placeholder='请输入旧密码'/>
+    <form bindsubmit="formSubmit">
+        <view class='list'>
+            <view class='setting'>
+                <input type='password' placeholder='请输入旧密码' name='oldPassword'/>
+            </view>
+            <view class='setting'>
+                <input type='password' placeholder='请设置新密码' name='newPassword'/>
+            </view>
+            <view class='setting'>
+                <input type='password' placeholder='请再次输入新密码' name='newPasswordAgain'/>
+            </view>
         </view>
-        <view class='setting'>
-			<input type='password' placeholder='请设置新密码'/>
-        </view>
-        <view class='setting'>
-			<input type='password' placeholder='请再次输入新密码'/>
-        </view>
-    </view>
-	<button type='warn' size='default'>确认修改</button>
+        <button type='warn' size='default' form-type='submit'>确认修改</button>
+    </form>
 </view>

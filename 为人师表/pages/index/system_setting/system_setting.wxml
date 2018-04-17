@@ -1,8 +1,8 @@
 <!--pages/index/system_setting/system_setting.wxml-->
 <view class='container'>
     <view class='list'>
-        <view class='setting'>
-            <view class='left'>账号安全</view>
+        <view class='setting' bindtap='toChangePassword'>
+            <view class='left'>修改密码</view>
             <view class='right'>></view>
         </view>
         <view class='setting'>

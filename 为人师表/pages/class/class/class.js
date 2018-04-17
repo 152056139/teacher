@@ -24,6 +24,15 @@ Page({
 		commentDisabled: "none",
 		commentButtonText: "取消",
 	},
+	/**
+	 * 下拉刷新函数
+	 */
+	onPullDownRefresh(){
+		console.log("sasfafdasf")
+		wx.navigateTo({
+			url: '/pages/index/index',
+		})
+	},
 	toggleComment: function(e){
 		if (e.currentTarget.dataset.commentbuttontext=="取消"){
 			this.setData({
