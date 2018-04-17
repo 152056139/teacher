@@ -14,6 +14,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 public class UploadFile {
 	// 上传文件存储目录
 	private static final String UPLOAD_DIRECTORY = "upload";
@@ -69,12 +71,17 @@ public class UploadFile {
 					if (!item.isFormField()) {
 						String fileName = new File(item.getName()).getName();
 						String filePath = uploadPath + File.separator + fileName;
+						
 						File storeFile = new File(filePath);
 						// 在控制台输出文件的上传路径
 						System.out.println(filePath);
 						map.put("filepath", fileName);
 						// 保存文件到硬盘
 						item.write(storeFile);
+						Thumbnails.of(filePath) 
+						.scale(1f) 
+						.outputQuality(0.3f) 
+						.toFile(filePath);
 						
 					} else {
 						map.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"),"utf-8"));
@@ -87,3 +94,8 @@ public class UploadFile {
 		return map;
 	}
 }
+/*//压缩图片
+Thumbnails.of(uploadPath) 
+.scale(1f) 
+.outputQuality(0.3f) 
+.toFile(filePath);*/
