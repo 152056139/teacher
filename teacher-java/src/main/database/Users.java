@@ -124,7 +124,7 @@ public class Users {
 	 * @param userName
 	 * @return
 	 */
-	public Map<String, String> getPassword(String userName) {
+	public  static Map<String, String> getPassword(String userName) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		ResultSet resultset = mysqlBase
@@ -152,6 +152,43 @@ public class Users {
 		return map;
 	}
 
+	
+	public  static Map<String, String> oldPassword(int userid) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		ResultSet resultset = mysqlBase
+				.search("select user_password from user where user_id = '" + userid + "';", connection);
+
+		String password = "";
+		
+		try {
+			while (resultset.next()) {
+				password = resultset.getString("user_password");
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mysqlBase.close(connection);
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("password", password);
+		
+		return map;
+	} 
+	/**
+	 * 更改用户密码
+	 * @param userid
+	 * @param newpass
+	 */
+	public static void update_password(int userid,String newpass) {
+		MysqlBase mysqlBase=new MysqlBase();
+		Connection connection =mysqlBase.createConnect();
+		String sql="UPDATE user SET user_password='"+newpass+"'";
+		mysqlBase.execute(sql, connection);
+		
+	}
 	/**
 	 * 查询用户名在数据库中有多少个
 	 * 

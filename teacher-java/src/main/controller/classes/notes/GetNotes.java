@@ -64,8 +64,8 @@ public class GetNotes extends HttpServlet {
 		JSONArray jsonArray2 = new JSONArray();
 
 		for (int i = 0; i < jsonArray.size(); i++) {
-			OutputStream out1 = response.getOutputStream();
-			response.setContentType("application/force-download");
+
+			
 
 			JSONObject jsonObject = new JSONObject();
 			JSONObject jsonObject2 = new JSONObject();
@@ -84,17 +84,15 @@ public class GetNotes extends HttpServlet {
 			String userHeadPath = Users.search_user_head(userId);// 用户头像
 			jsonArray3 = JSON.parseArray(noteImage);
 			// 编辑头像图片路径
-			String path = request.getServletContext().getRealPath(".") + File.separator + "upload" + File.separator + userHeadPath;
 
-			DownloadFile.uploadfile(request, response, userHeadPath);
 			// 发送
 			jsonObject2.put("userName", userName);
 			jsonObject2.put("useIdentity", userIdentity);
-			// jsonObject2.put("userHeadPath", userHeadPath);
+			jsonObject2.put("userHeadPath", userHeadPath);
 			jsonObject2.put("noteContent", noteContent);
 			jsonObject2.put("noteTime", noteTime);
 			jsonObject2.put("noteCmd", noteCmd);
-			// jsonObject2.put("noteImage", jsonArray3);
+			jsonObject2.put("noteImage", jsonArray3);
 			jsonArray2.add(jsonObject2);
 		}
 		out.println(jsonArray2);

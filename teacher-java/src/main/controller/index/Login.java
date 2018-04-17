@@ -85,8 +85,6 @@ public class Login extends HttpServlet {
 		String identity="";
 		Map<String, String> map = new HashMap<String, String>();
 		map = user.getPassword(username_form);
-		
-		
 		password = map.get("password");
 		id = map.get("id");
 		identity=map.get("identity");
