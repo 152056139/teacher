@@ -7,6 +7,7 @@ Page({
 	data: {
 		userId: "",
 		tempFilePaths: "",
+		addIconDisplay: "inline-block", // 是否显示添加图片的加号
 	},
 	/**
 	 * 点击提交表单按钮
@@ -38,19 +39,66 @@ Page({
 							console.log(res)
 						}
 					})
-					
 				}
+				// 完成后返回
+				wx.navigateBack({
+					
+				})
 			}
 		})
 		
 	},
+	/**
+	 * 删除图片
+	 */
+	removeImage: function(e) {
+		var index = e.target.dataset.index
+		console.log(index)
+		this.data.tempFilePaths.splice(index,1);
+		this.setData({
+			tempFilePaths: this.data.tempFilePaths
+		})
+		if (this.data.tempFilePaths.length < 6){
+			this.setData({
+				addIconDisplay: "inline-block"
+			})
+		}
+
+	},
+	/**
+	 * 预览图片
+	 */
+	previewImage: function (e) {
+		var index = e.target.dataset.index
+		wx.previewImage({
+			current: this.data.tempFilePaths[index],
+			urls: this.data.tempFilePaths,
+		})
+	},
+	/**
+	 * 选择图片
+	 */
 	chooseImage: function (e){
 		var that = this
 		wx.chooseImage({
+			count: 6, 
 			success: function(res) {
-				that.setData({
-					tempFilePaths: res.tempFilePaths
-				})
+				if (that.data.tempFilePaths == "" ){
+					that.setData({
+						tempFilePaths: res.tempFilePaths
+					})
+				} else {
+					that.setData({
+						tempFilePaths: that.data.tempFilePaths.concat(res.tempFilePaths)
+					})
+				}
+
+				// 超过六张图片隐藏添加按钮
+				if (that.data.tempFilePaths.length ==6){
+					that.setData({
+						addIconDisplay: "none"
+					})
+				}
 			},
 		})
 	},

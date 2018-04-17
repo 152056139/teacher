@@ -9,7 +9,7 @@ button{
 	bottom: 20rpx;
 	width: 710rpx;
 }
-.image{
+.images{
 	margin-top: 50rpx;
 	width: 710rpx;
 	display: flex;
@@ -17,11 +17,22 @@ button{
 	flex-wrap: wrap;
 	justify-content: flex-start;
 }
+.image{
+	position: relative;
+}
 image {
-	height: 230rpx;
-	width: 230rpx;
-	margin-top: 30rpx;
+    width: 210rpx;
+    height: 210rpx;
+    margin: 13rpx;
+}
+icon {
+	position: absolute;
+	right: 0rpx;
+	top: 0rpx;
 }
 .add-image {
 	border: 1px solid #3f99f8;
+}
+textarea {
+	width: 710rpx;
 }

@@ -128,6 +128,18 @@ Page({
 
 		})
 	},
+	// 点击创建笔记
+	toCreateNote:function(e) {
+		var that = this
+		wx.navigateTo({
+			url: '/pages/class/note/create_note/create_note',
+			success: function(res) {
+				that.setData({
+					display:"none"
+				})
+			},
+		})
+	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
@@ -135,7 +147,7 @@ Page({
 		var that = this
 		wx.getStorage({
 			key: 'USERIDENTITY',
-			success: function(res) {
+			success: function (res) {
 				// 获取用户身份
 				if (res.data == 1) {
 					console.log("I am a teacher")
@@ -149,23 +161,25 @@ Page({
 						editDisplay: "none",
 						scoreDisabled: "flex"
 					})
-				} 
+				}
 			},
 		})
-		
+		// 获得笔记列表
+		wx.request({
+			url: app.globalData.requestUrl + "/teacher/GetNotes",
+			method: "POST",
+			data: {
+				classid: "3"
+			},
+			header: {
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success: function(res){
+				console.log(res)
+			}
+		})
 
-	},
-	// 点击创建笔记
-	toCreateNote:function(e) {
-		var that = this
-		wx.navigateTo({
-			url: '/pages/class/note/create_note/create_note',
-			success: function(res) {
-				that.setData({
-					display:"none"
-				})
-			},
-		})
+
 	},
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
