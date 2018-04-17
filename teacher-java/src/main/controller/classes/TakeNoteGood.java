@@ -37,6 +37,7 @@ public class TakeNoteGood extends HttpServlet {
 		
 		String oldGood=Notes.search_note_good(noteId);
 		System.out.println("数据库获取"+oldGood);
+		
 		com.alibaba.fastjson.JSONArray jsonArray = (com.alibaba.fastjson.JSONArray) JSON.parse(oldGood);
 		jsonArray.add(userid_form);
 		Notes.update_note_good(jsonArray.toJSONString(), noteId);

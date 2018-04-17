@@ -49,8 +49,8 @@ public class UploadFile {
 		// 构造临时路径来存储上传的文件
 		
 		// 这个路径相对当前应用的目录
-		String uploadPath = request.getServletContext().getRealPath(".") + File.separator + UPLOAD_DIRECTORY;
-           
+		
+		String uploadPath = "C:\\Users\\郭浩卓\\Documents\\GitHub\\teacher\\teacher-java\\WebContent\\upload";
            
 		// 如果目录不存在则创建
 		File uploadDir = new File(uploadPath);
