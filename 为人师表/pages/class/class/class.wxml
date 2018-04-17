@@ -8,10 +8,10 @@
             <text bindtap='toCreateNote'>发布笔记</text>
         </view>
     </view>
-	<view class='comment-edit' style='display:{{commentDisabled}}'>
-		<input placeholder='发表你的评论' focus='{{commentFocus}}' bindinput='judgeChange'></input>
-		<button bindtap='toggleComment' data-commentButtonText='{{commentButtonText}}'>{{commentButtonText}}</button>
-	</view>
+    <view class='comment-edit' style='display:{{commentDisabled}}'>
+        <input placeholder='发表你的评论' focus='{{commentFocus}}' bindinput='judgeChange'></input>
+        <button bindtap='toggleComment' data-commentButtonText='{{commentButtonText}}'>{{commentButtonText}}</button>
+    </view>
     <!-- 顶部的黑板 -->
     <view class="blackboard">
         <view class="content">
@@ -57,54 +57,30 @@
 
     <!-- note -->
     <view class='notes'>
-        <view class='note'>
-            <view class='top'>
-                <image src='/image/user-icon.jpg' mode='aspectFit'></image>
-                <view class="info">
-                    <view class="name">gray</view>
-                    <view class="time">刚刚</view>
+        <block wx:for="{{noteList}}">
+            <view class='note'>
+                <view class='top'>
+                    <image src='{{imagePath}}{{item.userHeadPath}}' mode='aspectFill'></image>
+                    <view class="info">
+                        <view class="name">{{item.userName}}</view>
+                        <view class="time">{{item.noteTime}}</view>
+                    </view>
+                </view>
+                <view class='middle'>
+                    <view class='text'>
+                        {{item.noteContent}}
+                    </view>
+                    <view class='images'>
+                        <block wx:for="{{item.noteImage}}">
+                            <image src='{{imagePath}}{{item}}' mode="aspectFill"></image>
+                        </block>
+                    </view>
+                </view>
+                <view class='bottom'>
+                    <view class='good'>赞</view>
+                    <view class='comment' id='comment' bindtap='toComment'>评</view>
                 </view>
             </view>
-            <view class='middle'>
-                <view class='text'>
-                    Sed fringilla et quam a tempus. Nam volutpat augue eu lorem maximus, id luctus dolor venenatis. Morbi et vestibulum orci. Donec pretium suscipit massa quis convallis. Etiam et est dolor. Quisque eget lectus id risus vulputate venenatis. Praesent varius
-                    facilisis lorem id sagittis. Nullam vel elit quis neque dapibus lacinia.
-                </view>
-                <view class='images'>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                </view>
-            </view>
-			<view class='bottom'>
-				<view class='good'>赞</view>
-				<view class='comment' id='comment' bindtap='toComment'>评</view>
-			</view>
-        </view>
-
-        <view class='note'>
-            <view class='top'>
-                <image src='/image/user-icon.jpg' mode='aspectFit'></image>
-                <view class="info">
-                    <view class="name">gray</view>
-                    <view class="time">刚刚</view>
-                </view>
-            </view>
-            <view class='middle'>
-                <view class='text'>
-                    Sed fringilla et quam a tempus. Nam volutpat augue eu lorem maximus, id luctus dolor venenatis. Morbi et vestibulum orci. Donec pretium suscipit massa quis convallis. Etiam et est dolor. Quisque eget lectus id risus vulputate venenatis. Praesent varius
-                    facilisis lorem id sagittis. Nullam vel elit quis neque dapibus lacinia.
-                </view>
-                <view class='images'>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                    <image src='/image/english1.png' mode="aspectFill"></image>
-                </view>
-            </view>
-        </view>
+        </block>
     </view>
 </view>
