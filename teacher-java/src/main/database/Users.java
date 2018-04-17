@@ -211,5 +211,73 @@ public class Users {
 		mysqlBase.close(connection);
 
 	}
+	/**
+	 * 根据userid获取username
+	 * @param userId
+	 * @return
+	 */
+	public static String search_user_name(int userId) {
+		MysqlBase mysqlBase=new MysqlBase();
+		Connection connection=mysqlBase.createConnect();
+		String sql="SELECT user_name From user WHERE user_id='"+userId+"';";
+		ResultSet rSet=mysqlBase.search(sql, connection);
+		String rS="";
+		try {
+			while(rSet.next()) {
+				rS=rSet.getString("user_name");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mysqlBase.close(connection);
+		return rS;
+	}
+	/**
+	 * 根据userid获取user_identity
+	 * @param userId
+	 * @return
+	 */
+	public static String search_user_identity(int userId) {
+		MysqlBase mysqlBase=new MysqlBase();
+		Connection connection=mysqlBase.createConnect();
+		String sql="SELECT user_identity From user WHERE user_id='"+userId+"';";
+		ResultSet rSet=mysqlBase.search(sql, connection);
+		String rS="";
+		try {
+			while(rSet.next()) {
+				rS=rSet.getString("user_identity");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mysqlBase.close(connection);
+		return rS;
+	}
+	/**
+	 * 根据userid获取userimage
+	 * @param userId
+	 * @return
+	 */
+	public static String search_user_head(int userId) {
+		MysqlBase mysqlBase=new MysqlBase();
+		Connection connection=mysqlBase.createConnect();
+		String sql="SELECT user_image From user WHERE user_id='"+userId+"';";
+		ResultSet rSet=mysqlBase.search(sql, connection);
+		String rS="";
+		try {
+			while(rSet.next()) {
+				rS=rSet.getString("user_image");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mysqlBase.close(connection);
+		return rS;
+	}
+	     
+	
 
 }

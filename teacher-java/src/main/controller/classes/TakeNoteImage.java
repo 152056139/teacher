@@ -45,7 +45,7 @@ public class TakeNoteImage extends HttpServlet {
 		int noteId=Integer.parseInt(noteid);
 		//获取该id下已有的图片
 		String oldImage=Notes.serch_note_image(noteId);
-		System.out.println(oldImage);
+		System.out.println("aaa"+oldImage);
 		//将图片路径解析为jsonarry
 		com.alibaba.fastjson.JSONArray jsonArray = (com.alibaba.fastjson.JSONArray) JSON.parse(oldImage);
 		//加入新的图片路径
