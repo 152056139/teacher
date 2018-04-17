@@ -3,9 +3,12 @@ package main.common;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Base64;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSONArray;
 
@@ -16,7 +19,7 @@ public class DownloadFile {
 	 * @param request
 	 * @param response
 	 */
-	public static byte[] uploadfile(HttpServletRequest request, String paths) {
+	public static void uploadfile(HttpServletRequest request, HttpServletResponse response, String paths) {
 		// 将传过来的图片json字符串解析成jsonarray
 		JSONArray jsonArray = (JSONArray) JSONArray.parse(paths);
 		byte[] b = null;
@@ -32,7 +35,6 @@ public class DownloadFile {
 					fis = new FileInputStream(f);
 					b = new byte[fis.available()];
 					fis.read(b);
-					/*
 				 	String filename = URLEncoder.encode(f.getName(), "utf-8"); // 解决中文文件名下载后乱码的问题
 					response.setCharacterEncoding("utf-8");
 					response.setHeader("Content-Disposition", "attachment; filename=" + filename + "");
@@ -43,14 +45,12 @@ public class DownloadFile {
 
 					out.flush();
 					out.close();
-					*/
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		}
-		return b;
 	}
 
 }

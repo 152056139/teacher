@@ -25,11 +25,11 @@ public class UploadFile {
 	private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
 	private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MBÏ
 
-	public Map<String, String> uploadFile (HttpServletRequest request, HttpServletResponse response)
+	public Map<String, String> uploadFile(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	    request.setCharacterEncoding("utf-8");  //设置编码
+		request.setCharacterEncoding("utf-8"); // 设置编码
 		Map<String, String> map = new HashMap<String, String>();
-		
+
 		// 配置上传参数
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		// 设置内存临界值 - 超过后将产生临时文件并存储于临时目录中
@@ -49,11 +49,12 @@ public class UploadFile {
 		upload.setHeaderEncoding("UTF-8");
 
 		// 构造临时路径来存储上传的文件
-		
+
 		// 这个路径相对当前应用的目录
-		
-		String uploadPath = "C:\\Users\\郭浩卓\\Documents\\GitHub\\teacher\\teacher-java\\WebContent\\upload";
-           
+		String uploadPath = request.getServletContext().getRealPath(".") + File.separator + UPLOAD_DIRECTORY;
+		// String uploadPath =
+		// "C:\\Users\\郭浩卓\\Documents\\GitHub\\teacher\\teacher-java\\WebContent\\upload";
+
 		// 如果目录不存在则创建
 		File uploadDir = new File(uploadPath);
 		if (!uploadDir.exists()) {
@@ -71,31 +72,27 @@ public class UploadFile {
 					if (!item.isFormField()) {
 						String fileName = new File(item.getName()).getName();
 						String filePath = uploadPath + File.separator + fileName;
-						
+
 						File storeFile = new File(filePath);
 						// 在控制台输出文件的上传路径
 						System.out.println(filePath);
 						map.put("filepath", fileName);
 						// 保存文件到硬盘
 						item.write(storeFile);
-						/*Thumbnails.of(filePath) 
-						.scale(1f) 
-						.outputQuality(0.3f) 
-						.toFile(filePath);*/
-						
+						Thumbnails.of(filePath).scale(1f).outputQuality(0.3f).toFile(filePath);
+
 					} else {
-						map.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"),"utf-8"));
+						map.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"), "utf-8"));
 					}
 				}
 			}
 		} catch (Exception ex) {
-			
+
 		}
 		return map;
 	}
 }
-/*//压缩图片
-Thumbnails.of(uploadPath) 
-.scale(1f) 
-.outputQuality(0.3f) 
-.toFile(filePath);*/
+/*
+ * //压缩图片 Thumbnails.of(uploadPath) .scale(1f) .outputQuality(0.3f)
+ * .toFile(filePath);
+ */

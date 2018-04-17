@@ -181,6 +181,12 @@ Page({
 				that.setData({
 					noteList: res.data
 				})
+				wx.downloadFile({
+					url:"",
+					success:function(res) {
+						
+					}
+				})
 			}
 		})
 
