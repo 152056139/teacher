@@ -1,7 +1,12 @@
 package main.controller.classes.notes;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.sql.Connection;
 
 import javax.servlet.ServletException;
@@ -57,11 +62,14 @@ public class GetNotes extends HttpServlet {
 		int classId = Integer.parseInt(classid_form);
 		JSONArray jsonArray = Notes.search_noteid(classId);
 		JSONArray jsonArray2 = new JSONArray();
-		
+
 		for (int i = 0; i < jsonArray.size(); i++) {
+			OutputStream out1 = response.getOutputStream();
+			response.setContentType("application/force-download");
+
 			JSONObject jsonObject = new JSONObject();
 			JSONObject jsonObject2 = new JSONObject();
-			JSONArray jsonArray3=new JSONArray();
+			JSONArray jsonArray3 = new JSONArray();
 			jsonObject = (JSONObject) jsonArray.get(i);
 			String userid = jsonObject.getString("userId");
 			String noteId = jsonObject.getString("noteId");
@@ -74,15 +82,19 @@ public class GetNotes extends HttpServlet {
 			String userName = Users.search_user_name(userId);// 用户名
 			String userIdentity = Users.search_user_identity(userId);// 用户身份
 			String userHeadPath = Users.search_user_head(userId);// 用户头像
-			jsonArray3=JSON.parseArray(noteImage);
-			
+			jsonArray3 = JSON.parseArray(noteImage);
+			// 编辑头像图片路径
+			String path = request.getServletContext().getRealPath(".") + File.separator + "upload" + File.separator + userHeadPath;
+
+			DownloadFile.uploadfile(request, response, userHeadPath);
+			// 发送
 			jsonObject2.put("userName", userName);
 			jsonObject2.put("useIdentity", userIdentity);
-			jsonObject2.put("userHeadPath", userHeadPath);
+			// jsonObject2.put("userHeadPath", userHeadPath);
 			jsonObject2.put("noteContent", noteContent);
 			jsonObject2.put("noteTime", noteTime);
 			jsonObject2.put("noteCmd", noteCmd);
-			jsonObject2.put("noteImage", jsonArray3);
+			// jsonObject2.put("noteImage", jsonArray3);
 			jsonArray2.add(jsonObject2);
 		}
 		out.println(jsonArray2);
