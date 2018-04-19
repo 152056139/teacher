@@ -8,7 +8,7 @@ Page({
 	data: {
 		courseName: "请选择课程",
 		courseId: "",
-		date: "2018-12-21",
+		date: "",
 		time: "12:32",
 		classroom: ""
 	},
@@ -50,7 +50,7 @@ Page({
 			var title = "请指定上课教室"
 		}
 		// 发送请求
-		if(flag){
+		if (flag) {
 			wx.request({
 				url: app.globalData.requestUrl + '/teacher/CreateClass',
 				data: {
@@ -62,7 +62,17 @@ Page({
 					'content-type': 'application/json'
 				},
 				success: function (res) {
+					console.log(res.data)
+					if (res.data.STATU == "success") {
+						wx.navigateBack({
 
+						})
+					} else {
+						wx.showToast({
+							title: '创建课堂失败',
+							icon: 'none'
+						})
+					}
 				}
 			})
 		} else {
@@ -72,20 +82,23 @@ Page({
 		}
 		wx.removeStorage({
 			key: 'COURSENAME',
-			success: function(res) {},
+			success: function (res) { },
 		})
 		wx.removeStorage({
 			key: 'COURSEID',
-			success: function(res) {},
+			success: function (res) { },
 		})
-		
+
 
 	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
+		var date = new Date();
+		this.setData({
+			date: date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate()
+		})
 	},
 
 	/**

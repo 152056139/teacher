@@ -8,7 +8,7 @@
 
         <view class='item'>
             <view class='left'>日期</view>
-            <picker class='right' mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <picker class='right' mode="date" value="{{date}}" start="2017-09-01" end="2020-09-01" bindchange="bindDateChange">
                 <view class="picker">
                     {{date}}
                 </view>

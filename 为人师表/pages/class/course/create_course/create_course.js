@@ -83,6 +83,16 @@ Page({
 			},
 			success: function (res) {
 				console.log(res.data)
+				if (res.data.status== "success"){
+					wx.navigateBack({
+						
+					})
+				} else {
+					wx.showToast({
+						title: '创建课程失败',
+						icon: 'none'
+					})
+				}
 			},
 			fail: function (err) {
 				console.log("创建课程失败" + err)

@@ -8,12 +8,32 @@ Page({
 	 */
 	data: {
 		dateStr: "",
-		display: "none"
+		display: "none",
+		classes: "",
 	},
 	bindDateChange: function (e) {
 		console.log(e)
 		this.setData({
 			dateStr: e.detail.value
+		})
+		var that = this
+		wx.request({
+			url: app.globalData.requestUrl + '/teacher/GetClass',
+			data: {
+				userid: wx.getStorageSync("USERID"),
+				useridentity: wx.getStorageSync("USERIDENTITY"),
+				date: this.data.dateStr
+			},
+			header: {
+				'content-type': 'application/x-www-form-urlencoded'
+			},
+			method: "POST",
+			success: function (res) {
+				console.log(res)
+				that.setData({
+					classes: res.data
+				})
+			}
 		})
 
 	},
@@ -30,7 +50,7 @@ Page({
 						itemColor: '',
 						success: function (res) {
 							console.log(res.tapIndex)
-							if (res.tapIndex == 1) {
+							if (res.tapIndex == 0) {
 								wx.navigateTo({
 									url: '/pages/class/class/create_class_single/create_class_single',
 								})
@@ -75,7 +95,6 @@ Page({
 		this.setData({
 			dateStr: this.printDate(date),
 		})
-		// 设置日历
 	},
 
 	/**
@@ -89,7 +108,25 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-
+		var that = this
+		wx.request({
+			url: app.globalData.requestUrl + '/teacher/GetClass',
+			data: {
+				userid: wx.getStorageSync("USERID"),
+				useridentity: wx.getStorageSync("USERIDENTITY"),
+				date: this.data.dateStr
+			},
+			header: {
+				'content-type': 'application/x-www-form-urlencoded'
+			},
+			method: "POST",
+			success: function (res) {
+				console.log(res)
+				that.setData({
+					classes: res.data
+				})
+			}
+		})
 	},
 
 	/**
