@@ -1,25 +1,29 @@
 /**index.wxss**/
+
 page {
-	background: #eeeeee;
+    background: #eee;
 }
+
 .container {
     padding: 0;
     align-items: initial;
     font-size: 11px;
 }
+
 .top {
-	width: 710rpx;
-	height: 100rpx;
-	background: #ffffff;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 20rpx;
+    width: 710rpx;
+    height: 100rpx;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20rpx;
 }
-.top image{
-	height: 60rpx;
-	width: 60rpx;
+
+.top image {
+    height: 60rpx;
+    width: 60rpx;
 }
 
 .top .choose-time picker {
@@ -30,50 +34,61 @@ page {
 
 .choose-date {
     width: 100%;
-	background: #eeeeee;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-around;
+    background: #eee;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
+
 .day {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
+
 .today {
-	border-bottom: #3f99f8 solid 5rpx;
-	color: #3f99f8;
+    border-bottom: #3f99f8 solid 5rpx;
+    color: #3f99f8;
+    text-align: center;
 }
+
 .week {
-	margin-top: 5rpx;
+    margin-top: 5rpx;
 }
+
 .date {
-	margin: 5rpx 0 10rpx 0;
+    margin: 5rpx 0 10rpx 0;
 }
+
 .list {
-	background: #ffffff;
-	width: 100%;
+	margin-top: 10rpx;
+    background: #fff;
+    width: 100%;
+	display: inline-block;
 }
+
 .item {
-	width: 710rpx;
-	margin: 0 20rpx;
-	padding: 20rpx 0;
-	border-bottom: 1px solid #eeeeee;
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
+    width: 710rpx;
+    margin: 0 20rpx;
+    padding: 20rpx 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 .item image {
-	width: 110rpx;
+    width: 110rpx;
 }
+
 .item .info {
-	margin-left: 20rpx;
-	font-size: 25rpx;
-	color: #555555;
+    margin-left: 20rpx;
+    font-size: 25rpx;
+    color: #555;
 }
+
 .info .name {
-	font-size: 30rpx;
-	margin-bottom: 5rpx;
-	color: #000000;
+    font-size: 30rpx;
+    margin-bottom: 5rpx;
+    color: #000;
 }

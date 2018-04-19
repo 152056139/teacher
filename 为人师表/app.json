@@ -1,9 +1,9 @@
 {
     "pages": [
-		"pages/index/system_setting/change_passwd/change_passwd",
-		"pages/class/class/class",
-		"pages/index/index",
 		"pages/index/login/login",
+		"pages/index/index",
+		"pages/class/class/class",
+		"pages/index/system_setting/change_passwd/change_passwd",
 		"pages/index/mine/mine",
 		"pages/class/note/create_note/create_note",
 		"pages/index/system_setting/system_setting",

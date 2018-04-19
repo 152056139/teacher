@@ -24,7 +24,17 @@ Page({
 						newpassword: e.detail.value.newPassword
 					},
 					success: function (res) {
-						console.log(res)
+						console.log(res.data.STATU)
+						if(res.data.STATU == 'success'){
+							wx.navigateBack({
+								
+							})
+						} else if (res.data.STATU == 'wrong'){
+							wx.showToast({
+								title: '修改密码失败，请检查旧密码再试',
+								icon: 'none'
+							})
+						}
 					}
 				})
 			},

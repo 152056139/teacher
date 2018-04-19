@@ -1,48 +1,81 @@
 // pages/course/course.js
 var app = getApp()
+
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		array: ['第一周', '第二周', '第三周', '第四周'],
-		objectArray: [
-			{
-				id: 0,
-				name: '第一周'
-			},
-			{
-				id: 1,
-				name: '第二周'
-			},
-			{
-				id: 2,
-				name: '第三周'
-			},
-			{
-				id: 3,
-				name: '第四周'
-			}
-		],
-		index: 0,
+		dateStr: "",
 		display: "none"
 	},
-	toMine: function () {
-		wx.navigateTo({
-			url: '/pages/index/mine/mine',
+	bindDateChange: function (e) {
+		console.log(e)
+		this.setData({
+			dateStr: e.detail.value
 		})
+
 	},
-	toClass: function () {
-		wx.switchTab({
-			url: '/pages/class/class/class',
+	/**
+	 * 点击菜单
+	 */
+	menu: function () {
+		wx.getStorage({
+			key: 'USERIDENTITY',
+			success: function (res) {
+				if (res.data == 1) {
+					wx.showActionSheet({
+						itemList: ["创建课堂", "创建班课", "系统设置"],
+						itemColor: '',
+						success: function (res) {
+							console.log(res.tapIndex)
+							if (res.tapIndex == 1) {
+								wx.navigateTo({
+									url: '/pages/class/class/create_class_single/create_class_single',
+								})
+							} else if (res.tapIndex == 1) {
+								wx.navigateTo({
+									url: '/pages/class/course/create_course/create_course',
+								})
+							} else if (res.tapIndex == 2) {
+								wx.navigateTo({
+									url: 'system_setting/system_setting',
+								})
+							}
+						}
+					})
+				} else if (res.data == 0) {
+					wx.showActionSheet({
+						itemList: ["加入班课", "系统设置"],
+						itemColor: '',
+						success: function (res) {
+							console.log(res.tapIndex)
+							if (res.tapIndex == 0) {
+								wx.navigateTo({
+									url: '/pages/class/course/join_course/join_course',
+								})
+							} else if (res.tapIndex == 1) {
+								wx.navigateTo({
+									url: 'system_setting/system_setting',
+								})
+							}
+						}
+					})
+				}
+			},
 		})
 	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
+		// 设置标题
+		var date = new Date();
+		this.setData({
+			dateStr: this.printDate(date),
+		})
+		// 设置日历
 	},
 
 	/**
@@ -93,27 +126,27 @@ Page({
 	onShareAppMessage: function () {
 
 	},
-	/**
-	 * 点击菜单
-	 */
-	menu: function(){
-		wx.showActionSheet({
-			itemList: ["创建班课","系统设置"],
-			itemColor: '',
-			success: function(res) {
-				console.log(res.tapIndex)
-				if(res.tapIndex == 0){
-					wx.navigateTo({
-						url: '/pages/class/course/create_course/create_course',
-					})
-				} else if(res.tapIndex == 1) {
-					wx.navigateTo({
-						url: 'system_setting/system_setting',
-					})
-				}
-			},
-			fail: function(res) {},
-			complete: function(res) {},
+
+	toMine: function () {
+		wx.navigateTo({
+			url: '/pages/index/mine/mine',
 		})
-	}
+	},
+	toClass: function () {
+		wx.switchTab({
+			url: '/pages/class/class/class',
+		})
+	},
+	printDate: function (date) {
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1;
+		var date = date.getDate();
+		if (month < 10) {
+			month = "0" + month;
+		}
+		if (date < 10) {
+			date = "0" + date;
+		}
+		return year + "-" + month + "-" + date;
+	},
 })

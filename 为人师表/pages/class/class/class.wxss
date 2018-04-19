@@ -4,6 +4,7 @@ page {
 
 .contailer {
     padding: 0;
+	width: 750rpx;
     align-items: flex-start;
     flex-direction: column;
 }
@@ -43,12 +44,12 @@ page {
     margin: 10rpx 0;
     border: #ddd solid 2rpx;
     border-radius: 20rpx;
-    text-align: right;
+    text-align: center;
     background: #fff;
 }
 
 .blackboard {
-    height: 520rpx;
+	width: 750rpx;
 	position: relative;
 }
 
@@ -67,12 +68,12 @@ page {
 
 .blackboard .content {
     padding: 50rpx;
-    padding-bottom: 10rpx;
+	height: 420rpx;
 }
 
 .blackboard .content button {
     position: absolute;
-    left: 593rpx;
+    left: 590rpx;
     top: 430rpx;
 	font-size: 30rpx;
 	display: flex;
@@ -95,24 +96,31 @@ page {
 
 .blackboard .content textarea {
     margin-top: 5rpx;
+	width: 650rpx;
     color: #fff;
-    width: 100%;
     height: 245rpx;
     font-size: 90%;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .blackboard .background image {
-    width: 100%;
+	width: 750rpx;
     position: absolute;
 	top: 0rpx;
     z-index: -1;
 }
 
 .userInfo {
-    width: 100%;
-    height: 100px;
+	width: 750rpx;
+    height: 220rpx;
     margin-top: 10rpx;
+}
+.userInfo .background {
+	width: 750rpx;
+    height: 220rpx;
+    z-index: -1;
+    position: relative;
+    bottom: 90px;
 }
 
 .userInfo .content image {
@@ -153,13 +161,6 @@ page {
     bottom: 35px;
 }
 
-.userInfo .background {
-    width: 100%;
-    height: 100px;
-    z-index: -1;
-    position: relative;
-    bottom: 90px;
-}
 
 .notes {
     margin-top: 10rpx;
@@ -266,7 +267,7 @@ page {
 }
 
 .comment-edit {
-    width: 100%;
+	width: 750rpx;
     background: #eee;
     position: fixed;
     bottom: 0;
