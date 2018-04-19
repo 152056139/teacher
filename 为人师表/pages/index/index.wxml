@@ -3,80 +3,23 @@
     <view class='top'>
         <image src='/image/user-icon.png' mode='aspectFill' bindtap='toMine'></image>
         <view class="choose-time">
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <picker mode="date" value="{{dateStr}}" start="2015-09-01" end="2020-09-01" bindchange="bindDateChange">
                 <view class="picker">
-                    {{array[index]}}
+                    {{dateStr}}
                 </view>
             </picker>
         </view>
         <image src="/image/add_icon.png" mode='scaleToFill' bindtap="menu"></image>
-        <view class="menu" style=" display:{{display}}">
-            <view>加入班科</view>
-            <view bindtap='toCreateCourse'>创建班科</view>
-            <view>我的</view>
-            <view>系统设置</view>
+    </view>
+    <view class='list'>
+        <view class='item' bindtap='toClass'>
+            <image src='/image/english1.png' mode='widthFix' />
+            <view class='info'>
+                <view class='name'>大学英语1</view>
+                <view class='classroom'>教室：Z1234</view>
+                <view class='time'>上课时间：12:00-14:00</view>
+                <view class='teacher'>教师：葛艳梅</view>
+            </view>
         </view>
     </view>
-    <view class="choose-date">
-		<view class='day today'>
-			<view class='week'>一</view>
-			<view class='date'>12</view>
-		</view>
-		<view class='day'>
-			<view class='week'>二</view>
-			<view class='date'>12</view>
-		</view>
-		<view class='day'>
-			<view class='week'>三</view>
-			<view class='date'>12</view>
-		</view>
-		<view class='day'>
-			<view class='week'>四</view>
-			<view class='date'>12</view>
-		</view>
-		<view class='day'>
-			<view class='week'>五</view>
-			<view class='date'>12</view>
-		</view>
-		<view class='day'>
-			<view class='week'>六</view>
-			<view class='date'>12</view>
-		</view>
-		<view class='day'>
-			<view class='week'>日</view>
-			<view class='date'>12</view>
-		</view>
-	</view>
-	<view class='list'>
-		<view class='item' bindtap='toClass'>
-			<image src='/image/english1.png' mode='widthFix'/>
-			<view class='info'>
-				<view class='name'>大学英语1</view>
-				<view class='classroom'>教室：Z1234</view>
-				<view class='time'>上课时间：12:00-14:00</view>
-				<view class='teacher'>教师：葛艳梅</view>
-				
-			</view>
-		</view>
-		<view class='item'>
-			<image src='/image/english1.png' mode='widthFix'/>
-			<view class='info'>
-				<view class='name'>大学英语1</view>
-				<view class='classroom'>教室：Z1234</view>
-				<view class='time'>上课时间：12:00-14:00</view>
-				<view class='teacher'>教师：葛艳梅</view>
-				
-			</view>
-		</view>
-		<view class='item'>
-			<image src='/image/english1.png' mode='widthFix'/>
-			<view class='info'>
-				<view class='name'>大学英语1</view>
-				<view class='classroom'>教室：Z1234</view>
-				<view class='time'>上课时间：12:00-14:00</view>
-				<view class='teacher'>教师：葛艳梅</view>
-				
-			</view>
-		</view>
-	</view>
 </view>
