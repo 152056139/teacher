@@ -314,7 +314,28 @@ public class Users {
 		mysqlBase.close(connection);
 		return rS;
 	}
-	     
+	/**
+	 * 获取教师名字
+	 * @param teacherId
+	 * @return
+	 */
+	public static String searchTeacherName(int teacherId) {
+		MysqlBase mysqlBase=new MysqlBase();
+		Connection connection=mysqlBase.createConnect();
+		String sql="SELECT user_name From user WHERE user_id='"+teacherId+"';";
+		ResultSet rSet=mysqlBase.search(sql, connection);
+		String rS="";
+		try {
+			while(rSet.next()) {
+				rS=rSet.getString("user_name0");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mysqlBase.close(connection);
+		return rS;
+	}     
 	
 
 }
