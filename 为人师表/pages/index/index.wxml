@@ -12,14 +12,16 @@
         <image src="/image/add_icon.png" mode='scaleToFill' bindtap="menu"></image>
     </view>
     <view class='list'>
-        <view class='item' bindtap='toClass'>
-            <image src='/image/english1.png' mode='widthFix' />
-            <view class='info'>
-                <view class='name'>大学英语1</view>
-                <view class='classroom'>教室：Z1234</view>
-                <view class='time'>上课时间：12:00-14:00</view>
-                <view class='teacher'>教师：葛艳梅</view>
+        <block wx:for='{{classes}}'>
+            <view class='item' bindtap='toClass'>
+                <image src='/image/english1.png' mode='widthFix' />
+                <view class='info'>
+                    <view class='name'>{{item.courseName}}</view>
+                    <view class='classroom'>教室：{{item.classRoom}}</view>
+                    <view class='time'>上课时间：{{item.classTime}}</view>
+                    <view class='teacher'>教师：{{item.teacherName}}</view>
+                </view>
             </view>
-        </view>
+        </block>
     </view>
 </view>
