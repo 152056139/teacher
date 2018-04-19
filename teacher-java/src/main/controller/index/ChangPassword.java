@@ -37,7 +37,7 @@ public class ChangPassword extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		String userid_form=request.getParameter("userid");
 		String oldpass_form=request.getParameter("oldpassword");
 		String newpass_form=request.getParameter("newpassword");
@@ -50,9 +50,10 @@ public class ChangPassword extends HttpServlet {
 		
 		if(oldpass.equals(oldpass_form)) {
 			Users.update_password(userId, newpass_form);
-			jsonObject.put("STATU", "success!");
+			jsonObject.put("STATU", "success");
+			out.print(jsonObject);
 		}else {
-			jsonObject.put("ERROR:", "wrong password!");
+			jsonObject.put("STATU", "wrong");
 			out.print(jsonObject);
 		}
 	}
