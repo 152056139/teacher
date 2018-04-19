@@ -83,38 +83,54 @@ public class GetClass extends HttpServlet {
 		list = Course.search_courseid(userId);// 老师教哪些课
 		// 获得courseid
 		for (Integer all_courseid : list) {
-			
-			JSONObject jsonObject=new JSONObject();
-			System.out.println("用户courseid " + all_courseid);
-			int classid = Classes.search_classid(all_courseid, date_form, nextDay);
-			System.out.println("用户classid " + classid);
-			int courseId = Classes.search_courseid(classid);
-			System.out.println("用户courseid " + courseId);
-			String courseName = Course.search_coursename(courseId);// 课程名
-			String teacherName="无结果";
-			if (userIdentity == 1) {// 教师端的teachername就是用户自己identity0是学生1是老师
-				 teacherName = Users.search_user_name(userId);
-			} else if(userIdentity==0) {
-				int teacherId=Course.searchTeacherId(courseId);
-				 teacherName=Users.searchTeacherName(teacherId);
-			}
-			String classRoom = Classes.search_classroom(classid);
-			String classTime = Classes.search_classtime(classid);
-			String courseImage = Course.searchCourseImage(courseId);
-			System.out.println("课程名称    " + courseName);
-			System.out.println("课程图片    " + courseImage);
-			System.out.println("上课教师    " + teacherName);
-			System.out.println("上课教师    " + classRoom);
-			System.out.println("上课时间    " + classTime);
+			List<Integer> listClassId = new ArrayList<Integer>();
 
-			System.out.println("=============================");
-			jsonObject.put("courseName", courseName);
-			jsonObject.put("teacherName", teacherName);
-			jsonObject.put("classRoom", classRoom);
-			jsonObject.put("classTime", classTime);
-			jsonObject.put("courseImage", courseImage);
-			jsonArray.add(jsonObject);
-		}out.print(jsonArray);
+			System.out.println("用户courseid " + all_courseid);
+			listClassId = Classes.search_classid(all_courseid, date_form, nextDay);
+			if (!listClassId.isEmpty()) {
+				for (Integer classid : listClassId) {
+					JSONObject jsonObject = new JSONObject();
+					System.out.println("用户classid " + classid);
+					int courseId = Classes.search_courseid(classid);
+					System.out.println("用户courseid " + courseId);
+					String courseName = Course.search_coursename(courseId);// 课程名
+					String teacherName = "无结果";
+					if (userIdentity == 1) {// 教师端的teachername就是用户自己identity0是学生1是老师
+						teacherName = Users.search_user_name(userId);
+					} else if (userIdentity == 0) {
+						int teacherId = Course.searchTeacherId(courseId);
+						teacherName = Users.searchTeacherName(teacherId);
+					}
+					String classRoom = Classes.search_classroom(classid);
+
+					// 处理上课时间
+					String classTime = Classes.search_classtime(classid);
+					String str = classTime;
+					String arr[] = str.split(" ");
+					String time = arr[1];
+					String arr2[] = time.split(":");
+					String hour = arr2[0];
+					String min = arr2[1];
+					String t = hour + ":" + min + "-" + (Integer.parseInt(hour) + 2) + ":" + min;
+
+					String courseImage = Course.searchCourseImage(courseId);
+					System.out.println("课程名称    " + courseName);
+					System.out.println("课程图片    " + courseImage);
+					System.out.println("上课教师    " + teacherName);
+					System.out.println("上课教师    " + classRoom);
+					System.out.println("上课时间    " + t);
+
+					System.out.println("=============================");
+					jsonObject.put("courseName", courseName);
+					jsonObject.put("teacherName", teacherName);
+					jsonObject.put("classRoom", classRoom);
+					jsonObject.put("classTime", t);
+					jsonObject.put("courseImage", courseImage);
+					jsonArray.add(jsonObject);
+				}
+			}
+		}
+		out.print(jsonArray);
 
 	}
 

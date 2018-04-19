@@ -2,6 +2,8 @@ package main.database;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import main.common.MysqlBase;
 public class Classes {
@@ -45,15 +47,17 @@ public class Classes {
  * @param maxtime
  * @return
  */
-	public static int search_classid(int courseid,String mintime,String maxtime) {
+	public static List<Integer> search_classid(int courseid,String mintime,String maxtime) {
 		MysqlBase mysqlBase=new MysqlBase();
 		Connection connection=mysqlBase.createConnect();
+		List<Integer> list = new ArrayList<Integer>();
 		String sql="SELECT class_id FROM class WHERE course_id='"+courseid+"' AND class_time<'"+maxtime+"' AND class_time>='"+mintime+"';";
 		int classid=0;
 		ResultSet rSet=mysqlBase.search(sql, connection);
 		try {
 			while(rSet.next()) {
-				classid=Integer.parseInt(rSet.getString("class_id"));
+				
+				list.add(rSet.getInt("class_id"));
 				System.out.println("数据库classid  "+classid);
 			}
 		} catch (NumberFormatException | SQLException e) {
@@ -62,7 +66,7 @@ public class Classes {
 		}
 		mysqlBase.close(connection);
 		
-		return classid ;
+		return list ;
 	}
 	/**
 	 * 获取某节课的课程id
