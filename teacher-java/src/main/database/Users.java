@@ -21,13 +21,14 @@ public class Users {
 	private String userSchoolId;
 	private String userImage;
 
-
 	public String getUserBirthday() {
 		return userBirthday;
 	}
+
 	public void setUserBirthday(String userBirthday) {
 		this.userBirthday = userBirthday;
 	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
@@ -47,6 +48,7 @@ public class Users {
 	public void setUserSchoolId(String userSchoolId) {
 		this.userSchoolId = userSchoolId;
 	}
+
 	public int getUserId() {
 		return userId;
 	}
@@ -66,8 +68,6 @@ public class Users {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-
-
 
 	public int getUserIdentity() {
 		return userIdentity;
@@ -104,8 +104,9 @@ public class Users {
 	public Users() {
 
 	}
-	public Users(String userName, String userPassword, String userBirthday, String userIdentity,
-			String userSex, String userEmail, String userPhone, String userSchoolId, String userImage) {
+
+	public Users(String userName, String userPassword, String userBirthday, String userIdentity, String userSex,
+			String userEmail, String userPhone, String userSchoolId, String userImage) {
 		super();
 		this.userName = userName;
 		this.userPassword = userPassword;
@@ -124,20 +125,21 @@ public class Users {
 	 * @param userName
 	 * @return
 	 */
-	public  static Map<String, String> getPassword(String userName) {
+	public static Map<String, String> getPassword(String userName) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
-		ResultSet resultset = mysqlBase
-				.search("select user_password,user_id , user_identity from user where user_name = '" + userName + "';", connection);
+		ResultSet resultset = mysqlBase.search(
+				"select user_password,user_id , user_identity from user where user_name = '" + userName + "';",
+				connection);
 
 		String password = "";
 		int id = 0;
-		int identity=0;
+		int identity = 0;
 		try {
 			while (resultset.next()) {
 				password = resultset.getString("user_password");
 				id = resultset.getInt("user_id");
-				identity=resultset.getInt("user_identity");
+				identity = resultset.getInt("user_identity");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -152,19 +154,18 @@ public class Users {
 		return map;
 	}
 
-	
-	public  static Map<String, String> oldPassword(int userid) {
+	public static Map<String, String> oldPassword(int userid) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
-		ResultSet resultset = mysqlBase
-				.search("select user_password from user where user_id = '" + userid + "';", connection);
+		ResultSet resultset = mysqlBase.search("select user_password from user where user_id = '" + userid + "';",
+				connection);
 
 		String password = "";
-		
+
 		try {
 			while (resultset.next()) {
 				password = resultset.getString("user_password");
-				
+
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -174,21 +175,24 @@ public class Users {
 
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("password", password);
-		
+
 		return map;
-	} 
+	}
+
 	/**
 	 * 更改用户密码
+	 * 
 	 * @param userid
 	 * @param newpass
 	 */
-	public static void update_password(int userid,String newpass) {
-		MysqlBase mysqlBase=new MysqlBase();
-		Connection connection =mysqlBase.createConnect();
-		String sql="UPDATE user SET user_password='"+newpass+"'";
+	public static void update_password(int userid, String newpass) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "UPDATE user SET user_password='" + newpass + "'";
 		mysqlBase.execute(sql, connection);
-		
+
 	}
+
 	/**
 	 * 查询用户名在数据库中有多少个
 	 * 
@@ -223,8 +227,8 @@ public class Users {
 	public boolean register(String username, String password, String path) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
-		mysqlBase.execute("insert into user (user_name, user_password, user_image) values ('" + username + "','" + password + "','" + path + "')",
-				connection);
+		mysqlBase.execute("insert into user (user_name, user_password, user_image) values ('" + username + "','"
+				+ password + "','" + path + "')", connection);
 		mysqlBase.close(connection);
 		return true;
 	}
@@ -248,20 +252,22 @@ public class Users {
 		mysqlBase.close(connection);
 
 	}
+
 	/**
 	 * 根据userid获取username
+	 * 
 	 * @param userId
 	 * @return
 	 */
 	public static String search_user_name(int userId) {
-		MysqlBase mysqlBase=new MysqlBase();
-		Connection connection=mysqlBase.createConnect();
-		String sql="SELECT user_name From user WHERE user_id='"+userId+"';";
-		ResultSet rSet=mysqlBase.search(sql, connection);
-		String rS="";
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "SELECT user_name From user WHERE user_id='" + userId + "';";
+		ResultSet rSet = mysqlBase.search(sql, connection);
+		String rS = "";
 		try {
-			while(rSet.next()) {
-				rS=rSet.getString("user_name");
+			while (rSet.next()) {
+				rS = rSet.getString("user_name");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -270,20 +276,22 @@ public class Users {
 		mysqlBase.close(connection);
 		return rS;
 	}
+
 	/**
 	 * 根据userid获取user_identity
+	 * 
 	 * @param userId
 	 * @return
 	 */
 	public static String search_user_identity(int userId) {
-		MysqlBase mysqlBase=new MysqlBase();
-		Connection connection=mysqlBase.createConnect();
-		String sql="SELECT user_identity From user WHERE user_id='"+userId+"';";
-		ResultSet rSet=mysqlBase.search(sql, connection);
-		String rS="";
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "SELECT user_identity From user WHERE user_id='" + userId + "';";
+		ResultSet rSet = mysqlBase.search(sql, connection);
+		String rS = "";
 		try {
-			while(rSet.next()) {
-				rS=rSet.getString("user_identity");
+			while (rSet.next()) {
+				rS = rSet.getString("user_identity");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -292,20 +300,22 @@ public class Users {
 		mysqlBase.close(connection);
 		return rS;
 	}
+
 	/**
 	 * 根据userid获取userimage
+	 * 
 	 * @param userId
 	 * @return
 	 */
 	public static String search_user_head(int userId) {
-		MysqlBase mysqlBase=new MysqlBase();
-		Connection connection=mysqlBase.createConnect();
-		String sql="SELECT user_image From user WHERE user_id='"+userId+"';";
-		ResultSet rSet=mysqlBase.search(sql, connection);
-		String rS="";
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "SELECT user_image From user WHERE user_id='" + userId + "';";
+		ResultSet rSet = mysqlBase.search(sql, connection);
+		String rS = "";
 		try {
-			while(rSet.next()) {
-				rS=rSet.getString("user_image");
+			while (rSet.next()) {
+				rS = rSet.getString("user_image");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -314,20 +324,22 @@ public class Users {
 		mysqlBase.close(connection);
 		return rS;
 	}
+
 	/**
 	 * 获取教师名字
+	 * 
 	 * @param teacherId
 	 * @return
 	 */
 	public static String searchTeacherName(int teacherId) {
-		MysqlBase mysqlBase=new MysqlBase();
-		Connection connection=mysqlBase.createConnect();
-		String sql="SELECT user_name From user WHERE user_id='"+teacherId+"';";
-		ResultSet rSet=mysqlBase.search(sql, connection);
-		String rS="";
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "SELECT user_name From user WHERE user_id='" + teacherId + "';";
+		ResultSet rSet = mysqlBase.search(sql, connection);
+		String rS = "";
 		try {
-			while(rSet.next()) {
-				rS=rSet.getString("user_name0");
+			while (rSet.next()) {
+				rS = rSet.getString("user_name0");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -335,7 +347,32 @@ public class Users {
 		}
 		mysqlBase.close(connection);
 		return rS;
-	}     
-	
+	}
+		/**
+		 * 查无此人||查有此人获取姓名
+		 * @param teacherName
+		 * @return
+		 */
+	public static String searchTeacher(String teacherName) {
+	    	MysqlBase mysqlBase =new MysqlBase();
+	    	Connection connection=mysqlBase.createConnect();
+	    	String sql ="SELECT user_id FROM user WHERE user_name='"+teacherName+"';";
+	    	ResultSet rSet=mysqlBase.search(sql, connection);
+	    	String teacherId="";
+	    	
+				try {
+					while (rSet.next()) {
+						teacherId=rSet.getString("user_id");
+						
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			return teacherId;
+
+}
 
 }

@@ -1,25 +1,30 @@
 package main.controller.index;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import main.database.Student_course;
+import com.alibaba.fastjson.JSONArray;
+
+import main.database.Course;
+import main.database.Users;
 
 /**
- * Servlet implementation class JoinCourse
+ * Servlet implementation class SearchCourse
  */
-@WebServlet("/JoinCourse")
-public class JoinCourse extends HttpServlet {
+@WebServlet("/SearchCourse")
+public class SearchCourse extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JoinCourse() {
+    public SearchCourse() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,14 +34,7 @@ public class JoinCourse extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		response.setContentType("text/html;charset=UTF-8");
-		String courseid_form=request.getParameter("corseid");
-		String userid_form=request.getParameter("userid");
-		int courseId=Integer.parseInt(courseid_form);
-		int userId=Integer.parseInt(userid_form);
-		Student_course.insert_teacher_course(userId, courseId);
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -44,7 +42,20 @@ public class JoinCourse extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html;charset=UTF-8");
+		String conditionsForm=request.getParameter("conditions");//courseid,coursename,teachername,
+		PrintWriter out =response.getWriter();
+		//courseid,coursename,courseimage,teachername,coursestatu 1 over
+		
+		JSONArray jsonArray=new JSONArray();
+		
+			//用json接受
+			
+			
+			jsonArray=Course.SearchCourseByConditions(conditionsForm);
+			out.print(jsonArray);
+			System.out.println(jsonArray);
+		
 	}
 
 }
