@@ -339,7 +339,7 @@ public class Users {
 		String rS = "";
 		try {
 			while (rSet.next()) {
-				rS = rSet.getString("user_name0");
+				rS = rSet.getString("user_name");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

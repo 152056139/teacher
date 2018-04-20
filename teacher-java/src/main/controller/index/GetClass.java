@@ -79,8 +79,13 @@ public class GetClass extends HttpServlet {
 		Timestamp tommrow = new Timestamp(date.getTime());
 		String nextDay = tommrow.toString();
 		System.out.println();
+		if (userIdentity == 1) {
+			list = Course.search_courseid(userId);
+		} // 老师教哪些课
+		else if(userIdentity==0) {
+			list=Course.search_studentCourseId(userId);
+		}
 
-		list = Course.search_courseid(userId);// 老师教哪些课
 		// 获得courseid
 		for (Integer all_courseid : list) {
 			List<Integer> listClassId = new ArrayList<Integer>();
@@ -92,6 +97,7 @@ public class GetClass extends HttpServlet {
 					JSONObject jsonObject = new JSONObject();
 					System.out.println("用户classid " + classid);
 					int courseId = Classes.search_courseid(classid);
+
 					System.out.println("用户courseid " + courseId);
 					String courseName = Course.search_coursename(courseId);// 课程名
 					String teacherName = "无结果";
