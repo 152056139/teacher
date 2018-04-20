@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import main.common.MysqlBase;
 
-public class Student_course {
+public class StudentCourse {
 	public static void insertTeacherCourse(int userId, int courseId) {
            MysqlBase mysqlBase=new MysqlBase();
            Connection connection =mysqlBase.createConnect();
