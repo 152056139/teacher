@@ -22,7 +22,7 @@ public class Course {
 	 * @param userid
 	 * @return
 	 */
-	public boolean inSert(String coursename, int userid) {
+	public boolean inSertCourse(String coursename, int userid) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		boolean flag = mysqlBase.execute(
@@ -40,7 +40,7 @@ public class Course {
 	 * @param teacherid
 	 * @return
 	 */
-	public static Map<Integer, String> search_course(int teacherid) {
+	public static Map<Integer, String> searchCourse(int teacherid) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Map<Integer, String> map = new HashMap<Integer, String>();
 		Connection connection = mysqlBase.createConnect();//
@@ -66,7 +66,7 @@ public class Course {
 	 * @param userid
 	 * @return
 	 */
-	public static List<Integer> search_courseid(int userid) {
+	public static List<Integer> searchCourseId(int userid) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		List<Integer> list = new ArrayList<Integer>();
@@ -92,7 +92,7 @@ public class Course {
 	 * @param courseid
 	 * @return
 	 */
-	public static String search_coursename(int courseid) {
+	public static String searchCourseName(int courseid) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		String sql = "SELECT course_name FROM course WHERE course_id='" + courseid + "'";
@@ -258,7 +258,7 @@ public class Course {
 		return result;
 	}
 
-	public static List<Integer> search_studentCourseId(int userid) {
+	public static List<Integer> searchStudentCourseId(int userid) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		List<Integer> list = new ArrayList<Integer>();

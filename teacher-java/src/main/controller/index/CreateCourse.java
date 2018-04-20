@@ -45,7 +45,7 @@ public class CreateCourse extends HttpServlet {
 		Course course=new Course();
 		int id=Integer.parseInt(username_id);
 		//调用方法
-		boolean flag= course.inSert(coursename_form, id);
+		boolean flag= course.inSertCourse(coursename_form, id);
 		System.out.println("create返回"+flag);
 		if(flag) {
 			System.out.println("创建成功！");

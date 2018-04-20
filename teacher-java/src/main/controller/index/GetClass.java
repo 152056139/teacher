@@ -80,10 +80,10 @@ public class GetClass extends HttpServlet {
 		String nextDay = tommrow.toString();
 		System.out.println();
 		if (userIdentity == 1) {
-			list = Course.search_courseid(userId);
+			list = Course.searchCourseId(userId);
 		} // 老师教哪些课
 		else if(userIdentity==0) {
-			list=Course.search_studentCourseId(userId);
+			list=Course.searchStudentCourseId(userId);
 		}
 
 		// 获得courseid
@@ -91,26 +91,26 @@ public class GetClass extends HttpServlet {
 			List<Integer> listClassId = new ArrayList<Integer>();
 
 			System.out.println("用户courseid " + all_courseid);
-			listClassId = Classes.search_classid(all_courseid, date_form, nextDay);
+			listClassId = Classes.searchClassId(all_courseid, date_form, nextDay);
 			if (!listClassId.isEmpty()) {
 				for (Integer classid : listClassId) {
 					JSONObject jsonObject = new JSONObject();
 					System.out.println("用户classid " + classid);
-					int courseId = Classes.search_courseid(classid);
+					int courseId = Classes.searchCourseId(classid);
 
 					System.out.println("用户courseid " + courseId);
-					String courseName = Course.search_coursename(courseId);// 课程名
+					String courseName = Course.searchCourseName(courseId);// 课程名
 					String teacherName = "无结果";
 					if (userIdentity == 1) {// 教师端的teachername就是用户自己identity0是学生1是老师
-						teacherName = Users.search_user_name(userId);
+						teacherName = Users.searchUserName(userId);
 					} else if (userIdentity == 0) {
 						int teacherId = Course.searchTeacherId(courseId);
 						teacherName = Users.searchTeacherName(teacherId);
 					}
-					String classRoom = Classes.search_classroom(classid);
+					String classRoom = Classes.searchClassRoom(classid);
 
 					// 处理上课时间
-					String classTime = Classes.search_classtime(classid);
+					String classTime = Classes.searchClassTime(classid);
 					String str = classTime;
 					String arr[] = str.split(" ");
 					String time = arr[1];

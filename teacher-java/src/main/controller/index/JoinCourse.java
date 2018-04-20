@@ -40,7 +40,7 @@ public class JoinCourse extends HttpServlet {
 		String userid_form=request.getParameter("userid");
 		int courseId=Integer.parseInt(courseid_form);
 		int userId=Integer.parseInt(userid_form);
-		Student_course.insert_teacher_course(userId, courseId);
+		Student_course.insertTeacherCourse(userId, courseId);
 		jsonObject.put("STATU", "success");
 		
 		

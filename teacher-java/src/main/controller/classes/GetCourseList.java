@@ -45,7 +45,7 @@ public class GetCourseList extends HttpServlet {
 		// 转化teacherid
 		int teaId = Integer.parseInt(teacherid_form);
 		Map<Integer, String> map = new HashMap<Integer, String>();
-		map = Course.search_course(teaId);
+		map = Course.searchCourse(teaId);
 		for(Integer key: map.keySet()) {
 			JSONObject jsonObject = new JSONObject();
 			jsonObject.put("courseId", key);

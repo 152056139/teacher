@@ -38,7 +38,7 @@ public class SetTeasay extends HttpServlet {
 		String sql="UPDATE CLASS SET teacher_say='"+teachersay_form+"' "
 				  +"WHERE class_id='"+claId+"';";
 		//调用基类方法
-		Classes.update_class( sql);
+		Classes.updateClass( sql);
 	}
 
 	/**

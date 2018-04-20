@@ -70,7 +70,7 @@ public class CreateClass extends HttpServlet {
 			Timestamp classTime = new Timestamp(date.getTime());
 			String strTime = classTime.toString();
 			strTime = strTime.substring(0, 19);
-			Classes.insert_class( corId, strTime, classroom_form);
+			Classes.insertClass( corId, strTime, classroom_form);
 			
 			jsonObject.put("STATU", "success");
 			out.print(jsonObject);

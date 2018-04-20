@@ -39,7 +39,7 @@ public class TakeNoteCmd extends HttpServlet {
 		String isgood_form=request.getParameter("isgood");
 		int noteId=Integer.parseInt(noteid_form);
 		
-		String OldCmd=Notes.search_note_Comment(noteId);
+		String OldCmd=Notes.searchNoteComment(noteId);
 		
 		com.alibaba.fastjson.JSONObject jsonObject=new com.alibaba.fastjson.JSONObject();
 		jsonObject.put("userId", userid_form);

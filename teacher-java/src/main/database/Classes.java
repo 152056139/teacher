@@ -15,7 +15,7 @@ public class Classes {
 	 * @param classroom
 	 * @param teachersay
 	 */
-	public static void update_class(String sql) {
+	public static void updateClass(String sql) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();//
 		
@@ -30,7 +30,7 @@ public class Classes {
 	 * @param classroom
 	 * @param teachersay
 	 */
-	public static void insert_class(int courseid, String classtime, String classroom) {
+	public static void insertClass(int courseid, String classtime, String classroom) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();//
 		String sql = "insert into class(course_id,class_room,class_time) values('"+courseid+"','"
@@ -47,7 +47,7 @@ public class Classes {
  * @param maxtime
  * @return
  */
-	public static List<Integer> search_classid(int courseid,String mintime,String maxtime) {
+	public static List<Integer> searchClassId(int courseid,String mintime,String maxtime) {
 		MysqlBase mysqlBase=new MysqlBase();
 		Connection connection=mysqlBase.createConnect();
 		List<Integer> list = new ArrayList<Integer>();
@@ -73,7 +73,7 @@ public class Classes {
 	 * @param classid
 	 * @return
 	 */
-	 public static int search_courseid(int classid) {
+	 public static int searchCourseId(int classid) {
     	 MysqlBase mysqlBase =new MysqlBase();
     	 Connection connection=mysqlBase.createConnect();
     	 String sql="SELECT course_id From class WHERE class_id='"+classid+"';";
@@ -95,7 +95,7 @@ public class Classes {
 	  * @param classid
 	  * @return
 	  */
-	public static String search_classroom(int classid) {
+	public static String searchClassRoom(int classid) {
 		MysqlBase mysqlBase =new MysqlBase();
 		Connection connection =mysqlBase.createConnect();
 		String sql="SELECT class_room FROM class WHERE class_id='"+classid+"';";
@@ -116,7 +116,7 @@ public class Classes {
 	 * @param classid
 	 * @return
 	 */
-	public static String search_classtime(int classid) {
+	public static String searchClassTime(int classid) {
 		MysqlBase mysqlBase =new MysqlBase();
 		Connection connection =mysqlBase.createConnect();
 		String sql="SELECT class_time FROM class WHERE class_id='"+classid+"';";
