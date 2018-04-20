@@ -1,13 +1,57 @@
 // pages/add_course/add_course.js
+var app = getApp()
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		
+		course: "",
 	},
+	join: function (e) {
+		console.log(e)
+		wx.request({
+			url: app.globalData.requestUrl + '/teacher/JoinCourse',
+			data: {
+				courseid: e.currentTarget.dataset.courseid,
+				userid: wx.getStorageSync("USERID")
+			},
+			header: {
+				'content-type': 'application/json;charset=utf-8'
+			},
+			success: function (res) {
+				if (res.data != '') {
+					wx.navigateBack({
 
+					})
+				}
+			}
+		})
+	},
+	search: function (e) {
+		console.log(e)
+		var that = this
+		if (e.detail.value != "") {
+			wx.request({
+				url: app.globalData.requestUrl + '/teacher/SearchCourse',
+				data: {
+					conditions: e.detail.value,
+					userid: wx.getStorageSync("USERID")
+				},
+				method: 'POST',
+				header: {
+					'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+				},
+				success: function (res) {
+					console.log(res)
+					that.setData({
+						course: res.data
+					})
+				}
+			})
+		} else {
+		}
+	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
@@ -19,7 +63,7 @@ Page({
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
 	onReady: function () {
-		
+
 	},
 
 	/**
