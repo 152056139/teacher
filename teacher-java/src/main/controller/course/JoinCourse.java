@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSONObject;
 
-import main.database.Student_course;
+import main.database.StudentCourse;
 
 /**
  * Servlet implementation class JoinCourse
@@ -40,7 +40,7 @@ public class JoinCourse extends HttpServlet {
 		String userid_form=request.getParameter("userid");
 		int courseId=Integer.parseInt(courseid_form);
 		int userId=Integer.parseInt(userid_form);
-		Student_course.insertTeacherCourse(userId, courseId);
+		StudentCourse.insertTeacherCourse(userId, courseId);
 		jsonObject.put("STATU", "success");
 		
 		
