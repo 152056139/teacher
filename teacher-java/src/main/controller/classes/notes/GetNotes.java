@@ -60,7 +60,7 @@ public class GetNotes extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String classid_form = request.getParameter("classid");
 		int classId = Integer.parseInt(classid_form);
-		JSONArray jsonArray = Notes.search_noteid(classId);
+		JSONArray jsonArray = Notes.searchNoteid(classId);
 		JSONArray jsonArray2 = new JSONArray();
 
 		for (int i = 0; i < jsonArray.size(); i++) {
@@ -79,9 +79,9 @@ public class GetNotes extends HttpServlet {
 			String noteImage = jsonObject.getString("noteImage");// 笔记图片
 			// 根据userid获取身份、用户名、用户头像
 			int userId = Integer.parseInt(userid);
-			String userName = Users.search_user_name(userId);// 用户名
-			String userIdentity = Users.search_user_identity(userId);// 用户身份
-			String userHeadPath = Users.search_user_head(userId);// 用户头像
+			String userName = Users.searchUserName(userId);// 用户名
+			String userIdentity = Users.searchUserIdentity(userId);// 用户身份
+			String userHeadPath = Users.searchUserHead(userId);// 用户头像
 			jsonArray3 = JSON.parseArray(noteImage);
 			// 编辑头像图片路径
 

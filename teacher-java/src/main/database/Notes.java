@@ -18,7 +18,7 @@ public class Notes {
 	 * @param notetext
 	 * @throws SQLException
 	 */
-	public static int insert_note(int userid, int classid, String notetext) throws SQLException {
+	public static int insertNote(int userid, int classid, String notetext) throws SQLException {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();//
 		String sql = "insert into note(note_comment,note_image, class_id,user_id,note_content) values('[]','[]','"
@@ -42,7 +42,7 @@ public class Notes {
 	 * @param noteId
 	 * @return
 	 */
-	public static String serch_note_image(int noteId) {
+	public static String serchNoteImage(int noteId) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		String sql = "SELECT NOTE_IMAGE FROM NOTE WHERE NOTE_ID='" + noteId + "';";
@@ -68,7 +68,7 @@ public class Notes {
 	 * @param image
 	 * @param noteId
 	 */
-	public static void update_note_image(String image, int noteId) {
+	public static void updateNoteImage(String image, int noteId) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		String sql = "UPDATE NOTE SET note_image='" + image + "' WHERE note_id='" + noteId + "';";
@@ -83,7 +83,7 @@ public class Notes {
 	 * @param noteId
 	 * @return
 	 */
-	public static String search_note_good(int noteId) {
+	public static String searchNoteGood(int noteId) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		String sql = "SELECT NOTE_GOOD FROM NOTE WHERE note_id='" + noteId + "'; ";
@@ -106,7 +106,7 @@ public class Notes {
 	 * @param userId
 	 * @param noteId
 	 */
-	public static void update_note_good(String userId, int noteId) {
+	public static void updateNoteGood(String userId, int noteId) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		String sql = "UPDATE NOTE SET note_good='" + userId + "'WHERE note_id='" + noteId + "';";
@@ -121,7 +121,7 @@ public class Notes {
 	 * @param noteId
 	 * @return
 	 */
-	public static String search_note_Comment(int noteId) {
+	public static String searchNoteComment(int noteId) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		String sql = "SELECT note_comment FROM note WHERE note_id='" + noteId + "';";
@@ -146,7 +146,7 @@ public class Notes {
 	 * @param commend
 	 * @param noteId
 	 */
-	public static void update_note_Comment(String commend, int noteId) {
+	public static void updateNoteComment(String commend, int noteId) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		String sql = "UPDATE NOTE SET note_commend ='" + commend + "'WHERE note_id='" + noteId + "';";
@@ -155,12 +155,13 @@ public class Notes {
 	}
 
 	/**
+	 * 
 	 * 获取该堂课所有笔记的id
 	 * 
 	 * @param classid
 	 * @return
 	 */
-	public static JSONArray search_noteid(int classid) {
+	public static JSONArray searchNoteid(int classid) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
 		String sql = "SELECT note_id,user_id,note_image,note_content,note_time,note_comment FROM note WHERE class_id='"

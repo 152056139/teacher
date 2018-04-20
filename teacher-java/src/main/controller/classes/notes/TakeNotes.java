@@ -44,7 +44,7 @@ public class TakeNotes extends HttpServlet {
 		int corId = Integer.parseInt(classid_form);
 		int noteId=0;
 		try {
-			noteId=Notes.insert_note(userId, corId, notetext_form);
+			noteId=Notes.insertNote(userId, corId, notetext_form);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

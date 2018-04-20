@@ -35,12 +35,12 @@ public class TakeNoteGood extends HttpServlet {
 		String noteid_form=request.getParameter("noteid");
 		int noteId=Integer.parseInt(noteid_form);
 		
-		String oldGood=Notes.search_note_good(noteId);
+		String oldGood=Notes.searchNoteGood(noteId);
 		System.out.println("数据库获取"+oldGood);
 		
 		com.alibaba.fastjson.JSONArray jsonArray = (com.alibaba.fastjson.JSONArray) JSON.parse(oldGood);
 		jsonArray.add(userid_form);
-		Notes.update_note_good(jsonArray.toJSONString(), noteId);
+		Notes.updateNoteGood(jsonArray.toJSONString(), noteId);
 	}
 
 	/**

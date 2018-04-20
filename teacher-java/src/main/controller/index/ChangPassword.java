@@ -49,7 +49,7 @@ public class ChangPassword extends HttpServlet {
 		String oldpass=map.get("password");
 		
 		if(oldpass.equals(oldpass_form)) {
-			Users.update_password(userId, newpass_form);
+			Users.updatePassword(userId, newpass_form);
 			jsonObject.put("STATU", "success");
 			out.print(jsonObject);
 		}else {

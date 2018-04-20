@@ -78,7 +78,7 @@ public class Register extends HttpServlet {
 			String schoolid = schoolid_form;
 			
 
-			new Users().update_other(id, sex, birthday, schoolid, email, phone, identity);
+			new Users().updateOther(id, sex, birthday, schoolid, email, phone, identity);
 		}
 		// 判断只有身份（教师、学生）
 		else if (type.equals("onlyIdentity")) {
@@ -89,7 +89,7 @@ public class Register extends HttpServlet {
 
 			int Identity_form = Integer.parseInt(identity_form);
 
-			new Users().update_onlyIdentity(Identity_form, id_form);
+			new Users().updateOnlyIdentity(Identity_form, id_form);
 		}
 	}
 
@@ -117,7 +117,7 @@ public class Register extends HttpServlet {
 		int count = new Users().countUserName(username_form);
 		if (count == 0) {
 			//
-			boolean flag = new Users().register(username_form, password_form, path_form);
+			boolean flag = new Users().regisTer(username_form, password_form, path_form);
 			
 			Map<String, String> mapUser = new HashMap<String, String>();
 			
