@@ -78,7 +78,6 @@ public class GetClass extends HttpServlet {
 		}
 		Timestamp tommrow = new Timestamp(date.getTime());
 		String nextDay = tommrow.toString();
-		System.out.println();
 		if (userIdentity == 1) {
 			list = Course.searchCourseId(userId);
 		} // 老师教哪些课
@@ -132,6 +131,7 @@ public class GetClass extends HttpServlet {
 					jsonObject.put("classRoom", classRoom);
 					jsonObject.put("classTime", t);
 					jsonObject.put("courseImage", courseImage);
+					jsonObject.put("classId", classid);
 					jsonArray.add(jsonObject);
 				}
 			}
