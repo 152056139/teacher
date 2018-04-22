@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.ObjectUtils.Null;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -38,11 +40,29 @@ public class MakeMyWork extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		
+
 		String workId = request.getParameter("workId");
-		JSONObject jsonObject = Works.searchWorkTitle(workId);
-		out.print(jsonObject);
-		
+		String studentId = request.getParameter("studentId");
+		JSONObject jsonObject = Works.searchWorkTitle(workId, studentId);
+		String workTitle = jsonObject.getString("workTitle");
+		String workDescription = jsonObject.getString("workDescription");
+		String answerContent = jsonObject.getString("answerContent");
+		String isHas=jsonObject.getString("isHas");
+		JSONObject jsonObject2 = new JSONObject();
+            
+            System.out.println(isHas);
+		if (isHas.equals("false")) {
+			answerContent = " ";
+
+			System.out.println("空");
+
+		}
+		jsonObject2.put("workTitle", workTitle);
+		jsonObject2.put("workDescription", workDescription);
+		jsonObject2.put("answerContent", answerContent);
+		System.out.println("非空");
+		out.print(jsonObject2);
+
 	}
 
 	/**
