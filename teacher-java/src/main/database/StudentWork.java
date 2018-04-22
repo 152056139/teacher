@@ -150,4 +150,20 @@ public class StudentWork {
 		mysqlBase.close(connection);
 		return rSet;
 	}
+	/**
+	 * 更改作业答案（已提交的、作业正在进行中的）
+	 * @param studentId
+	 * @param workId
+	 * @param newAnswer
+	 * @return
+	 */
+	public static boolean updateWorkAnswer(String studentId,String workId,String newAnswer) {
+		MysqlBase mysqlBase=new MysqlBase();
+		Connection connection=mysqlBase.createConnect();
+		String sql="UPDATE student_work SET answer_content='"+newAnswer+"' "
+				+ " WHERE user_id='"+studentId+"'AND work_id='"+workId+"';";
+		boolean rSet=mysqlBase.execute(sql, connection);
+		mysqlBase.close(connection);
+		return rSet;
+	}
 }
