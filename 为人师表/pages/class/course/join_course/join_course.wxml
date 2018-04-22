@@ -1,27 +1,22 @@
 <!--pages/join_course/join_course.wxml-->
 <view class='container'>
-    <view class='search'>
-        <input type='text' placeholder='请输入课程号' placeholder-class='placeholder' />
-        <icon type='search' size="15"></icon>
-    </view>
-    <view class='course'>
-        <view class='suface'>
-            <image src="/image/user-icon.png" mode='aspectFit'></image>
+    <form bindsubmit='search'>
+        <view class='search'>
+            <input type='text' placeholder='搜索' name='search' focus confirm-type="搜索" bindconfirm='search'/>
         </view>
-        <form class='form'>
-            <view class='form-control'>
-                <label>课程名：</label>
-                <input auto-focus disabled='true' />
+    </form>
+    <view class='list'>
+        <block wx:for='{{course}}'>
+            <view class='item'>
+                <view class='image'>
+                    <image src="/image/user-icon.png" mode='widthFix'></image>
+                </view>
+                <view class='info'>
+                    <view class='courseName'>{{item.courseName}}</view>
+                    <view class='teacherName'>{{item.teacherName}}</view>
+                </view>
+                <button size='mini' data-courseid='{{item.courseId}}' class='status' bindtap='join'>{{item.courseStatu}}</button>
             </view>
-            <view class='form-control'>
-                <label>课程号：</label>
-                <input auto-focus disabled='true' />
-            </view>
-            <view class='form-control'>
-                <label>授课老师：</label>
-                <input auto-focus disabled='true' />
-            </view>
-            <button formType="submit">加入</button>
-        </form>
+        </block>
     </view>
 </view>
