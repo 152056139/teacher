@@ -85,6 +85,27 @@ public class Works {
 			}
 		return jsonObject;
 	}
+	/**
+	 * 查询某项作业的信息
+	 * @param workId
+	 * @return
+	 */
+	public static JSONObject searchWorkTitle(String workId) {
+		MysqlBase mysqlBase=new MysqlBase();
+		Connection connection=mysqlBase.createConnect();
+		String sql="SELECT work_title,work_description FROM work WHERE work_id='"+workId+"';";
+		ResultSet rSet=mysqlBase.search(sql, connection);
+		JSONObject jsonObject=new JSONObject();
+		try {
+			while(rSet.next()) {
+				jsonObject.put("workTitle", rSet.getString("work_title"));
+				jsonObject.put("workDescription",rSet.getString("work_description"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}mysqlBase.close(connection);
+		return jsonObject;
+	}
 	
 	
 

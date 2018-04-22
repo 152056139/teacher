@@ -106,4 +106,48 @@ public class StudentWork {
 		mysqlBase.close(connection);
 		return jsonArray;
 	}
+	/**
+	 * 查看作业完成情况
+	 * @param studentName
+	 * @param workId
+	 * @return
+	 */
+	public static JSONObject searchWorkAnswer(String studentName,String workId) {
+		MysqlBase mysqlBase=new MysqlBase();
+		Connection connection=mysqlBase.createConnect();
+		String sql ="SELECT answer_content,answer_score FROM student_work WHERE user_id"
+				+ "=(SELECT user_id FROM user WHERE user_name='"+studentName+"') AND"
+			    + " work_id='"+workId+"';";
+		System.out.println(sql);
+		ResultSet rSet=mysqlBase.search(sql, connection);
+		JSONObject jsonObject=new JSONObject();
+		try {
+			while(rSet.next()) {
+				jsonObject.put("answerContent", rSet.getString("answer_content"));
+				jsonObject.put("answerScore", rSet.getString("answer_score"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}mysqlBase.close(connection);
+		System.out.println(jsonObject);
+		return jsonObject;
+				
+	}
+	/**
+	 * 作业评分
+	 * @param studentName
+	 * @param workId
+	 * @param workScore
+	 * @return
+	 */
+	public static boolean updateWorkScore(String studentName,String workId,String workScore) {
+		MysqlBase mysqlBase =new MysqlBase();
+		Connection connection=mysqlBase.createConnect();
+		String sql="UPDATE student_work SET answer_score='"+workScore+"' "
+				+ " WHERE work_id='"+workId+"' AND user_id="
+			    + "(SELECT user_id FROM user WHERE user_name='"+studentName+"')";
+		boolean rSet=mysqlBase.execute(sql, connection);
+		mysqlBase.close(connection);
+		return rSet;
+	}
 }
