@@ -1,0 +1,73 @@
+/* pages/class/work/give_score/give_score.wxss */
+.container{ 
+	padding:0;
+}
+.block {
+	width: 100%;
+}
+.block button {
+	margin: 20rpx;
+	width: 710rpx;
+	background: #3f99f8;
+	color: #ffffff;
+}
+
+.bar {
+	height: 100rpx;
+	background: #59cafa;
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+.bar .text {
+	color: #ffffff;
+	width: 100%;
+}
+
+.content {
+	padding: 5%;
+}
+
+.content .images {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.content .images image {
+	width: 200rpx;
+	height: 200rpx;
+}
+.score {
+    margin-top: 15rpx;
+    background: #fff;
+    width: 750rpx;
+    height: 150rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.score .text {
+    width: 250rpx;
+    height: 150rpx;
+    font-size: 70rpx;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score .stars {
+    width: 500rpx;
+    height: 150rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.score .stars image {
+    width: 50rpx;
+    height: 50rpx;
+}

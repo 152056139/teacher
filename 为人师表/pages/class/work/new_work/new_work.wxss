@@ -1,39 +1,50 @@
 /* pages/class/work/new_work/new_work.wxss */
+page{ 
+	background: #eeeeee;
+}
 .container {
 	padding: 0;
 }
+form {
+	width: 100%;
+}
 .list {
 	width: 100%;
+	background: #ffffff;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-.list button {
+.list .item {
+	width: 710rpx;
+	height: 90rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	border-bottom: 1px solid #eeeeee;
+	position: relative;
+}
+.list .item .left {
+	width: 200rpx;
+	padding-left: 20rpx;
+}
+.list .item .right {
+	color: #808080;
+}
+.list .time {
+	height: 150rpx;
+}
+.arrow {
+	width: 580rpx;
+	text-align: right;
+
+}
+button {
 	position: absolute;
 	bottom: 20rpx;
 	width: 95%;
 	background: #3f99f8;
 	color: #ffffff;
-}
-.list .item {
-	width: 750rpx;
-	height: 80rpx;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	border-bottom: 1px solid #eeeeee;
-}
-.list .item .left {
-	width: 150rpx;
-	padding-left: 20rpx;
-	font-size: 30rpx;
-}
-.list .item .right {
-	width: 600rpx;
-	font-size: 30rpx;
-}
-.list .item .right-placeholder
-{
-	font-size: 30rpx;
 }

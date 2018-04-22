@@ -1,0 +1,8 @@
+<!--pages/class/work/new_work/new_work_detail/new_work_detail.wxml-->
+<view class='container'>
+    <form bindsubmit='submit'>
+        <textarea placeholder='请描述作业详细内容...' name='detail'>
+        </textarea>
+        <button form-type='submit'>发布</button>
+    </form>
+</view>

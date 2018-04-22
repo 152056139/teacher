@@ -19,7 +19,7 @@ Page({
 			url: app.globalData.requestUrl + '/teacher/TakeNotes', 
 			data: {
 				notetext: e.detail.value.note,
-				classid: 3,
+				classid: wx.getStorageSync("CLASSID"),
 				userid: e.detail.value.userId
 			},
 			success: function(res){

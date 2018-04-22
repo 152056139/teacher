@@ -179,7 +179,7 @@ Page({
 			url: app.globalData.requestUrl + "/teacher/GetNotes",
 			method: "POST",
 			data: {
-				classid: "3"
+				classid: wx.getStorageSync("CLASSID")
 			},
 			header: {
 				'content-type': 'application/x-www-form-urlencoded' // 默认值

@@ -1,22 +1,47 @@
 <!--pages/class/work/new_work/new_work.wxml-->
 <view class='container'>
-    <view class='list'>
-        <view class='item'>
-            <text class='left'>标题</text>
-            <input class='right' placeholder='未设置' placeholder-class='right-placeholder' />
-        </view>
-        <view class='item'>
-            <text class='left'>详细内容</text>
-            <input class='right' placeholder='未设置' placeholder-class='right-placeholder' disabled='true' />
-        </view>
-        <view class='item'>
-            <text class='left'>截止时间</text>
-            <picker class='right' mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-                <view class="picker">
-                    {{date}}
+    <form bindsubmit='submit'>
+        <view class='list'>
+            <view class='item'>
+                <text class='left'>标题</text>
+                <input class='right' placeholder='未设置' name='title' />
+            </view>
+            <view class='item time'>
+                <text class='left'>开始时间</text>
+                <view class='right'>
+                    <picker mode="date" value="{{dateStart}}" start="2015-09-01" end="{{dateEnd}}" bindchange="bindDateChangeStart">
+                        <view class="picker">
+                            {{dateStart}}
+                        </view>
+                    </picker>
+                    <picker mode="time" value="{{timeStart}}" start="" end="{{isSame?timeEnd:''}}" bindchange="bindTimeChangeStart">
+                        <view class="picker">
+                            {{timeStart}}
+                        </view>
+                    </picker>
                 </view>
-            </picker>
+            </view>
+            <view class='item time'>
+                <text class='left'>截止时间</text>
+                <view class='right'>
+                    <picker mode="date" value="{{dateEnd}}" start="{{dateStart}}" end="2020-09-01" bindchange="bindDateChangeEnd">
+                        <view class="picker">
+                            {{dateEnd}}
+                        </view>
+                    </picker>
+                    <picker mode="time" value="{{timeEnd}}" start="{{isSame?timeStart:''}}" end="" bindchange="bindTimeChangeEnd">
+                        <view class="picker">
+                            {{timeEnd}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class='item'>
+                <text class='left'>详细内容</text>
+                <input style='display:none;' name='detail' value='{{detail}}'></input>
+                <text class='right arrow' bindtap='toDetail'>></text>
+            </view>
         </view>
-		<button style='default'>发布作业</button>
-    </view>
+        <button style='default' form-type='submit'>发布作业</button>
+    </form>
 </view>

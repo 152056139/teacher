@@ -1,4 +1,7 @@
 /* pages/work/work.wxss */
+page{
+	background: #eee;
+}
 .btn {
 	position: fixed;
 	bottom: 20rpx;
@@ -32,32 +35,34 @@
 	display: flex;
 	align-items: center;
 	flex-direction: row;
-	border-bottom: 1rpx solid #dddddd;
+	border-bottom: 1rpx solid #eeeeee;
+}
+.list {
+	width: 100%;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.work {
+	width: 710rpx;
+	position: relative;
 }
 .work image {
 	width: 140rpx;
 	height: 160rpx;
-	position: relative;
-	left: 20rpx;
 }
 .work .info {
-	position: relative;
-	top: -10rpx;
-	left: 50rpx;
 }
 .work .info .name {
 	font-size: 40rpx;
 }
 .work .info .time {
 	font-size: 30rpx;
-	position: relative;
-	top: 20rpx;
 	color: #aaaaaa;
 }
 .work .status{
-	position: relative;
-	top: 40rpx;
-	left: 300rpx;
 	font-size: 35rpx;
-	color: #6fd171;
+	position: absolute;
+	right: 20rpx;
 }

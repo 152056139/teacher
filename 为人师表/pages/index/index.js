@@ -169,7 +169,9 @@ Page({
 			url: '/pages/index/mine/mine',
 		})
 	},
-	toClass: function () {
+	toClass: function (e) {
+		console.log(e)
+		wx.setStorageSync("CLASSID", e.currentTarget.dataset.classid)
 		wx.switchTab({
 			url: '/pages/class/class/class',
 		})

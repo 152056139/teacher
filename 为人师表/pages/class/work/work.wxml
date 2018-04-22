@@ -1,34 +1,21 @@
 <!--pages/work/work.wxml-->
 <view class='container'>
-    <view class='btn'>
+    <view class='btn' style='display:{{btnDisplay}}'>
         <image src='/image/add.png' bindtap='toggerMenu'></image>
-
         <view class='menu' style="display:{{display}}">
-            <text>添加作业</text>
+            <text bindtap='createWork'>添加作业</text>
         </view>
     </view>
-    <view class='work'>
-        <image src='/image/work-icon.png'></image>
-        <view class='info'>
-            <view class='name'>鸡兔同笼</view>
-            <view class='time'>已截止</view>
-        </view>
-        <view class='status'>已提交</view>
-    </view>
-    <view class='work'>
-        <image src='/image/work-icon.png'></image>
-        <view class='info'>
-            <view class='name'>鸡兔同笼</view>
-            <view class='time'>已截止</view>
-        </view>
-        <view class='status' style='color: #f8cc55;'>已提交</view>
-    </view>
-    <view class='work'>
-        <image src='/image/work-icon.png'></image>
-        <view class='info'>
-            <view class='name'>鸡兔同笼</view>
-            <view class='time'>已截止</view>
-        </view>
-        <view class='status' style='color: red;'>已提交</view>
+    <view class='list'>
+        <block wx:for="{{works}}">
+            <view class='work' bindtap='toDetail' data-id='{{item.workId}}'>
+                <image src='/image/work-icon.png'></image>
+                <view class='info'>
+                    <view class='name'>{{item.workTitle}}</view>
+                    <view class='time'>{{item.workEndTime}}</view>
+                </view>
+                <view class='status' style='display:{{isTeacher?"none":""}}'>{{item.workStatu}}</view>
+            </view>
+        </block>
     </view>
 </view>

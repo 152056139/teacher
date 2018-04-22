@@ -13,7 +13,7 @@
     </view>
     <view class='list'>
         <block wx:for='{{classes}}'>
-            <view class='item' bindtap='toClass'>
+            <view class='item' bindtap='toClass' data-classid='{{item.classId}}'>
                 <image src='/image/english1.png' mode='widthFix' />
                 <view class='info'>
                     <view class='name'>{{item.courseName}}</view>

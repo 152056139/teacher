@@ -8,9 +8,9 @@
 }
 
 .block button {
-	margin: 5%;
-	width: 90%;
-	background: #5cc73b;
+	margin: 20rpx;
+	width: 710rpx;
+	background: #3f99f8;
 	color: #ffffff;
 }
 
@@ -55,7 +55,7 @@
 	display: flex;
 	flex-direction: row;
 }
-.list .content .titles .finish-title {
+.list .content .titles .title {
 	width: 50%;
 	height: 80rpx;
 	border-bottom: #59cafa solid 5rpx;
@@ -64,14 +64,8 @@
 	align-items: center;
 	justify-content: center;
 }
-.list .content .titles .unfinish-title {
-	width: 50%;
-	height: 80rpx;
+.list .content .titles .finish {
 	border-bottom: #59cafa solid 0rpx;
-	font-size: 30rpx;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 .list .content  .finish {
 	width: 100%;

@@ -1,0 +1,19 @@
+/* pages/class/work/new_work/new_work_detail/new_work_detail.wxss */
+page {
+	background: #eeeeee;
+}
+.container {
+	padding-top: 20rpx;
+}
+textarea{
+	background: #ffffff;
+	border-radius: 10rpx;
+	padding: 10rpx;
+}
+button{
+	position: absolute;
+	bottom: 20rpx;
+	width: 710rpx;
+	background: #3f99f8;
+	color: #fff;
+}

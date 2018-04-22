@@ -1,0 +1,34 @@
+<!--pages/class/work/give_score/give_score.wxml-->
+<view class='container'>
+    <view class='block'>
+        <view class='bar'>
+            <view class='text'>{{username}}的表演</view>
+        </view>
+        <form bindsubmit='submit'>
+            <view class='content'>
+                <textarea value='{{answer}}' name='answer' disabled='false'></textarea>
+                <view class='images'>
+                    <image src='/image/english1.png' mode='aspectFill'></image>
+                    <image src='/image/english1.png' mode='aspectFill'></image>
+                    <image src='/image/english1.png' mode='aspectFill'></image>
+                </view>
+            </view>
+        </form>
+    </view>
+    <view class='block'>
+        <view class='bar'>
+            <view class='text'>给出您的得分</view>
+        </view>
+        <view class="score">
+            <view class='text'>score</view>
+            <view class='stars'>
+                <image id='0' src='/image/{{stars[0]}}.png' bindtap='score'></image>
+                <image id='1' src='/image/{{stars[1]}}.png' bindtap='score'></image>
+                <image id='2' src='/image/{{stars[2]}}.png' bindtap='score'></image>
+                <image id='3' src='/image/{{stars[3]}}.png' bindtap='score'></image>
+                <image id='4' src='/image/{{stars[4]}}.png' bindtap='score'></image>
+            </view>
+        </view>
+		<button bindtap='scoreSubmit'>提交</button>
+    </view>
+</view>

@@ -2,10 +2,10 @@
 <view class='container'>
     <view class='block question'>
         <view class='bar'>
-            <view class='text'>蟑螂皮卡丘同笼问题</view>
+            <view class='text'>{{title}}</view>
         </view>
         <view class='content'>
-            <textarea disabled='true' value='蟑螂皮卡丘同笼，共17个头，230条腿。问：蟑螂有几只，皮卡丘有几只？'></textarea>
+            <textarea disabled='true' value='{{question}}'></textarea>
             <view class='images'>
                 <image src='/image/english1.png' mode='aspectFill'></image>
                 <image src='/image/english1.png' mode='aspectFill'></image>
@@ -14,48 +14,54 @@
         </view>
     </view>
 
-    <view class='block list'>
+    <view class='block list' style="display:{{isTeacher?'':'none'}};">
         <view class='bar'>
             <view class='text'>学生完成情况</view>
         </view>
         <view class='content'>
-			<view class='titles'>
-				<view class='finish-title'>
-					已提交
-				</view>
-				<view class='unfinish-title'>
-					未提交
-				</view>
-			</view>
-			<view class='finish'>
-				<view class='item'>
-					<image src='/image/user-icon.png'></image>
-					<view class='name'>杜志鹏</view>
-				</view>
-				<view class='item'>
-					<image src='/image/user-icon.png'></image>
-					<view class='name'>杜志鹏</view>
-				</view>
-				<view class='item'>
-					<image src='/image/user-icon.png'></image>
-					<view class='name'>杜志鹏</view>
-				</view>
-			</view>
-		</view>
+            <view class='titles'>
+                <view class='title {{isFinish?"":"finish"}}' bindtap='toFinish'>
+                    已提交
+                </view>
+                <view class='title {{isFinish?"finish":""}}' bindtap='toUnFinish'>
+                    未提交
+                </view>
+            </view>
+            <swiper current='{{index}}' bindchange='change'>
+                <swiper-item class='finish'>
+                    <block wx:for="{{studentFinish}}">
+                        <view class='item' bindtap='toAnswer' data-name='{{item}}'>
+                            <image src='/image/user-icon.png'></image>
+                            <view class='name'>{{item}}</view>
+                        </view>
+                    </block>
+				</swiper-item> 
+                <swiper-item class='finish'>
+                    <block wx:for="{{studentUnFinish}}">
+                        <view class='item' data-name='{{item}}'>
+                            <image src='/image/user-icon.png'></image>
+                            <view class='name'>{{item}}</view>
+                        </view>
+                    </block>
+				</swiper-item> 
+            </swiper>
+        </view>
     </view>
 
-    <view class='block answer' style='display:none;'>
+    <view class='block answer' style="display:{{isTeacher?'none':''}};">
         <view class='bar'>
             <view class='text'>开始你的表演</view>
         </view>
-        <view class='content'>
-            <textarea value='兔：（42-17×2）/2=4只	鸡： 17-4=13只'></textarea>
-            <view class='images'>
-                <image src='/image/english1.png' mode='aspectFill'></image>
-                <image src='/image/english1.png' mode='aspectFill'></image>
-                <image src='/image/english1.png' mode='aspectFill'></image>
+        <form bindsubmit='submit'>
+            <view class='content'>
+                <textarea value='{{answer}}' name='answer'></textarea>
+                <view class='images'>
+                    <image src='/image/english1.png' mode='aspectFill'></image>
+                    <image src='/image/english1.png' mode='aspectFill'></image>
+                    <image src='/image/english1.png' mode='aspectFill'></image>
+                </view>
             </view>
-        </view>
-        <button size='default'>已提交</button>
+            <button size='default' form-type='submit'>提交</button>
+        </form>
     </view>
 </view>

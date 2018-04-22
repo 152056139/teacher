@@ -1,7 +1,12 @@
 {
     "pages": [
 		"pages/index/login/login",
-		"pages/class/course/join_course/join_course",
+		"pages/class/work/work",
+		"pages/class/work/work_detail/work_detail",
+		"pages/class/work/give_score/give_score",
+        "pages/class/work/new_work/new_work",
+        "pages/class/work/new_work/new_work_detail/new_work_detail",
+        "pages/class/course/join_course/join_course",
         "pages/index/index",
         "pages/class/class/class",
         "pages/index/system_setting/change_passwd/change_passwd",
@@ -14,9 +19,6 @@
         "pages/index/register/other_info/other_detail/other_detail",
         "pages/index/register/other_info/other_info",
         "pages/index/register/choose_identity/choose_identity",
-        "pages/class/work/new_work/new_work",
-        "pages/class/work/work",
-        "pages/class/work/work_detail/work_detail",
         "pages/class/other/other",
         "pages/class/home/student/other/other",
         "pages/class/home/student/student",
