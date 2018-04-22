@@ -132,8 +132,27 @@ public class Classes {
 		}
 	    return classtime;
 	}
-	
-	
+	/**
+	 * classid查courseid
+	 * @param classId
+	 * @return
+	 */
+	public static String searchCourseByClassid(String classId) {
+		MysqlBase mysqlBase =new MysqlBase();
+		Connection connection =mysqlBase.createConnect();
+		String sql="SELECT course_id FROM class WHERE class_id='"+classId+"';";
+		ResultSet rSet=mysqlBase.search(sql, connection);
+		String courseId=null;
+		try {
+			while(rSet.next()) {
+				courseId=rSet.getString("course_id");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}mysqlBase.close(connection);
+		return courseId;
+	}
 	
 
 }
