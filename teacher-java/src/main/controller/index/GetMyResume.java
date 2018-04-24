@@ -40,7 +40,7 @@ public class GetMyResume extends HttpServlet {
 		int userID=Integer.parseInt(userId);
 		System.out.println("表单userid     "+userID);
 		JSONObject jsonObject=new JSONObject();
-		String userName=Users.searchUserName(userID);
+		String userName=Users.searchUserName(userID); 
 		String userImage=Users.searchUserHead(userID);
 		String userSex=Users.searchUserSex(userID);
 		String userBirthday=Users.searchUserBirthday(userID);
