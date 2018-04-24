@@ -166,7 +166,7 @@ Page({
 
 	toMine: function () {
 		wx.navigateTo({
-			url: '/pages/index/mine/mine',
+			url: '/pages/index/mine/mine?isMine=true',
 		})
 	},
 	toClass: function (e) {
