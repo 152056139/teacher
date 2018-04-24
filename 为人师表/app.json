@@ -1,16 +1,16 @@
 {
     "pages": [
+		"pages/index/index",
 		"pages/index/login/login",
+		"pages/index/mine/mine",
 		"pages/class/work/work",
 		"pages/class/work/work_detail/work_detail",
 		"pages/class/work/give_score/give_score",
         "pages/class/work/new_work/new_work",
         "pages/class/work/new_work/new_work_detail/new_work_detail",
         "pages/class/course/join_course/join_course",
-        "pages/index/index",
         "pages/class/class/class",
         "pages/index/system_setting/change_passwd/change_passwd",
-        "pages/index/mine/mine",
         "pages/class/note/create_note/create_note",
         "pages/index/system_setting/system_setting",
         "pages/class/class/create_class_single/create_class_single",

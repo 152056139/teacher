@@ -1,5 +1,52 @@
 <!--pages/index/mine/mine.wxml-->
-<view class='container'>
+<view class='container' style='display:{{isMine?"flex":"none"}}'>
+    <form bindsubmit='update'>
+        <view class='list'>
+            <view class='user-icon'>
+                <view class='left'>头像</view>
+                <view class='right'>
+                    <image src='{{url}}a.jpg' mode='aspectFill'></image>
+                </view>
+            </view>
+            <view class='setting'>
+                <view class='left'>用户名</view>
+                <view class='right'>
+                    <input value='{{userName}}' disabled='true'/>
+                </view>
+            </view>
+            <view class='setting'>
+                <view class='left'>性别</view>
+                <view class='right'>
+                    <picker bindchange="bindPickerChange" value="{{userSex}}" range="{{arraySex}}">
+                        <view class="picker">
+                            {{arraySex[userSex]}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class='setting'>
+                <view class='left'>生日</view>
+                <view class='right'>
+                    <picker mode="date" value="{{userBirthday}}" start="2015-09-01" end="2020-09-01" bindchange="bindDateChange">
+                        <view class="picker">
+                            {{userBirthday}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class='setting'>
+                <view class='left'>学号</view>
+                <view class='right'>
+                    <input value='{{userSchoolId}}' />
+                </view>
+            </view>
+
+        </view>
+        <button form-type='submit'>修改信息</button>
+    </form>
+</view>
+
+<view class='container' style='display:{{isMine?"none":"flex"}}'>
     <form>
         <view class='list'>
             <view class='user-icon'>
@@ -10,34 +57,20 @@
             </view>
             <view class='setting'>
                 <view class='left'>用户名</view>
-                <view class='right'><input value='郭浩卓'/></view>
+                <view class='right'>{{userName}}</view>
             </view>
             <view class='setting'>
                 <view class='left'>性别</view>
-                <view class='right'>
-                    <picker bindchange="bindPickerChange" value="{{indexSex}}" range="{{arraySex}}">
-                        <view class="picker">
-                            {{arraySex[indexSex]}}
-                        </view>
-                    </picker>
-                </view>
+                <view class='right'>{{userSex==0?"男":"女"}}</view>
             </view>
             <view class='setting'>
                 <view class='left'>生日</view>
-                <view class='right'>
-                    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-                        <view class="picker">
-                            {{date}}
-                        </view>
-                    </picker>
-                </view>
+                <view class='right'>{{userBirthday}}</view>
             </view>
             <view class='setting'>
                 <view class='left'>学号</view>
-                <view class='right'><input value='152056139'/></view>
+                <view class='right'>{{userSchoolId}}</view>
             </view>
-
         </view>
-        <button>修改信息</button>
     </form>
 </view>
