@@ -7,12 +7,11 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSONObject;
+
 import main.common.MysqlBase;
 
 public class Users {
-	
-
-	
 
 	/**
 	 * 通过用户名获取用户的密码以及id
@@ -48,11 +47,13 @@ public class Users {
 		map.put("identity", Integer.toString(identity));
 		return map;
 	}
-    /**
-     * 通过userid 获取 密码
-     * @param userid
-     * @return
-     */
+
+	/**
+	 * 通过userid 获取 密码
+	 * 
+	 * @param userid
+	 * @return
+	 */
 	public static Map<String, String> oldPassword(int userid) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
@@ -131,16 +132,18 @@ public class Users {
 		mysqlBase.close(connection);
 		return true;
 	}
-/**
- * 更新用户其他信息
- * @param id
- * @param sex
- * @param birthday
- * @param schoolid
- * @param email
- * @param phone
- * @param identity
- */
+
+	/**
+	 * 更新用户其他信息
+	 * 
+	 * @param id
+	 * @param sex
+	 * @param birthday
+	 * @param schoolid
+	 * @param email
+	 * @param phone
+	 * @param identity
+	 */
 	public void updateOther(int id, int sex, Timestamp birthday, String schoolid, String email, String phone,
 			int identity) {
 		MysqlBase mysqlBase = new MysqlBase();
@@ -152,11 +155,13 @@ public class Users {
 		mysqlBase.close(connection);
 		System.out.println("注册，其他信息插入成功" + sex + birthday + schoolid + email + phone + identity + id);
 	}
-/**
- * 更新用户的身份
- * @param identity
- * @param id
- */
+
+	/**
+	 * 更新用户的身份
+	 * 
+	 * @param identity
+	 * @param id
+	 */
 	public void updateOnlyIdentity(int identity, String id) {
 		MysqlBase mysqlBase = new MysqlBase();
 		Connection connection = mysqlBase.createConnect();
@@ -259,30 +264,129 @@ public class Users {
 		mysqlBase.close(connection);
 		return rS;
 	}
-		/**
-		 * 查无此人||查有此人获取姓名
-		 * @param teacherName
-		 * @return
-		 */
-	public static String searchTeacher(String teacherName) {
-	    	MysqlBase mysqlBase =new MysqlBase();
-	    	Connection connection=mysqlBase.createConnect();
-	    	String sql ="SELECT user_id FROM user WHERE user_name='"+teacherName+"';";
-	    	ResultSet rSet=mysqlBase.search(sql, connection);
-	    	String teacherId="";
-	    	
-				try {
-					while (rSet.next()) {
-						teacherId=rSet.getString("user_id");
-						
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				
-				
-			return teacherId;
 
-}
+	/**
+	 * 查无此人||查有此人获取姓名
+	 * 
+	 * @param teacherName
+	 * @return
+	 */
+	public static String searchTeacher(String teacherName) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "SELECT user_id FROM user WHERE user_name='" + teacherName + "';";
+		ResultSet rSet = mysqlBase.search(sql, connection);
+		String teacherId = "";
+
+		try {
+			while (rSet.next()) {
+				teacherId = rSet.getString("user_id");
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return teacherId;
+
+	}
+
+	/**
+	 * 根据用户id查询用户性别
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	public static String searchUserSex(int userId) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "SELECT user_sex From user WHERE user_id='" + userId + "';";
+		ResultSet rSet = mysqlBase.search(sql, connection);
+		String rS = "";
+		try {
+			while (rSet.next()) {
+				rS = rSet.getString("user_sex");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mysqlBase.close(connection);
+		return rS;
+	}
+
+	/**
+	 * 根據用戶Id查詢用户生日
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	public static String searchUserBirthday(int userId) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "SELECT user_birthday From user WHERE user_id='" + userId + "';";
+		ResultSet rSet = mysqlBase.search(sql, connection);
+		String rS = "";
+		try {
+			while (rSet.next()) {
+				rS = rSet.getString("user_birthday");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mysqlBase.close(connection);
+		return rS;
+	}
+
+	/**
+	 * 根据用户id查询学号
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	public static String searchUserSchoolId(int userId) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "SELECT user_schoolid From user WHERE user_id='" + userId + "';";
+		ResultSet rSet = mysqlBase.search(sql, connection);
+		String rS = "";
+		try {
+			while (rSet.next()) {
+				rS = rSet.getString("user_schoolid");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mysqlBase.close(connection);
+		return rS;
+	}
+/**
+ * 更改个人信息
+ * @param userId
+ * @param sex
+ * @param userBirthday
+ * @param image
+ * @param phone
+ * @param email
+ * @return
+ */
+	public static JSONObject updateResume(String userId, String sex, String userBirthday, String image, String phone, String email) {
+		MysqlBase mysqlBase = new MysqlBase();
+		Connection connection = mysqlBase.createConnect();
+		String sql = "UPDATE user SET" + " user_sex='" + sex + "'," + " user_birthday='" + userBirthday + "',"
+				+ " user_email='" + email + "'," + " user_phone='" + phone  + "'  WHERE user_id='" + userId +"';";
+		System.out.println(sql);
+        JSONObject jsonObject=new JSONObject();
+		boolean rSet = mysqlBase.execute(sql, connection);
+		mysqlBase.close(connection);
+		if (rSet) {
+			jsonObject.put("STATU", "success");
+			System.out.println("修改成功");
+		}else {
+			jsonObject.put("STATU", "faile");
+		}return jsonObject;
+	}
 
 }
